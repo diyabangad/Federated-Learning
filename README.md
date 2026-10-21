@@ -58,7 +58,7 @@ The 24-satellite pilot was compared over 6,000 s at 20, 10, 5, and 2.5 s resolut
 
 ### Steps 4 and 5: routing environment and centralized DQN
 
-`SatelliteRoutingEnv` provides a masked next-hop action space over a topology trace, with a 9-value feature row per candidate. The final feature identifies whether that candidate can reach the destination in the current snapshot. Unreachable candidates remain selectable so the agent may move toward a contact available in a later snapshot; an isolated satellite has only the explicit drop action. Set `cluster_aware=True` to expose same-cluster membership at observation index 1; the default leaves it zero. `DQNPolicy` scores each candidate row once and appends one state-independent drop-action value. This makes action-value mapping coherent, but does not establish policy performance. The trainer remains a minimal online baseline without replay, target network, exploration scheduling, or publication-grade evaluation. Routing requires separate TX/RX electronics coefficients and tracks per-satellite initial, communication, compute, and residual joules; over-budget sends are rejected before energy is charged. Coefficients are still provisional.
+`SatelliteRoutingEnv` provides a masked next-hop action space over a topology trace, with a 9-value feature row per candidate. The final feature identifies whether that candidate can reach the destination in the current snapshot. Unreachable candidates remain selectable so the agent may move toward a contact available in a later snapshot; an isolated satellite has only the explicit drop action. Set `cluster_aware=True` to expose same-cluster membership at observation index 1; the default leaves it zero. `DQNPolicy` scores each candidate row once and appends one state-independent drop-action value. The current `DQNTrainer` uses replay, a target network, masked candidate actions, and epsilon scheduling. `experiments/train_dqn.py` trains independent seeds and evaluates each policy through `PacketSimulator` on the frozen baseline trace and packet schedule. Its current action set is available outgoing links plus DROP; unlike contact-aware routing, it cannot wait for future contacts. The pilot evaluation delivered 0/20 packets for each of five training seeds, so DQN is integrated but not competitive in this scenario; see the [Phase 4 DQN evaluation report](docs/phase4-dqn-evaluation.md). Routing requires separate TX/RX electronics coefficients and tracks per-satellite initial, communication, compute, and residual joules; over-budget sends are rejected before energy is charged. Coefficients are still provisional.
 
 ### Step 6: federated DQN prototype
 
@@ -68,7 +68,13 @@ The 24-satellite pilot was compared over 6,000 s at 20, 10, 5, and 2.5 s resolut
 
 `shortest_path_route` supplies hop-count and delay-weighted routes on a single graph snapshot with lexicographic tie-breaking; `calculate_route_metrics` reports hop, propagation, transmission, processing, waiting, and annotated energy totals. `energy_constrained_route` rejects paths that exceed per-node annotated energy budgets. `contact_graph_route` plans over sampled graphs and can wait for a future contact. Intermediate routing decisions occur only at sample boundaries; a link must cover packet delay within its remaining contact, and an in-flight hop occupies enough sample slots to complete. The final hop reports exact delay components. This is a discretized reference, not continuous-time contact-plan routing. Q-routing and the proposal's clustering/federation ablations are not implemented yet.
 
-The current 24-satellite deterministic packet baseline is frozen in `experiments/baseline_config.toml`. Run `python experiments/run_baselines.py` to rebuild the same topology/traffic scenario and write per-policy metrics, topology, hashes, and repeat checks. Current measurements and comparison limits are recorded in [the baseline freeze report](docs/phase4-baseline-freeze.md); do not interpret this single provisional scenario as a general performance result.
+The current 24-satellite deterministic packet baseline is frozen in `experiments/baseline_config.toml`. Run `python experiments/run_baselines.py` to rebuild the same topology/traffic scenario and write per-policy metrics, topology, hashes, and repeat checks. Current measurements and comparison limits are recorded in [the baseline freeze report](docs/phase4-baseline-freeze.md); do not interpret this single provisional scenario as a general performance result. To train and evaluate DQN against the frozen scenario, run:
+
+```bash
+python experiments/train_dqn.py
+```
+
+This writes checkpoints, per-seed metrics, training history, and a machine-readable summary under `results/phase4-dqn/`. The committed report documents the current run and its limitations.
 
 ### Phase 3: deterministic packet simulation
 
@@ -156,11 +162,15 @@ scripts/validate_orbit_reference.py SGP4 versus analytical two-body position com
 scripts/validate_contact_crossings.py bisection reference for sampled contact boundaries
 experiments/baseline_config.toml frozen deterministic packet-baseline inputs
 experiments/run_baselines.py shared-scenario routing baseline runner
+experiments/dqn_training.toml  DQN training and reward settings
+experiments/train_dqn.py       reproducible DQN training and packet evaluation
 results/phase1-topology/  saved JSON traces and comparison report
 results/phase4-baseline/   baseline CSV, summary, and topology trace
+results/phase4-dqn/        DQN checkpoints, training history, and evaluation summary
 docs/phase1-topology-validation.md measured Phase 1 validation report
 docs/phase3-packet-simulator.md packet event, energy, metric, and limitation definitions
 docs/phase4-baseline-freeze.md frozen baseline scenario and results
+docs/phase4-dqn-evaluation.md DQN comparison against the frozen baseline
 tests/                    focused geometry and prototype behavior tests
 ```
 
@@ -170,7 +180,7 @@ tests/                    focused geometry and prototype behavior tests
 python -m pytest
 ```
 
-The tests cover geometric line of sight, sampled contact-window boundaries and censoring, synthetic short-contact aliasing, a known bisection crossing, orbital periods, direct Skyfield ground checks and threshold behavior, deterministic Walker propagation, and routing, DQN, fuzzy scoring, clustering, federated aggregation, packet event simulation, and deterministic route baselines. They do not validate a particular TLE catalog, external ephemeris truth, real link budget, calibrated fuzzy rules or energy coefficients, DQN convergence, hierarchical/asynchronous federation, or a full experiment; those require project decisions and suitable source data.
+The tests cover geometric line of sight, sampled contact-window boundaries and censoring, synthetic short-contact aliasing, a known bisection crossing, orbital periods, direct Skyfield ground checks and threshold behavior, deterministic Walker propagation, and routing, DQN, fuzzy scoring, clustering, federated aggregation, packet event simulation, and deterministic route baselines. The DQN pilot was also run against the frozen packet scenario; it is reproducible but delivered no packets. These checks do not validate a particular TLE catalog, external ephemeris truth, real link budget, calibrated fuzzy rules or energy coefficients, DQN convergence or competitive performance, hierarchical/asynchronous federation, or generalization beyond this scenario.
 
 ## Next proposal steps
 

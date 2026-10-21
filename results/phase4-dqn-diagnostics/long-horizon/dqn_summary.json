@@ -1,0 +1,465 @@
+{
+  "baseline_config": "/workspaces/Federated-Learning/experiments/baseline_config.toml",
+  "baseline_config_sha256": "b52ee9b789e247c615bf81fc83805368a954871841bf16323a47719e38a9f86c",
+  "baseline_results": [
+    {
+      "algorithm": "hops",
+      "average_end_to_end_delay_seconds": "0.04415142987272702",
+      "average_hop_count": "3.0",
+      "average_processing_delay_seconds": "0.0",
+      "average_propagation_delay_seconds": "0.031863429873802245",
+      "average_transmission_delay_seconds": "0.012288",
+      "average_waiting_delay_seconds": "0.0",
+      "delivered_packets": "1",
+      "dropped_by_reason_json": "{\"no_feasible_route\": 19}",
+      "dropped_packets": "19",
+      "generated_packets": "20",
+      "packet_delivery_ratio": "0.05",
+      "runtime_seconds": "0.005637575999571709",
+      "seed": "123",
+      "total_communication_energy_j": "0.15314700352403426",
+      "total_compute_energy_j": "0.0"
+    },
+    {
+      "algorithm": "delay",
+      "average_end_to_end_delay_seconds": "0.04415142987272702",
+      "average_hop_count": "3.0",
+      "average_processing_delay_seconds": "0.0",
+      "average_propagation_delay_seconds": "0.031863429873802245",
+      "average_transmission_delay_seconds": "0.012288",
+      "average_waiting_delay_seconds": "0.0",
+      "delivered_packets": "1",
+      "dropped_by_reason_json": "{\"no_feasible_route\": 19}",
+      "dropped_packets": "19",
+      "generated_packets": "20",
+      "packet_delivery_ratio": "0.05",
+      "runtime_seconds": "0.0028821659998357063",
+      "seed": "123",
+      "total_communication_energy_j": "0.15314700352403426",
+      "total_compute_energy_j": "0.0"
+    },
+    {
+      "algorithm": "energy",
+      "average_end_to_end_delay_seconds": "0.04415142987272702",
+      "average_hop_count": "3.0",
+      "average_processing_delay_seconds": "0.0",
+      "average_propagation_delay_seconds": "0.031863429873802245",
+      "average_transmission_delay_seconds": "0.012288",
+      "average_waiting_delay_seconds": "0.0",
+      "delivered_packets": "1",
+      "dropped_by_reason_json": "{\"no_feasible_route\": 19}",
+      "dropped_packets": "19",
+      "generated_packets": "20",
+      "packet_delivery_ratio": "0.05",
+      "runtime_seconds": "0.01247251399945526",
+      "seed": "123",
+      "total_communication_energy_j": "0.15314700352403426",
+      "total_compute_energy_j": "0.0"
+    },
+    {
+      "algorithm": "contact",
+      "average_end_to_end_delay_seconds": "176.69969855836584",
+      "average_hop_count": "4.0",
+      "average_processing_delay_seconds": "0.0",
+      "average_propagation_delay_seconds": "0.05009564733654288",
+      "average_transmission_delay_seconds": "0.016384",
+      "average_waiting_delay_seconds": "176.63321891103078",
+      "delivered_packets": "6",
+      "dropped_by_reason_json": "{\"deadline_expired\": 14}",
+      "dropped_packets": "14",
+      "generated_packets": "20",
+      "packet_delivery_ratio": "0.3",
+      "runtime_seconds": "6.110246784999617",
+      "seed": "123",
+      "total_communication_energy_j": "7.241122072268777",
+      "total_compute_energy_j": "0.0"
+    }
+  ],
+  "baseline_results_csv_sha256": "bb7abc8c38f480eccf7fb44d1c92303daf394c286acec86bd3d13d763d9069a1",
+  "baseline_topology_trace_sha256": "f6dfe16a04ccf32ae983531d74f09ced5ea39688963898192401e3fe6e7f987d",
+  "candidate_action_semantics": "currently available outgoing links, WAIT to the next topology sample when a future contact-graph route exists within deadline, plus explicit DROP",
+  "dqn_metric_mean_and_sample_std": {
+    "average_end_to_end_delay_seconds": {
+      "count": 0,
+      "mean": null,
+      "sample_std": null
+    },
+    "average_hop_count": {
+      "count": 0,
+      "mean": null,
+      "sample_std": null
+    },
+    "average_processing_delay_seconds": {
+      "count": 0,
+      "mean": null,
+      "sample_std": null
+    },
+    "average_propagation_delay_seconds": {
+      "count": 0,
+      "mean": null,
+      "sample_std": null
+    },
+    "average_transmission_delay_seconds": {
+      "count": 0,
+      "mean": null,
+      "sample_std": null
+    },
+    "average_waiting_delay_seconds": {
+      "count": 0,
+      "mean": null,
+      "sample_std": null
+    },
+    "packet_delivery_ratio": {
+      "count": 5,
+      "mean": 0.0,
+      "sample_std": 0.0
+    },
+    "total_communication_energy_j": {
+      "count": 5,
+      "mean": 0.0,
+      "sample_std": 0.0
+    },
+    "total_compute_energy_j": {
+      "count": 5,
+      "mean": 0.0,
+      "sample_std": 0.0
+    }
+  },
+  "dqn_per_seed_results": [
+    {
+      "algorithm": "dqn",
+      "average_end_to_end_delay_seconds": null,
+      "average_hop_count": null,
+      "average_processing_delay_seconds": null,
+      "average_propagation_delay_seconds": null,
+      "average_transmission_delay_seconds": null,
+      "average_waiting_delay_seconds": null,
+      "checkpoint": "/workspaces/Federated-Learning/results/phase4-dqn-diagnostics/long-horizon/dqn_seed_11.pt",
+      "delivered_packets": 0,
+      "dropped_by_reason_json": "{\"policy_drop\": 20}",
+      "dropped_packets": 20,
+      "evaluation_repeat_deterministic": true,
+      "generated_packets": 20,
+      "last_20_episode_return": -5.1605604662328926,
+      "mean_training_return": -5.3293402111538315,
+      "packet_delivery_ratio": 0.0,
+      "total_communication_energy_j": 0.0,
+      "total_compute_energy_j": 0.0,
+      "training_seed": 11
+    },
+    {
+      "algorithm": "dqn",
+      "average_end_to_end_delay_seconds": null,
+      "average_hop_count": null,
+      "average_processing_delay_seconds": null,
+      "average_propagation_delay_seconds": null,
+      "average_transmission_delay_seconds": null,
+      "average_waiting_delay_seconds": null,
+      "checkpoint": "/workspaces/Federated-Learning/results/phase4-dqn-diagnostics/long-horizon/dqn_seed_23.pt",
+      "delivered_packets": 0,
+      "dropped_by_reason_json": "{\"policy_drop\": 20}",
+      "dropped_packets": 20,
+      "evaluation_repeat_deterministic": true,
+      "generated_packets": 20,
+      "last_20_episode_return": -5.017499903751919,
+      "mean_training_return": -5.183434856310801,
+      "packet_delivery_ratio": 0.0,
+      "total_communication_energy_j": 0.0,
+      "total_compute_energy_j": 0.0,
+      "training_seed": 23
+    },
+    {
+      "algorithm": "dqn",
+      "average_end_to_end_delay_seconds": null,
+      "average_hop_count": null,
+      "average_processing_delay_seconds": null,
+      "average_propagation_delay_seconds": null,
+      "average_transmission_delay_seconds": null,
+      "average_waiting_delay_seconds": null,
+      "checkpoint": "/workspaces/Federated-Learning/results/phase4-dqn-diagnostics/long-horizon/dqn_seed_37.pt",
+      "delivered_packets": 0,
+      "dropped_by_reason_json": "{\"policy_drop\": 20}",
+      "dropped_packets": 20,
+      "evaluation_repeat_deterministic": true,
+      "generated_packets": 20,
+      "last_20_episode_return": -5.056584257319131,
+      "mean_training_return": -5.190636736877361,
+      "packet_delivery_ratio": 0.0,
+      "total_communication_energy_j": 0.0,
+      "total_compute_energy_j": 0.0,
+      "training_seed": 37
+    },
+    {
+      "algorithm": "dqn",
+      "average_end_to_end_delay_seconds": null,
+      "average_hop_count": null,
+      "average_processing_delay_seconds": null,
+      "average_propagation_delay_seconds": null,
+      "average_transmission_delay_seconds": null,
+      "average_waiting_delay_seconds": null,
+      "checkpoint": "/workspaces/Federated-Learning/results/phase4-dqn-diagnostics/long-horizon/dqn_seed_53.pt",
+      "delivered_packets": 0,
+      "dropped_by_reason_json": "{\"policy_drop\": 20}",
+      "dropped_packets": 20,
+      "evaluation_repeat_deterministic": true,
+      "generated_packets": 20,
+      "last_20_episode_return": -5.010957822402064,
+      "mean_training_return": -5.156187102125809,
+      "packet_delivery_ratio": 0.0,
+      "total_communication_energy_j": 0.0,
+      "total_compute_energy_j": 0.0,
+      "training_seed": 53
+    },
+    {
+      "algorithm": "dqn",
+      "average_end_to_end_delay_seconds": null,
+      "average_hop_count": null,
+      "average_processing_delay_seconds": null,
+      "average_propagation_delay_seconds": null,
+      "average_transmission_delay_seconds": null,
+      "average_waiting_delay_seconds": null,
+      "checkpoint": "/workspaces/Federated-Learning/results/phase4-dqn-diagnostics/long-horizon/dqn_seed_71.pt",
+      "delivered_packets": 0,
+      "dropped_by_reason_json": "{\"policy_drop\": 20}",
+      "dropped_packets": 20,
+      "evaluation_repeat_deterministic": true,
+      "generated_packets": 20,
+      "last_20_episode_return": -5.023519952456074,
+      "mean_training_return": -5.1802478180394775,
+      "packet_delivery_ratio": 0.0,
+      "total_communication_energy_j": 0.0,
+      "total_compute_energy_j": 0.0,
+      "training_seed": 71
+    }
+  ],
+  "dqn_training_config": "/workspaces/Federated-Learning/experiments/dqn_training.toml",
+  "dqn_training_config_sha256": "af2b83d03676b7bc78fb96a66dc24e5546699362df04697ad519ae5de74244f1",
+  "dqn_wait_action_ablation": [
+    {
+      "algorithm": "dqn_no_wait_ablation",
+      "average_end_to_end_delay_seconds": null,
+      "average_hop_count": null,
+      "average_waiting_delay_seconds": null,
+      "delivered_packets": 0,
+      "dropped_by_reason_json": "{\"policy_drop\": 20}",
+      "dropped_packets": 20,
+      "evaluation_repeat_deterministic": true,
+      "generated_packets": 20,
+      "packet_delivery_ratio": 0.0,
+      "total_communication_energy_j": 0.0,
+      "training_seed": 11
+    },
+    {
+      "algorithm": "dqn_no_wait_ablation",
+      "average_end_to_end_delay_seconds": null,
+      "average_hop_count": null,
+      "average_waiting_delay_seconds": null,
+      "delivered_packets": 0,
+      "dropped_by_reason_json": "{\"policy_drop\": 20}",
+      "dropped_packets": 20,
+      "evaluation_repeat_deterministic": true,
+      "generated_packets": 20,
+      "packet_delivery_ratio": 0.0,
+      "total_communication_energy_j": 0.0,
+      "training_seed": 23
+    },
+    {
+      "algorithm": "dqn_no_wait_ablation",
+      "average_end_to_end_delay_seconds": null,
+      "average_hop_count": null,
+      "average_waiting_delay_seconds": null,
+      "delivered_packets": 0,
+      "dropped_by_reason_json": "{\"policy_drop\": 20}",
+      "dropped_packets": 20,
+      "evaluation_repeat_deterministic": true,
+      "generated_packets": 20,
+      "packet_delivery_ratio": 0.0,
+      "total_communication_energy_j": 0.0,
+      "training_seed": 37
+    },
+    {
+      "algorithm": "dqn_no_wait_ablation",
+      "average_end_to_end_delay_seconds": null,
+      "average_hop_count": null,
+      "average_waiting_delay_seconds": null,
+      "delivered_packets": 0,
+      "dropped_by_reason_json": "{\"policy_drop\": 20}",
+      "dropped_packets": 20,
+      "evaluation_repeat_deterministic": true,
+      "generated_packets": 20,
+      "packet_delivery_ratio": 0.0,
+      "total_communication_energy_j": 0.0,
+      "training_seed": 53
+    },
+    {
+      "algorithm": "dqn_no_wait_ablation",
+      "average_end_to_end_delay_seconds": null,
+      "average_hop_count": null,
+      "average_waiting_delay_seconds": null,
+      "delivered_packets": 0,
+      "dropped_by_reason_json": "{\"policy_drop\": 20}",
+      "dropped_packets": 20,
+      "evaluation_repeat_deterministic": true,
+      "generated_packets": 20,
+      "packet_delivery_ratio": 0.0,
+      "total_communication_energy_j": 0.0,
+      "training_seed": 71
+    }
+  ],
+  "evaluation_csv": "/workspaces/Federated-Learning/results/phase4-dqn-diagnostics/long-horizon/dqn_evaluation_per_seed.csv",
+  "evaluation_decision_log": "/workspaces/Federated-Learning/results/phase4-dqn-diagnostics/long-horizon/dqn_evaluation_decisions.json",
+  "evaluation_trace_is_frozen_baseline": true,
+  "interpretation": [
+    "Training uses a distinct Walker epoch; packet evaluation uses the exact frozen baseline config, trace hash, and deterministic flows.",
+    "Training returns and losses are diagnostic, not substitutes for packet performance metrics.",
+    "Results are provisional; five seeds do not establish statistical significance or generalization.",
+    "The DQN can choose only current outgoing links or DROP; future-contact waiting remains exclusive to the contact-aware baseline.",
+    "No fuzzy clustering or federated learning is included."
+  ],
+  "original_candidate_action_semantics": "currently available outgoing links plus explicit DROP; no WAIT action",
+  "per_seed_checkpoints": [
+    {
+      "checkpoint_sha256": "767369d150c31383fa525e77feae3d303b9a9be94a3971580d85e90f07e01852",
+      "dropped_by_reason": {
+        "policy_drop": 20
+      },
+      "gradient_steps": 413,
+      "packet_metrics": {
+        "average_end_to_end_delay_seconds": null,
+        "average_hop_count": null,
+        "average_processing_delay_seconds": null,
+        "average_propagation_delay_seconds": null,
+        "average_transmission_delay_seconds": null,
+        "average_waiting_delay_seconds": null,
+        "packet_delivery_ratio": 0.0,
+        "total_communication_energy_j": 0.0,
+        "total_compute_energy_j": 0.0
+      },
+      "training_episodes": 150,
+      "training_return_last_20_mean": -5.1605604662328926,
+      "training_return_mean": -5.3293402111538315,
+      "training_seed": 11,
+      "training_transitions": 476
+    },
+    {
+      "checkpoint_sha256": "aeb29f6c77cc43fb62bea7a57d0edfea510dc80d6a84ec2bcf89f1f4927754a2",
+      "dropped_by_reason": {
+        "policy_drop": 20
+      },
+      "gradient_steps": 245,
+      "packet_metrics": {
+        "average_end_to_end_delay_seconds": null,
+        "average_hop_count": null,
+        "average_processing_delay_seconds": null,
+        "average_propagation_delay_seconds": null,
+        "average_transmission_delay_seconds": null,
+        "average_waiting_delay_seconds": null,
+        "packet_delivery_ratio": 0.0,
+        "total_communication_energy_j": 0.0,
+        "total_compute_energy_j": 0.0
+      },
+      "training_episodes": 150,
+      "training_return_last_20_mean": -5.017499903751919,
+      "training_return_mean": -5.183434856310801,
+      "training_seed": 23,
+      "training_transitions": 308
+    },
+    {
+      "checkpoint_sha256": "116d0ddfe47e3fbaefd61b37f2c4e8d764181c8c05f531a42e8838d9f29da523",
+      "dropped_by_reason": {
+        "policy_drop": 20
+      },
+      "gradient_steps": 257,
+      "packet_metrics": {
+        "average_end_to_end_delay_seconds": null,
+        "average_hop_count": null,
+        "average_processing_delay_seconds": null,
+        "average_propagation_delay_seconds": null,
+        "average_transmission_delay_seconds": null,
+        "average_waiting_delay_seconds": null,
+        "packet_delivery_ratio": 0.0,
+        "total_communication_energy_j": 0.0,
+        "total_compute_energy_j": 0.0
+      },
+      "training_episodes": 150,
+      "training_return_last_20_mean": -5.056584257319131,
+      "training_return_mean": -5.190636736877361,
+      "training_seed": 37,
+      "training_transitions": 320
+    },
+    {
+      "checkpoint_sha256": "a8624e879d989828c551e309b92a5c9c8b228a7015e67a623f02683a6b38fff3",
+      "dropped_by_reason": {
+        "policy_drop": 20
+      },
+      "gradient_steps": 227,
+      "packet_metrics": {
+        "average_end_to_end_delay_seconds": null,
+        "average_hop_count": null,
+        "average_processing_delay_seconds": null,
+        "average_propagation_delay_seconds": null,
+        "average_transmission_delay_seconds": null,
+        "average_waiting_delay_seconds": null,
+        "packet_delivery_ratio": 0.0,
+        "total_communication_energy_j": 0.0,
+        "total_compute_energy_j": 0.0
+      },
+      "training_episodes": 150,
+      "training_return_last_20_mean": -5.010957822402064,
+      "training_return_mean": -5.156187102125809,
+      "training_seed": 53,
+      "training_transitions": 290
+    },
+    {
+      "checkpoint_sha256": "74df6ac1c5c59b75f2028305f2c581b0593ccee4db210e3a10af80353496cfe1",
+      "dropped_by_reason": {
+        "policy_drop": 20
+      },
+      "gradient_steps": 246,
+      "packet_metrics": {
+        "average_end_to_end_delay_seconds": null,
+        "average_hop_count": null,
+        "average_processing_delay_seconds": null,
+        "average_propagation_delay_seconds": null,
+        "average_transmission_delay_seconds": null,
+        "average_waiting_delay_seconds": null,
+        "packet_delivery_ratio": 0.0,
+        "total_communication_energy_j": 0.0,
+        "total_compute_energy_j": 0.0
+      },
+      "training_episodes": 150,
+      "training_return_last_20_mean": -5.023519952456074,
+      "training_return_mean": -5.1802478180394775,
+      "training_seed": 71,
+      "training_transitions": 309
+    }
+  ],
+  "reward_config": {
+    "delay_penalty": 0.2,
+    "delivery_reward": 10.0,
+    "drop_penalty": 5.0,
+    "energy_penalty": 0.5
+  },
+  "state_semantics": [
+    "local residual energy",
+    "candidate neighbor residual energy",
+    "candidate link quality",
+    "remaining sampled contact time",
+    "normalized distance",
+    "snapshot hop count to destination",
+    "ground-station destination flag",
+    "current-snapshot destination reachability"
+  ],
+  "training_decision_log": "/workspaces/Federated-Learning/results/phase4-dqn-diagnostics/long-horizon/dqn_training_decisions.json",
+  "training_episode_csv": "/workspaces/Federated-Learning/results/phase4-dqn-diagnostics/long-horizon/dqn_training_episodes.csv",
+  "training_epoch_utc": "2026-10-15T00:00:00+00:00",
+  "training_seeds": [
+    11,
+    23,
+    37,
+    53,
+    71
+  ],
+  "training_trace_sha256": "629f9c760141fc239b00be2ccb787abd614b2e3ce6867f2159504e2ce46b2449",
+  "wait_ablation_csv": "/workspaces/Federated-Learning/results/phase4-dqn-diagnostics/long-horizon/dqn_wait_ablation_per_seed.csv"
+}

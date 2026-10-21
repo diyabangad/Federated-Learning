@@ -7,6 +7,7 @@ from copy import deepcopy
 from dataclasses import dataclass
 import numpy as np
 import random
+from collections.abc import Callable
 import torch
 from torch import nn
 
@@ -116,7 +117,7 @@ class CentralizedDQNTrainer:
                     action=action,
                     reward=reward,
                     next_state=next_observation,
-                    done=terminated or truncated,
+                    done=terminated,
                     action_mask=action_mask,
                     next_action_mask=info["action_mask"],
                 )
@@ -148,6 +149,7 @@ class DQNTrainingConfig:
     epsilon_start: float = 1.0
     epsilon_end: float = 0.05
     hidden_dim: int = 64
+    n_step: int = 1
 
     def __post_init__(self) -> None:
         if self.seed < 0:
@@ -160,6 +162,7 @@ class DQNTrainingConfig:
             self.warmup_transitions,
             self.target_update_interval,
             self.hidden_dim,
+            self.n_step,
         ) <= 0:
             raise ValueError("DQN counts and dimensions must be positive")
         if self.replay_capacity < self.batch_size:
@@ -176,9 +179,11 @@ class DQNTransition:
     action: int
     reward: float
     next_state: np.ndarray
-    done: bool
+    terminated: bool
+    truncated: bool
     action_mask: np.ndarray
     next_action_mask: np.ndarray
+    discount_steps: int = 1
 
 
 class DQNReplayBuffer:
@@ -199,13 +204,15 @@ class DQNReplayBuffer:
                 action=int(transition.action),
                 reward=float(transition.reward),
                 next_state=np.array(transition.next_state, dtype=np.float32, copy=True),
-                done=bool(transition.done),
+                terminated=bool(transition.terminated),
+                truncated=bool(transition.truncated),
                 action_mask=np.array(transition.action_mask, dtype=np.int8, copy=True),
                 next_action_mask=np.array(
                     transition.next_action_mask,
                     dtype=np.int8,
                     copy=True,
                 ),
+                discount_steps=int(transition.discount_steps),
             )
         )
 
@@ -261,6 +268,31 @@ class DQNTrainer:
             return int(self.rng.choice(valid_actions.tolist()))
         return self.select_greedy_action(state, action_mask)
 
+    @staticmethod
+    def _aggregate_n_step(
+        transitions: list[DQNTransition],
+        gamma: float,
+    ) -> DQNTransition:
+        if not transitions:
+            raise ValueError("At least one transition is required for n-step aggregation")
+        first = transitions[0]
+        last = transitions[-1]
+        aggregated_reward = sum(
+            gamma**offset * transition.reward
+            for offset, transition in enumerate(transitions)
+        )
+        return DQNTransition(
+            state=first.state,
+            action=first.action,
+            reward=aggregated_reward,
+            next_state=last.next_state,
+            terminated=last.terminated,
+            truncated=last.truncated,
+            action_mask=first.action_mask,
+            next_action_mask=last.next_action_mask,
+            discount_steps=len(transitions),
+        )
+
     def _train_batch(self, batch: list[DQNTransition]) -> float:
         states = torch.as_tensor(np.stack([item.state for item in batch]), dtype=torch.float32)
         actions = torch.as_tensor([item.action for item in batch], dtype=torch.int64)
@@ -269,7 +301,10 @@ class DQNTrainer:
             np.stack([item.next_state for item in batch]),
             dtype=torch.float32,
         )
-        dones = torch.as_tensor([item.done for item in batch], dtype=torch.float32)
+        terminated = torch.as_tensor(
+            [item.terminated for item in batch],
+            dtype=torch.float32,
+        )
         action_masks = torch.as_tensor(
             np.stack([item.action_mask for item in batch]),
             dtype=torch.bool,
@@ -277,6 +312,10 @@ class DQNTrainer:
         next_action_masks = torch.as_tensor(
             np.stack([item.next_action_mask for item in batch]),
             dtype=torch.bool,
+        )
+        discount_steps = torch.as_tensor(
+            [item.discount_steps for item in batch],
+            dtype=torch.float32,
         )
         q_values = self.policy(states)
         if q_values.shape != action_masks.shape or not torch.all(action_masks.any(dim=1)):
@@ -291,7 +330,8 @@ class DQNTrainer:
                 raise ValueError("Every nonterminal next state requires a valid action")
             next_q_values = next_q_values.masked_fill(~next_action_masks, -torch.inf)
             next_values = next_q_values.max(dim=1).values
-            targets = rewards + self.config.gamma * (1.0 - dones) * next_values
+            discounts = torch.pow(self.config.gamma, discount_steps)
+            targets = rewards + discounts * (1.0 - terminated) * next_values
 
         loss = nn.functional.mse_loss(selected_q_values, targets)
         self.optimizer.zero_grad()
@@ -309,6 +349,7 @@ class DQNTrainer:
         destination: str,
         *,
         training_start_indices: tuple[int, ...] | None = None,
+        transition_callback: Callable[[dict], None] | None = None,
     ) -> list[dict[str, float | int | bool | None]]:
         torch.manual_seed(self.config.seed)
         self.policy.train()
@@ -335,21 +376,91 @@ class DQNTrainer:
             episode_return = 0.0
             episode_losses: list[float] = []
             transitions = 0
-            for _ in range(self.config.max_steps_per_episode):
+            episode_truncated = False
+            pending_transitions: deque[DQNTransition] = deque()
+            for step_index in range(self.config.max_steps_per_episode):
                 action_mask = info["action_mask"]
+                with torch.no_grad():
+                    q_values = self.policy(state).detach().cpu().tolist()
                 action = self._select_training_action(state, action_mask, epsilon)
                 next_state, reward, terminated, truncated, next_info = env.step(action)
-                done = bool(terminated or truncated)
+                terminated = bool(terminated)
+                truncated = bool(
+                    truncated
+                    or (
+                        step_index == self.config.max_steps_per_episode - 1
+                        and not terminated
+                    )
+                )
+                done = terminated or truncated
+                episode_truncated = truncated
+                if transition_callback is not None:
+                    if action == info["drop_action_index"]:
+                        action_name = "DROP"
+                    elif action == info["wait_action_index"]:
+                        action_name = "WAIT"
+                    else:
+                        action_name = info["candidate_nodes"][action]
+                    transition_callback(
+                        {
+                            "episode": episode,
+                            "decision": transitions,
+                            "start_index": start_index,
+                            "current_node": info["current_node"],
+                            "destination": destination,
+                            "graph_index": info["graph_index"],
+                            "candidate_nodes": list(info["candidate_nodes"]),
+                            "state": state.tolist(),
+                            "action_mask": action_mask.tolist(),
+                            "q_values": q_values,
+                            "selected_action_index": action,
+                            "selected_action": action_name,
+                            "epsilon": epsilon,
+                            "reward": reward,
+                            "reward_components": next_info["reward_components"],
+                            "next_state": next_state.tolist(),
+                            "next_action_mask": next_info["action_mask"].tolist(),
+                            "terminated": terminated,
+                            "truncated": truncated,
+                            "replay_n_step": self.config.n_step,
+                            "loss_cause": next_info.get("loss_cause"),
+                            "next_current_node": next_info["current_node"],
+                            "next_graph_index": next_info["graph_index"],
+                            "next_candidate_nodes": list(next_info["candidate_nodes"]),
+                            "next_action_values": self.target_policy(next_state)
+                            .detach()
+                            .cpu()
+                            .tolist(),
+                        }
+                    )
                 transition = DQNTransition(
                     state=state,
                     action=action,
                     reward=reward,
                     next_state=next_state,
-                    done=done,
+                    terminated=terminated,
+                    truncated=truncated,
                     action_mask=action_mask,
                     next_action_mask=next_info["action_mask"],
                 )
-                self.replay_buffer.add(transition)
+                pending_transitions.append(transition)
+                if len(pending_transitions) >= self.config.n_step:
+                    self.replay_buffer.add(
+                        self._aggregate_n_step(
+                            list(pending_transitions)[: self.config.n_step],
+                            self.config.gamma,
+                        )
+                    )
+                    pending_transitions.popleft()
+                if done:
+                    while pending_transitions:
+                        self.replay_buffer.add(
+                            self._aggregate_n_step(
+                                list(pending_transitions),
+                                self.config.gamma,
+                            )
+                        )
+                        pending_transitions.popleft()
                 episode_return += reward
                 transitions += 1
                 if len(self.replay_buffer) >= max(
@@ -374,6 +485,7 @@ class DQNTrainer:
                     ),
                     "transitions": transitions,
                     "delivered": bool(info.get("delivered", False)),
+                    "truncated": episode_truncated,
                     "start_index": start_index,
                 }
             )

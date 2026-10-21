@@ -1,0 +1,30 @@
+[training]
+training_epoch_utc = "2026-10-15T00:00:00Z"
+training_seeds = [11, 23, 37, 53, 71]
+episodes = 150
+max_steps_per_episode = 640
+batch_size = 32
+replay_capacity = 10000
+warmup_transitions = 64
+target_update_interval = 100
+learning_rate = 0.001
+gamma = 0.99
+n_step = 3
+epsilon_start = 1.0
+epsilon_end = 0.05
+hidden_dim = 64
+
+[reward]
+delivery_reward = 10.0
+drop_penalty = 5.0
+energy_penalty = 0.5
+delay_penalty = 0.2
+normalize_wait_penalty_by_horizon = true
+
+[protocol]
+policy_wait_action = true
+capture_all_training_decisions = true
+queue_state_included = false
+include_path_history = false
+training_topology_source = "same Walker constellation, epoch offset from frozen evaluation scenario"
+evaluation_topology_source = "frozen experiments/baseline_config.toml and saved baseline topology"

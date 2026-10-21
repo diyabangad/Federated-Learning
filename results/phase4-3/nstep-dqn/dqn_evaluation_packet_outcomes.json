@@ -1,0 +1,1302 @@
+[
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p0",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p1",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p10",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p11",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p12",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p13",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p14",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p15",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p16",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p17",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p18",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p19",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p2",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p3",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p4",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p5",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p6",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p7",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p8",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p9",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 11
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p0",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p1",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p10",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p11",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p12",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p13",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p14",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p15",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p16",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p17",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p18",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p19",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p2",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p3",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p4",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p5",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p6",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p7",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p8",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p9",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 23
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p0",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p1",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p10",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p11",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p12",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p13",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p14",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p15",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p16",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p17",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p18",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p19",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p2",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p3",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p4",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p5",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p6",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p7",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p8",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p9",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 37
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p0",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p1",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p10",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p11",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p12",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p13",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p14",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p15",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p16",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p17",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p18",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p19",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p2",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p3",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p4",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p5",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p6",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p7",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p8",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p9",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 53
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p0",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p1",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p10",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p11",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p12",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p13",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p14",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p15",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p16",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p17",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p18",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p19",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p2",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p3",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p4",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p5",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p6",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p7",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p8",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  },
+  {
+    "delay_seconds": 0.0,
+    "destination": "gs:gateway",
+    "drop_reason": "policy_drop",
+    "hop_count": 0,
+    "packet_id": "f0-p9",
+    "route": [
+      "sat:1"
+    ],
+    "source_satellite": "sat:1",
+    "status": "dropped",
+    "training_seed": 71
+  }
+]

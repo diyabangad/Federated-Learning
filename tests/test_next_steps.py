@@ -70,6 +70,64 @@ def test_routing_env_validates_masked_next_hop_choice():
     assert env.action_space.n == 6
 
 
+def test_path_history_feature_marks_revisits_without_masking_them():
+    start = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    graphs = []
+    for index in range(3):
+        graph = nx.Graph()
+        graph.add_nodes_from(
+            (
+                ("sat:a", {"kind": "satellite"}),
+                ("sat:b", {"kind": "satellite"}),
+                ("gs:destination", {"kind": "ground_station"}),
+            )
+        )
+        if index < 2:
+            graph.add_edge("sat:a", "sat:b", range_km=100.0)
+        if index == 2:
+            graph.add_edge("sat:a", "gs:destination", range_km=100.0)
+        graphs.append(graph)
+    env = SatelliteRoutingEnv(
+        TopologyTrace(
+            tuple(start + timedelta(seconds=index) for index in range(3)),
+            tuple(graphs),
+            (),
+        ),
+        RoutingEnvConfig(
+            energy_capacity_j=10.0,
+            tx_electronics_j_per_bit=0.01,
+            rx_electronics_j_per_bit=0.002,
+            amplifier_j_per_bit_km2=0.0,
+            transmission_rate_bps=1000.0,
+            packet_bits=100,
+            max_neighbors=2,
+            max_hops=4,
+            include_path_history=True,
+        ),
+    )
+
+    observation, info = env.reset(
+        options={"source": "sat:a", "destination": "gs:destination"}
+    )
+    assert observation.shape == (2, 10)
+    assert observation[0, 9] == 0.0
+    observation, _, terminated, _, info = env.step(0)
+    assert not terminated
+    assert info["candidate_nodes"] == ("sat:a",)
+    assert info["action_mask"][0] == 1
+    assert observation[0, 9] == 1.0
+
+    observation, _, terminated, _, info = env.step(0)
+    assert not terminated
+    assert info["candidate_nodes"] == ("gs:destination",)
+    assert info["action_mask"][0] == 1
+    assert observation[0, 9] == 0.0
+    _, reward, terminated, truncated, info = env.step(0)
+    assert terminated and not truncated
+    assert info["delivered"]
+    assert reward > 0.0
+
+
 def test_cluster_aware_routing_exposes_same_cluster_candidate():
     config = RoutingEnvConfig(
         energy_capacity_j=100.0,
@@ -230,6 +288,130 @@ def test_routing_step_info_mask_describes_returned_next_state():
     assert info["graph_index"] == 1
     assert info["action_mask"].tolist() == [1, 0, 0, 0, 1]
     assert next_observation[0, 7] == 0.0
+
+
+def test_wait_action_advances_one_sample_only_when_future_route_exists():
+    graph0 = nx.Graph()
+    graph0.add_node("sat:1", kind="satellite")
+    graph0.add_node("gs:gateway", kind="ground_station")
+    graph1 = nx.Graph()
+    graph1.add_node("sat:1", kind="satellite")
+    graph1.add_node("gs:gateway", kind="ground_station")
+    graph1.add_edge("sat:1", "gs:gateway", range_km=0.0, remaining_contact_s=10.0)
+    start = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    config = RoutingEnvConfig(
+        energy_capacity_j=10.0,
+        tx_electronics_j_per_bit=0.01,
+        rx_electronics_j_per_bit=0.002,
+        amplifier_j_per_bit_km2=0.0,
+        transmission_rate_bps=1000.0,
+        packet_bits=100,
+        max_neighbors=3,
+        wait_action_enabled=True,
+    )
+    env = SatelliteRoutingEnv(
+        TopologyTrace(
+            (start, start + timedelta(seconds=10)),
+            (graph0, graph1),
+            (),
+        ),
+        config,
+    )
+    observation, info = env.reset(
+        options={"source": "sat:1", "destination": "gs:gateway"}
+    )
+
+    assert observation.shape == (4, 9)
+    assert info["action_mask"].tolist() == [0, 0, 0, 1, 1]
+    assert info["wait_action_index"] == 3
+    assert info["drop_action_index"] == 4
+
+    next_observation, reward, terminated, truncated, info = env.step(3)
+
+    assert reward == pytest.approx(-config.delay_penalty)
+    assert info["reward_components"] == {"wait_delay": pytest.approx(reward)}
+    assert not terminated and not truncated
+    assert info["graph_index"] == 1
+    assert info["action_mask"].tolist() == [1, 0, 0, 0, 1]
+    assert next_observation[0, 7] == 1.0
+    assert info["communication_energy_j"] == {"sat:1": 0.0}
+
+    _, delivered_reward, terminated, truncated, delivered = env.step(0)
+    assert terminated and not truncated
+    assert delivered["delivered"]
+    assert delivered["reward_components"]["delivery"] == config.delivery_reward
+    assert delivered_reward == pytest.approx(sum(delivered["reward_components"].values()))
+
+
+def test_wait_penalty_horizon_normalization_reduces_long_wait_cost():
+    start = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    graphs = []
+    for index in range(3):
+        graph = nx.Graph()
+        graph.add_node("sat:1", kind="satellite")
+        graph.add_node("gs:gateway", kind="ground_station")
+        if index == 2:
+            graph.add_edge("sat:1", "gs:gateway", range_km=0.0)
+        graphs.append(graph)
+    trace = TopologyTrace(
+        (start, start + timedelta(seconds=10), start + timedelta(seconds=20)),
+        tuple(graphs),
+        (),
+    )
+    rewards = []
+    for normalize_by_horizon in (False, True):
+        env = SatelliteRoutingEnv(
+            trace,
+            RoutingEnvConfig(
+                energy_capacity_j=10.0,
+                tx_electronics_j_per_bit=0.01,
+                rx_electronics_j_per_bit=0.002,
+                amplifier_j_per_bit_km2=0.0,
+                transmission_rate_bps=1000.0,
+                packet_bits=100,
+                max_neighbors=3,
+                wait_action_enabled=True,
+                normalize_wait_penalty_by_horizon=normalize_by_horizon,
+            ),
+        )
+        _, info = env.reset(options={"source": "sat:1", "destination": "gs:gateway"})
+        assert info["action_mask"].tolist() == [0, 0, 0, 1, 1]
+
+        _, reward, terminated, truncated, _ = env.step(3)
+
+        assert not terminated and not truncated
+        rewards.append(reward)
+
+    assert rewards == pytest.approx([-0.2, -0.1])
+
+
+def test_wait_action_is_masked_when_no_future_contact_route_exists():
+    graph = nx.Graph()
+    graph.add_node("sat:1", kind="satellite")
+    graph.add_node("gs:gateway", kind="ground_station")
+    start = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    env = SatelliteRoutingEnv(
+        TopologyTrace(
+            (start, start + timedelta(seconds=10)),
+            (graph, graph.copy()),
+            (),
+        ),
+        RoutingEnvConfig(
+            energy_capacity_j=10.0,
+            tx_electronics_j_per_bit=0.01,
+            rx_electronics_j_per_bit=0.002,
+            amplifier_j_per_bit_km2=0.0,
+            transmission_rate_bps=1000.0,
+            max_neighbors=3,
+            wait_action_enabled=True,
+        ),
+    )
+
+    _, info = env.reset(options={"source": "sat:1", "destination": "gs:gateway"})
+
+    assert info["action_mask"].tolist() == [0, 0, 0, 0, 1]
+    with pytest.raises(ValueError, match="not feasible"):
+        env.step(3)
 
 
 def test_routing_energy_ledger_uses_distinct_tx_rx_and_compute_costs():
@@ -566,13 +748,17 @@ def test_dqn_policy_outputs_action_dim():
     policy = DQNPolicy(input_dim=9, hidden_dim=16)
     two_candidates = np.ones((2, 9), dtype=np.float32)
     three_candidates = np.vstack((two_candidates, np.full((1, 9), 2.0, dtype=np.float32)))
+    reordered_candidates = two_candidates[::-1].copy()
     two_candidate_values = policy(two_candidates)
     three_candidate_values = policy(three_candidates)
+    reordered_values = policy(reordered_candidates)
 
     assert two_candidate_values.shape == (3,)
     assert three_candidate_values.shape == (4,)
     assert torch.allclose(two_candidate_values[:2], three_candidate_values[:2])
     assert torch.allclose(two_candidate_values[-1], three_candidate_values[-1])
+    assert torch.allclose(reordered_values[:2], two_candidate_values[:2].flip(0))
+    assert torch.allclose(reordered_values[-1], two_candidate_values[-1])
 
 
 def test_dqn_action_mask_blocks_invalid_candidates_and_drop_is_explicit():
@@ -622,7 +808,8 @@ def test_dqn_replay_buffer_copies_transitions_and_respects_capacity():
                 action=action,
                 reward=1.0,
                 next_state=state,
-                done=action == 3,
+                terminated=action == 3,
+                truncated=False,
                 action_mask=mask,
                 next_action_mask=mask,
             )
@@ -633,6 +820,189 @@ def test_dqn_replay_buffer_copies_transitions_and_respects_capacity():
     batch = buffer.sample(2, __import__("random").Random(1))
     assert all(np.all(item.state == 0.0) for item in batch)
     assert all(item.action in (3,) for item in batch)
+
+
+def test_three_step_returns_aggregate_rewards_and_bootstrap_truncations():
+    gamma = 0.5
+    state = np.zeros((2, 9), dtype=np.float32)
+    mask = np.array([1, 0, 1], dtype=np.int8)
+    transitions = [
+        DQNTransition(
+            state=state,
+            action=0,
+            reward=reward,
+            next_state=state,
+            terminated=False,
+            truncated=index == 2,
+            action_mask=mask,
+            next_action_mask=np.array([0, 0, 1], dtype=np.int8),
+        )
+        for index, reward in enumerate((1.0, 2.0, 3.0))
+    ]
+    aggregate = DQNTrainer._aggregate_n_step(transitions, gamma)
+    trainer = DQNTrainer(
+        DQNPolicy(input_dim=9, hidden_dim=4),
+        DQNTrainingConfig(
+            seed=1,
+            episodes=1,
+            batch_size=1,
+            replay_capacity=2,
+            warmup_transitions=1,
+            hidden_dim=4,
+            gamma=gamma,
+            n_step=3,
+        ),
+    )
+    with torch.no_grad():
+        for parameter in trainer.policy.parameters():
+            parameter.zero_()
+        for parameter in trainer.target_policy.parameters():
+            parameter.zero_()
+        trainer.target_policy.drop_action_value.fill_(4.0)
+
+    loss = trainer._train_batch([aggregate])
+
+    assert aggregate.reward == pytest.approx(2.75)
+    assert aggregate.discount_steps == 3
+    assert aggregate.truncated
+    assert not aggregate.terminated
+    assert loss == pytest.approx(3.25**2)
+
+
+def test_dqn_bootstraps_from_time_limit_truncation():
+    trainer = DQNTrainer(
+        DQNPolicy(input_dim=9, hidden_dim=4),
+        DQNTrainingConfig(
+            seed=1,
+            episodes=1,
+            batch_size=1,
+            replay_capacity=2,
+            warmup_transitions=1,
+            hidden_dim=4,
+            gamma=0.5,
+        ),
+    )
+    with torch.no_grad():
+        for parameter in trainer.policy.parameters():
+            parameter.zero_()
+        for parameter in trainer.target_policy.parameters():
+            parameter.zero_()
+        trainer.target_policy.drop_action_value.fill_(4.0)
+
+    transition = DQNTransition(
+        state=np.zeros((2, 9), dtype=np.float32),
+        action=0,
+        reward=1.0,
+        next_state=np.zeros((2, 9), dtype=np.float32),
+        terminated=False,
+        truncated=True,
+        action_mask=np.array([1, 0, 1], dtype=np.int8),
+        next_action_mask=np.array([0, 0, 1], dtype=np.int8),
+    )
+
+    loss = trainer._train_batch([transition])
+
+    assert loss == pytest.approx(9.0)
+
+
+def test_dqn_trainer_records_step_limit_as_bootstrappable_truncation():
+    graph = nx.Graph()
+    graph.add_nodes_from(
+        (
+            ("sat:source", {"kind": "satellite"}),
+            ("sat:relay", {"kind": "satellite"}),
+            ("gs:destination", {"kind": "ground_station"}),
+        )
+    )
+    graph.add_edge("sat:source", "sat:relay", range_km=0.0)
+    env = SatelliteRoutingEnv(
+        TopologyTrace(
+            (datetime(2026, 1, 1, tzinfo=timezone.utc),),
+            (graph,),
+            (),
+        ),
+        RoutingEnvConfig(
+            energy_capacity_j=10.0,
+            tx_electronics_j_per_bit=0.01,
+            rx_electronics_j_per_bit=0.002,
+            amplifier_j_per_bit_km2=0.0,
+            transmission_rate_bps=1000.0,
+            packet_bits=100,
+            max_neighbors=2,
+        ),
+    )
+    policy = DQNPolicy(input_dim=9, hidden_dim=4)
+    with torch.no_grad():
+        for parameter in policy.parameters():
+            parameter.zero_()
+        policy.drop_action_value.fill_(-1.0)
+    trainer = DQNTrainer(
+        policy,
+        DQNTrainingConfig(
+            seed=1,
+            episodes=1,
+            max_steps_per_episode=1,
+            batch_size=1,
+            replay_capacity=2,
+            warmup_transitions=2,
+            epsilon_start=0.0,
+            epsilon_end=0.0,
+            hidden_dim=4,
+        ),
+    )
+    logged_transitions = []
+
+    history = trainer.train(
+        env,
+        "sat:source",
+        "gs:destination",
+        training_start_indices=(0,),
+        transition_callback=logged_transitions.append,
+    )
+
+    transition = trainer.replay_buffer.transitions[0]
+    assert history[0]["truncated"]
+    assert logged_transitions[0]["truncated"]
+    assert not logged_transitions[0]["terminated"]
+    assert not transition.terminated
+    assert transition.truncated
+
+
+def test_dqn_hop_limit_is_a_terminal_drop_not_a_truncation():
+    graph = nx.Graph()
+    graph.add_nodes_from(
+        (
+            ("sat:source", {"kind": "satellite"}),
+            ("sat:relay", {"kind": "satellite"}),
+            ("gs:destination", {"kind": "ground_station"}),
+        )
+    )
+    graph.add_edge("sat:source", "sat:relay", range_km=0.0)
+    graph.add_edge("sat:relay", "gs:destination", range_km=0.0)
+    env = SatelliteRoutingEnv(
+        TopologyTrace(
+            (datetime(2026, 1, 1, tzinfo=timezone.utc),),
+            (graph,),
+            (),
+        ),
+        RoutingEnvConfig(
+            energy_capacity_j=10.0,
+            tx_electronics_j_per_bit=0.01,
+            rx_electronics_j_per_bit=0.002,
+            amplifier_j_per_bit_km2=0.0,
+            transmission_rate_bps=1000.0,
+            packet_bits=100,
+            max_neighbors=2,
+            max_hops=1,
+        ),
+    )
+    _, info = env.reset(options={"source": "sat:source", "destination": "gs:destination"})
+
+    _, _, terminated, truncated, next_info = env.step(0)
+
+    assert terminated
+    assert not truncated
+    assert next_info["loss_cause"] == "hop_limit"
 
 
 def test_dqn_trainer_uses_replay_masks_and_updates_target_network():
@@ -668,6 +1038,209 @@ def test_dqn_trainer_uses_replay_masks_and_updates_target_network():
     assert all(np.isfinite(item["mean_loss"]) for item in history if item["mean_loss"] is not None)
     for online, target in zip(trainer.policy.parameters(), trainer.target_policy.parameters()):
         assert torch.equal(online, target)
+
+
+def test_dqn_learns_the_unambiguous_one_hop_route():
+    graph = nx.Graph()
+    graph.add_node("sat:source", kind="satellite")
+    graph.add_node("gs:destination", kind="ground_station")
+    graph.add_edge(
+        "sat:source",
+        "gs:destination",
+        range_km=0.0,
+        remaining_contact_s=1.0,
+    )
+    trace = TopologyTrace(
+        (datetime(2026, 1, 1, tzinfo=timezone.utc),),
+        (graph,),
+        (),
+    )
+    env = SatelliteRoutingEnv(
+        trace,
+        RoutingEnvConfig(
+            energy_capacity_j=10.0,
+            tx_electronics_j_per_bit=0.01,
+            rx_electronics_j_per_bit=0.002,
+            amplifier_j_per_bit_km2=0.0,
+            transmission_rate_bps=1000.0,
+            packet_bits=100,
+            max_neighbors=2,
+        ),
+    )
+    trainer = DQNTrainer(
+        DQNPolicy(input_dim=9, hidden_dim=8),
+        DQNTrainingConfig(
+            seed=7,
+            episodes=80,
+            max_steps_per_episode=2,
+            batch_size=1,
+            replay_capacity=128,
+            warmup_transitions=1,
+            target_update_interval=1,
+            learning_rate=0.01,
+            gamma=0.9,
+            epsilon_start=1.0,
+            epsilon_end=0.05,
+            hidden_dim=8,
+        ),
+    )
+
+    history = trainer.train(
+        env,
+        "sat:source",
+        "gs:destination",
+        training_start_indices=(0,),
+    )
+    observation, info = env.reset(
+        options={"source": "sat:source", "destination": "gs:destination"}
+    )
+    selected_action = trainer.select_greedy_action(observation, info["action_mask"])
+
+    assert info["action_mask"].tolist() == [1, 0, 1]
+    assert selected_action == 0
+    _, reward, terminated, truncated, result = env.step(selected_action)
+    assert terminated and not truncated
+    assert result["delivered"]
+    assert reward > 0.0
+    assert result["reward_components"]["delivery"] == env.config.delivery_reward
+    assert any(episode["delivered"] for episode in history)
+
+
+def test_dqn_learns_a_static_three_hop_route():
+    graph = nx.Graph()
+    graph.add_nodes_from(
+        (
+            ("sat:source", {"kind": "satellite"}),
+            ("sat:relay-1", {"kind": "satellite"}),
+            ("sat:relay-2", {"kind": "satellite"}),
+            ("gs:destination", {"kind": "ground_station"}),
+        )
+    )
+    graph.add_edges_from(
+        (
+            ("sat:source", "sat:relay-1", {"range_km": 100.0}),
+            ("sat:relay-1", "sat:relay-2", {"range_km": 100.0}),
+            ("sat:relay-2", "gs:destination", {"range_km": 100.0}),
+        )
+    )
+    env = SatelliteRoutingEnv(
+        TopologyTrace(
+            (datetime(2026, 1, 1, tzinfo=timezone.utc),),
+            (graph,),
+            (),
+        ),
+        RoutingEnvConfig(
+            energy_capacity_j=10.0,
+            tx_electronics_j_per_bit=0.01,
+            rx_electronics_j_per_bit=0.002,
+            amplifier_j_per_bit_km2=0.0,
+            transmission_rate_bps=1000.0,
+            packet_bits=100,
+            max_neighbors=4,
+            max_hops=8,
+        ),
+    )
+    trainer = DQNTrainer(
+        DQNPolicy(input_dim=9, hidden_dim=32),
+        DQNTrainingConfig(
+            seed=11,
+            episodes=150,
+            max_steps_per_episode=8,
+            batch_size=32,
+            replay_capacity=1000,
+            warmup_transitions=32,
+            target_update_interval=100,
+            hidden_dim=32,
+        ),
+    )
+
+    trainer.train(env, "sat:source", "gs:destination", training_start_indices=(0,))
+    observation, info = env.reset(
+        options={"source": "sat:source", "destination": "gs:destination"}
+    )
+    route = ["sat:source"]
+    for _ in range(4):
+        action = trainer.select_greedy_action(observation, info["action_mask"])
+        if action == info["drop_action_index"]:
+            break
+        route.append(info["candidate_nodes"][action])
+        observation, _, terminated, truncated, info = env.step(action)
+        if terminated or truncated:
+            break
+
+    assert info["delivered"]
+    assert route == [
+        "sat:source",
+        "sat:relay-1",
+        "sat:relay-2",
+        "gs:destination",
+    ]
+
+
+def test_dqn_learns_to_wait_for_a_delayed_contact_with_normalized_cost():
+    start = datetime(2026, 1, 1, tzinfo=timezone.utc)
+    contact_index = 20
+    graphs = []
+    for index in range(contact_index + 2):
+        graph = nx.Graph()
+        graph.add_node("sat:source", kind="satellite")
+        graph.add_node("gs:destination", kind="ground_station")
+        if index >= contact_index:
+            graph.add_edge(
+                "sat:source",
+                "gs:destination",
+                range_km=0.0,
+                remaining_contact_s=10.0,
+            )
+        graphs.append(graph)
+    trace = TopologyTrace(
+        tuple(start + timedelta(seconds=10 * index) for index in range(len(graphs))),
+        tuple(graphs),
+        (),
+    )
+    env = SatelliteRoutingEnv(
+        trace,
+        RoutingEnvConfig(
+            energy_capacity_j=10.0,
+            tx_electronics_j_per_bit=0.01,
+            rx_electronics_j_per_bit=0.002,
+            amplifier_j_per_bit_km2=0.0,
+            transmission_rate_bps=1000.0,
+            packet_bits=100,
+            max_neighbors=2,
+            max_hops=4,
+            wait_action_enabled=True,
+            normalize_wait_penalty_by_horizon=True,
+        ),
+    )
+    trainer = DQNTrainer(
+        DQNPolicy(input_dim=9, hidden_dim=32),
+        DQNTrainingConfig(
+            seed=11,
+            episodes=150,
+            max_steps_per_episode=contact_index + 8,
+            batch_size=32,
+            replay_capacity=1000,
+            warmup_transitions=16,
+            target_update_interval=100,
+            hidden_dim=32,
+        ),
+    )
+
+    trainer.train(env, "sat:source", "gs:destination", training_start_indices=(0,))
+    observation, info = env.reset(
+        options={"source": "sat:source", "destination": "gs:destination"}
+    )
+    first_action = trainer.select_greedy_action(observation, info["action_mask"])
+    assert first_action == info["wait_action_index"]
+
+    for _ in range(contact_index + 2):
+        observation, _, terminated, truncated, info = env.step(first_action)
+        if terminated or truncated:
+            break
+        first_action = trainer.select_greedy_action(observation, info["action_mask"])
+
+    assert info["delivered"]
 
 
 def test_centralized_dqn_trainer_runs_minimal_training():

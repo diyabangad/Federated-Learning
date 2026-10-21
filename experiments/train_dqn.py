@@ -10,6 +10,7 @@ import hashlib
 import json
 from pathlib import Path
 import statistics
+import subprocess
 import tomllib
 
 from skyfield.api import load
@@ -135,10 +136,12 @@ def train_and_evaluate(
 ) -> dict:
     baseline_config_path = baseline_config_path.resolve()
     training_config_path = training_config_path.resolve()
+    output_dir = output_dir.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
     training_config = tomllib.loads(training_config_path.read_text(encoding="utf-8"))
     training_settings = training_config["training"]
     reward_settings = training_config["reward"]
+    protocol_settings = training_config.get("protocol", {})
     experiment = ExperimentConfig.from_toml(baseline_config_path)
 
     baseline_summary_path = baseline_results_dir / "baseline_summary.json"
@@ -168,12 +171,20 @@ def train_and_evaluate(
         drop_penalty=float(reward_settings["drop_penalty"]),
         energy_penalty=float(reward_settings["energy_penalty"]),
         delay_penalty=float(reward_settings["delay_penalty"]),
+        wait_action_enabled=bool(protocol_settings.get("policy_wait_action", False)),
+        normalize_wait_penalty_by_horizon=bool(
+            reward_settings.get("normalize_wait_penalty_by_horizon", False)
+        ),
+        include_path_history=bool(
+            protocol_settings.get("include_path_history", False)
+        ),
     )
     packet_config = PacketSimulationConfig(
         horizon_seconds=experiment.simulation.duration_seconds,
         max_hops=int(routing_config["max_hops"]),
         processing_delay_seconds=float(routing_config["processing_delay_seconds"]),
         processing_energy_j_per_hop=float(routing_config["processing_energy_j_per_hop"]),
+        dqn_wait_action_enabled=energy.wait_action_enabled,
     )
     training_epoch = datetime.fromisoformat(
         training_settings["training_epoch_utc"].replace("Z", "+00:00")
@@ -181,7 +192,11 @@ def train_and_evaluate(
     training_trace = _training_trace(experiment, training_epoch)
     training_start_indices = tuple(range(len(training_trace.graphs)))
     training_episode_rows = []
+    training_decision_rows = []
     evaluation_rows = []
+    evaluation_decision_rows = []
+    evaluation_packet_outcome_rows = []
+    wait_ablation_rows = []
     per_seed_summary = []
 
     for seed in training_settings["training_seeds"]:
@@ -198,24 +213,47 @@ def train_and_evaluate(
             epsilon_start=float(training_settings["epsilon_start"]),
             epsilon_end=float(training_settings["epsilon_end"]),
             hidden_dim=int(training_settings["hidden_dim"]),
+            n_step=int(training_settings.get("n_step", 1)),
         )
         torch.manual_seed(config.seed)
+        input_dim = 9 + int(energy.include_path_history)
         policy = DQNPolicy(
-            input_dim=9,
+            input_dim=input_dim,
             hidden_dim=config.hidden_dim,
         )
         trainer = DQNTrainer(policy, config)
         train_env = SatelliteRoutingEnv(training_trace, energy)
+        def capture_transition(transition: dict) -> None:
+            captured_seeds = (
+                training_settings["training_seeds"]
+                if protocol_settings.get("capture_all_training_decisions", False)
+                else training_settings["training_seeds"][:2]
+            )
+            if int(seed) in tuple(int(value) for value in captured_seeds):
+                graph_time = train_env.trace.times_utc[transition["graph_index"]]
+                training_decision_rows.append(
+                    {
+                        "seed": int(seed),
+                        "packet_id": f"training-seed-{seed}-episode-{transition['episode']}",
+                        "time_seconds": (
+                            graph_time - train_env.trace.times_utc[0]
+                        ).total_seconds(),
+                        "time_utc": graph_time.isoformat(),
+                        **transition,
+                    }
+                )
+
         episode_history = trainer.train(
             train_env,
             source=experiment.traffic.flows[0].source,
             destination=experiment.traffic.flows[0].destination,
             training_start_indices=training_start_indices,
+            transition_callback=capture_transition,
         )
         checkpoint_path = output_dir / f"dqn_seed_{seed}.pt"
         checkpoint = {
             "seed": int(seed),
-            "input_dim": 9,
+            "input_dim": input_dim,
             "hidden_dim": config.hidden_dim,
             "state_dict": policy.state_dict(),
             "training_config": asdict(config),
@@ -229,12 +267,32 @@ def train_and_evaluate(
         for episode in episode_history:
             training_episode_rows.append({"seed": int(seed), **episode})
 
-        evaluation = PacketSimulator(
+        evaluation_simulator = PacketSimulator(
             evaluation_trace,
             energy,
             packet_config,
             dqn_policy=policy,
-        ).run(flows, "dqn")
+            record_dqn_decisions=True,
+        )
+        evaluation = evaluation_simulator.run(flows, "dqn")
+        evaluation_decision_rows.extend(
+            {"training_seed": int(seed), **decision}
+            for decision in evaluation_simulator.dqn_decision_trace
+        )
+        evaluation_packet_outcome_rows.extend(
+            {
+                "training_seed": int(seed),
+                "packet_id": packet.packet_id,
+                "source_satellite": packet.source_satellite,
+                "destination": packet.destination,
+                "status": packet.status,
+                "drop_reason": packet.drop_reason,
+                "route": packet.route,
+                "hop_count": packet.hop_count,
+                "delay_seconds": packet.accumulated_delay_seconds,
+            }
+            for packet in evaluation.packets
+        )
         repeated_evaluation = PacketSimulator(
             evaluation_trace,
             energy,
@@ -243,10 +301,26 @@ def train_and_evaluate(
         ).run(flows, "dqn")
         if evaluation != repeated_evaluation:
             raise AssertionError(f"DQN packet evaluation was nondeterministic for seed {seed}")
+        no_wait_config = replace(packet_config, dqn_wait_action_enabled=False)
+        no_wait_evaluation = PacketSimulator(
+            evaluation_trace,
+            energy,
+            no_wait_config,
+            dqn_policy=policy,
+            record_dqn_decisions=True,
+        ).run(flows, "dqn")
+        repeated_no_wait_evaluation = PacketSimulator(
+            evaluation_trace,
+            energy,
+            no_wait_config,
+            dqn_policy=policy,
+        ).run(flows, "dqn")
+        if no_wait_evaluation != repeated_no_wait_evaluation:
+            raise AssertionError(f"DQN no-WAIT ablation was nondeterministic for seed {seed}")
         row = {
             "algorithm": "dqn",
             "training_seed": int(seed),
-            "checkpoint": str(checkpoint_path.relative_to(Path.cwd())),
+            "checkpoint": str(checkpoint_path),
             "generated_packets": evaluation.generated_packets,
             "delivered_packets": evaluation.delivered_packets,
             "dropped_packets": evaluation.dropped_packets,
@@ -270,6 +344,25 @@ def train_and_evaluate(
             "evaluation_repeat_deterministic": True,
         }
         evaluation_rows.append(row)
+        wait_ablation_rows.append(
+            {
+                "algorithm": "dqn_no_wait_ablation",
+                "training_seed": int(seed),
+                "generated_packets": no_wait_evaluation.generated_packets,
+                "delivered_packets": no_wait_evaluation.delivered_packets,
+                "dropped_packets": no_wait_evaluation.dropped_packets,
+                "packet_delivery_ratio": no_wait_evaluation.packet_delivery_ratio,
+                "average_end_to_end_delay_seconds": no_wait_evaluation.average_end_to_end_delay_seconds,
+                "average_waiting_delay_seconds": no_wait_evaluation.average_waiting_delay_seconds,
+                "average_hop_count": no_wait_evaluation.average_hop_count,
+                "total_communication_energy_j": no_wait_evaluation.total_communication_energy_j,
+                "dropped_by_reason_json": json.dumps(
+                    dict(no_wait_evaluation.dropped_by_reason),
+                    sort_keys=True,
+                ),
+                "evaluation_repeat_deterministic": True,
+            }
+        )
         per_seed_summary.append(
             {
                 "training_seed": int(seed),
@@ -286,14 +379,38 @@ def train_and_evaluate(
 
     training_history_path = output_dir / "dqn_training_episodes.csv"
     _write_rows(training_history_path, training_episode_rows)
+    training_decisions_path = output_dir / "dqn_training_decisions.json"
+    training_decisions_path.write_text(
+        json.dumps(training_decision_rows, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    evaluation_decisions_path = output_dir / "dqn_evaluation_decisions.json"
+    evaluation_decisions_path.write_text(
+        json.dumps(evaluation_decision_rows, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    evaluation_packet_outcomes_path = output_dir / "dqn_evaluation_packet_outcomes.json"
+    evaluation_packet_outcomes_path.write_text(
+        json.dumps(evaluation_packet_outcome_rows, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
     evaluation_path = output_dir / "dqn_evaluation_per_seed.csv"
     _write_rows(evaluation_path, evaluation_rows)
+    wait_ablation_path = output_dir / "dqn_wait_ablation_per_seed.csv"
+    _write_rows(wait_ablation_path, wait_ablation_rows)
 
     aggregate_metrics = {}
     for metric in METRICS:
         values = [row[metric] for row in evaluation_rows if row[metric] is not None]
         aggregate_metrics[metric] = _summary_stats(values)
     baseline_rows = list(csv.DictReader((baseline_results_dir / "baseline_runs.csv").open()))
+    repository_root = Path(__file__).resolve().parents[1]
+    source_files = (
+        Path(__file__).resolve(),
+        repository_root / "src/fedroute/dqn.py",
+        repository_root / "src/fedroute/routing.py",
+        repository_root / "src/fedroute/packet_sim.py",
+    )
     summary = {
         "baseline_config": str(baseline_config_path),
         "baseline_config_sha256": hashlib.sha256(baseline_config_path.read_bytes()).hexdigest(),
@@ -306,30 +423,72 @@ def train_and_evaluate(
         "training_trace_sha256": _trace_hash(training_trace),
         "training_epoch_utc": training_epoch.isoformat(),
         "evaluation_trace_is_frozen_baseline": True,
-        "candidate_action_semantics": "currently available outgoing links plus explicit DROP; no WAIT action",
+        "original_candidate_action_semantics": "currently available outgoing links plus explicit DROP; no WAIT action",
+        "candidate_action_semantics": (
+            "currently available outgoing links, WAIT to the next topology sample when a "
+            "future contact-graph route exists within deadline, plus explicit DROP"
+        ),
         "state_semantics": [
-            "local residual energy",
-            "candidate neighbor residual energy",
-            "candidate link quality",
-            "remaining sampled contact time",
-            "normalized distance",
-            "snapshot hop count to destination",
-            "ground-station destination flag",
-            "current-snapshot destination reachability",
+            "local residual energy (feature 0)",
+            "same-cluster membership (feature 1; zero when disabled)",
+            "candidate residual energy (feature 2)",
+            "candidate link quality (feature 3)",
+            "remaining sampled contact time (feature 4)",
+            "normalized candidate distance (feature 5)",
+            "snapshot hop count to destination (feature 6)",
+            "ground-station destination flag (feature 7)",
+            "current-snapshot destination reachability (feature 8)",
+            "WAIT row uses feature 5 for planned future wait divided by trace horizon",
+            *(
+                ["candidate node already appears in packet route (feature 9)"]
+                if energy.include_path_history
+                else []
+            ),
         ],
         "reward_config": reward_settings,
+        "source_sha256": {
+            str(source_path.relative_to(repository_root)): hashlib.sha256(
+                source_path.read_bytes()
+            ).hexdigest()
+            for source_path in source_files
+        },
+        "git_revision": subprocess.run(
+            ["git", "rev-parse", "HEAD"],
+            cwd=repository_root,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip(),
         "training_seeds": list(training_settings["training_seeds"]),
         "baseline_results": baseline_rows,
         "dqn_per_seed_results": evaluation_rows,
         "dqn_metric_mean_and_sample_std": aggregate_metrics,
         "training_episode_csv": str(training_history_path),
+        "training_decision_log": str(training_decisions_path),
+        "evaluation_decision_log": str(evaluation_decisions_path),
+        "evaluation_packet_outcomes": str(evaluation_packet_outcomes_path),
         "evaluation_csv": str(evaluation_path),
+        "wait_ablation_csv": str(wait_ablation_path),
+        "dqn_wait_action_ablation": wait_ablation_rows,
         "per_seed_checkpoints": per_seed_summary,
         "interpretation": [
             "Training uses a distinct Walker epoch; packet evaluation uses the exact frozen baseline config, trace hash, and deterministic flows.",
             "Training returns and losses are diagnostic, not substitutes for packet performance metrics.",
             "Results are provisional; five seeds do not establish statistical significance or generalization.",
-            "The DQN can choose only current outgoing links or DROP; future-contact waiting remains exclusive to the contact-aware baseline.",
+            (
+                "When enabled, WAIT advances one topology sample. Training masks it when no "
+                "future contact-graph route exists; packet evaluation additionally requires "
+                "that the planned route fit the remaining packet deadline."
+            ),
+            (
+                "The no-WAIT ablation evaluates the same trained weights with WAIT disabled; "
+                "it is an inference-time action-mask ablation, not a separately trained policy."
+            ),
+            (
+                "WAIT reward is normalized by full trace duration only when "
+                "reward.normalize_wait_penalty_by_horizon is true; the default preserves "
+                "the sample-normalized Phase 4.1 reward."
+            ),
             "No fuzzy clustering or federated learning is included.",
         ],
     }
@@ -346,7 +505,11 @@ def main() -> None:
     parser.add_argument("--baseline-config", type=Path, default=Path("experiments/baseline_config.toml"))
     parser.add_argument("--training-config", type=Path, default=Path("experiments/dqn_training.toml"))
     parser.add_argument("--baseline-results", type=Path, default=Path("results/phase4-baseline"))
-    parser.add_argument("--output-dir", type=Path, default=Path("results/phase4-dqn"))
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        default=Path("results/phase4-dqn-phase4.1"),
+    )
     args = parser.parse_args()
     summary = train_and_evaluate(
         args.baseline_config,

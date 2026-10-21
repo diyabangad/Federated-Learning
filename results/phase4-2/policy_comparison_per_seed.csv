@@ -1,0 +1,22 @@
+policy,training_seed,generated_packets,delivered_packets,dropped_packets,packet_delivery_ratio,average_end_to_end_delay_seconds,average_hop_count,total_communication_energy_j,dropped_by_reason,premature_drop_decisions,decision_count,packets_with_forwarding_cycles,total_cycle_revisits,max_cycle_revisits_per_packet,checkpoint_sha256
+legacy_phase4_dqn,11,20,0,20,0.0,,,0.6789248498357771,"{""hop_limit"": 1, ""policy_drop"": 19}",19,35,1,15,15,a1fa82611973abc891758c6654dd1e00ff9cc71c32a02c9a06434bf8d8c61b88
+legacy_phase4_dqn,23,20,0,20,0.0,,,13.300885042200203,"{""hop_limit"": 16, ""policy_drop"": 4}",4,260,16,240,15,748dec60b89313af5ab9f8f60bd8bed455a6fc9aa0acc2107624ef80007ea2a0
+legacy_phase4_dqn,37,20,0,20,0.0,,,0.0,"{""policy_drop"": 20}",20,20,0,0,0,a99d9b952044c1c749d4abd618e72aa69f8d102fc29277fc668dcf4dc9e5e739
+legacy_phase4_dqn,53,20,0,20,0.0,,,0.0,"{""policy_drop"": 20}",20,20,0,0,0,0c8e053afca8a7d095ac9b39d3723f1a08657929469fab403e7a9236844b3d51
+legacy_phase4_dqn,71,20,0,20,0.0,,,0.0,"{""policy_drop"": 20}",20,20,0,0,0,5bb8b54ba61207e34b6dbc8d04de3735c6cfee871b4cdd4ee739925444501ad7
+phase41_dqn,11,20,0,20,0.0,,,0.0,"{""policy_drop"": 20}",20,20,0,0,0,23ad9d8675d43fe526757bf4ab9481dae3e93dfbc3b743988d3df61d64497238
+phase41_dqn,23,20,0,20,0.0,,,0.0,"{""policy_drop"": 20}",20,20,0,0,0,2d5c62a7d37bcf9d958bf2a8299773465a0bbe1f76611aed957198d515b050a7
+phase41_dqn,37,20,0,20,0.0,,,1.60535104289443,"{""hop_limit"": 3, ""policy_drop"": 17}",17,65,3,45,15,df7d2c399241677f3b0136dc36b88c3af511079c48172a75cefbd04ee2ea6051
+phase41_dqn,53,20,0,20,0.0,,,0.0,"{""policy_drop"": 20}",20,20,0,0,0,25078da926702bbb206d1220c5e237cf2ec934585691322a333fbdabb84945f9
+phase41_dqn,71,20,0,20,0.0,,,0.0,"{""policy_drop"": 20}",20,20,0,0,0,28b2983beba322d1028a9b1224e9cc31a640ff6040306573260327d1b53104c1
+phase42_dqn,11,20,0,20,0.0,,,30.88843422124897,"{""hop_limit"": 20}",0,608,20,275,15,dccc35a46662e5d6a28bf642727910c71ba1c8a6b8c34b06522bf53aa19d3110
+phase42_dqn,23,20,4,16,0.2,180.06345686818077,2.75,21.519449433645665,"{""hop_limit"": 16}",0,344,16,232,15,b400e5154db91888ac2a699dc608638a3e251aa1b0efa2b4d42b121a4a888603
+phase42_dqn,37,20,0,20,0.0,,,16.051886059856024,"{""hop_limit"": 20}",0,574,20,297,15,18261bf80c1fa9049550d0be66061d22508335a7c49fe1e358fd82018c0a317e
+phase42_dqn,53,20,0,20,0.0,,,20.316859430191702,"{""hop_limit"": 19, ""simulation_horizon"": 1}",0,600,19,276,15,45bbbb9d653314753a9c1828f9c6e44813c4d0150ecdb99525a0b9a124c2f60c
+phase42_dqn,71,20,3,17,0.15,240.06989201428345,2.6666666666666665,24.84293098603466,"{""hop_limit"": 17}",0,366,17,253,15,0a24dd03f22cdcc1db315983f076bc049e2ec42334f0db8fdedd8e6efb656adb
+random_feasible,11,20,1,19,0.05,100.01016270510445,15.0,25.48395350973524,"{""hop_limit"": 19}",0,363,20,191,12,
+random_feasible,23,20,0,20,0.0,,,24.287365155464432,"{""hop_limit"": 20}",0,353,20,201,13,
+random_feasible,37,20,0,20,0.0,,,24.526650080384872,"{""hop_limit"": 20}",0,353,20,192,13,
+random_feasible,53,20,1,19,0.05,60.04984532140497,15.0,25.09324840906469,"{""hop_limit"": 19}",0,352,20,184,12,
+random_feasible,71,20,0,20,0.0,,,23.555272869138648,"{""hop_limit"": 20}",0,359,20,195,13,
+greedy_snapshot_progress,,20,6,14,0.3,186.7703165288643,3.8333333333333335,12.862893024777522,"{""hop_limit"": 14}",0,374,14,207,15,

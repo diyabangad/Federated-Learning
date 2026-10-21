@@ -1,0 +1,2099 @@
+{
+  "episodes_per_seed": 150,
+  "scenario_runs": [
+    {
+      "case": "static_one_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 119,
+      "greedy_rollout": {
+        "actions": [
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 9.059917622346912,
+      "mean_episode_td_loss": 50.515269656141264,
+      "mean_return": 5.7546036549881645,
+      "seed": 11,
+      "training_deliveries": 109,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_one_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 119,
+      "greedy_rollout": {
+        "actions": [
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 9.79991328668096,
+      "mean_episode_td_loss": 50.5141504431973,
+      "mean_return": 5.853269743566037,
+      "seed": 23,
+      "training_deliveries": 110,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_one_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 119,
+      "greedy_rollout": {
+        "actions": [
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 8.319921958012864,
+      "mean_episode_td_loss": 52.49295201021082,
+      "mean_return": 6.24793409787753,
+      "seed": 37,
+      "training_deliveries": 114,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_one_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 119,
+      "greedy_rollout": {
+        "actions": [
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 9.059917622346912,
+      "mean_episode_td_loss": 52.117184182175066,
+      "mean_return": 6.050601920721784,
+      "seed": 53,
+      "training_deliveries": 112,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_one_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 119,
+      "greedy_rollout": {
+        "actions": [
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 9.059917622346912,
+      "mean_episode_td_loss": 41.47582098215568,
+      "mean_return": 5.655937566410291,
+      "seed": 71,
+      "training_deliveries": 108,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_two_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 279,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 9.559809230698113,
+      "mean_episode_td_loss": 12.468183762449726,
+      "mean_return": 3.3705238787346476,
+      "seed": 11,
+      "training_deliveries": 87,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_two_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 248,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 8.869835244693824,
+      "mean_episode_td_loss": 15.52221945712441,
+      "mean_return": 3.4118751328205823,
+      "seed": 23,
+      "training_deliveries": 87,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_two_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 293,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 8.09982657336192,
+      "mean_episode_td_loss": 12.244118207606716,
+      "mean_return": 4.042511738869982,
+      "seed": 37,
+      "training_deliveries": 94,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_two_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 253,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 8.119835244693824,
+      "mean_episode_td_loss": 17.24981754865402,
+      "mean_return": 3.898536018599313,
+      "seed": 53,
+      "training_deliveries": 92,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_two_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 283,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 6.639843916025728,
+      "mean_episode_td_loss": 13.005684979275019,
+      "mean_return": 2.8718577901567746,
+      "seed": 71,
+      "training_deliveries": 82,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_three_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 377,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 7.8897355243769285,
+      "mean_episode_td_loss": 11.356704177126243,
+      "mean_return": 1.0691466106530008,
+      "seed": 11,
+      "training_deliveries": 65,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_three_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 370,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 5.7697918880343035,
+      "mean_episode_td_loss": 11.35394759272634,
+      "mean_return": 0.9798179020300162,
+      "seed": 23,
+      "training_deliveries": 64,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_three_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 418,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 7.829709510381217,
+      "mean_episode_td_loss": 10.171235542589304,
+      "mean_return": 2.0011171281245272,
+      "seed": 37,
+      "training_deliveries": 75,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_three_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 174,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.020008671331904,
+      "mean_episode_td_loss": 15.906536751518063,
+      "mean_return": -4.877366862483362,
+      "seed": 53,
+      "training_deliveries": 2,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_three_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 345,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 8.669748531374784,
+      "mean_episode_td_loss": 12.431813480367708,
+      "mean_return": 1.1118317761610625,
+      "seed": 71,
+      "training_deliveries": 65,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_four_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 214,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.020008671331904,
+      "mean_episode_td_loss": 11.920267868301496,
+      "mean_return": -4.929389407946313,
+      "seed": 11,
+      "training_deliveries": 2,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_four_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 203,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.020008671331904,
+      "mean_episode_td_loss": 12.349977012172854,
+      "mean_return": -5.113382470880789,
+      "seed": 23,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_four_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 241,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.0,
+      "mean_episode_td_loss": 10.456736734065604,
+      "mean_return": -4.966738927765866,
+      "seed": 37,
+      "training_deliveries": 2,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_four_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 326,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "sat:relay-2",
+          "sat:relay-3",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "sat:relay-2",
+          "sat:relay-3",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 6.939648811057889,
+      "mean_episode_td_loss": 12.729802808830206,
+      "mean_return": -1.7254743869989713,
+      "seed": 53,
+      "training_deliveries": 36,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_four_hop",
+      "contact_delay_samples": null,
+      "gradient_steps": 192,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.0,
+      "mean_episode_td_loss": 13.599727966013738,
+      "mean_return": -5.097375533815266,
+      "seed": 71,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_three_hop_dead_end",
+      "contact_delay_samples": null,
+      "gradient_steps": 430,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 9.377728521532786,
+      "mean_episode_td_loss": 10.012908512986737,
+      "mean_return": 1.8559338073969442,
+      "seed": 11,
+      "training_deliveries": 73,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_three_hop_dead_end",
+      "contact_delay_samples": null,
+      "gradient_steps": 383,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 7.189757202706688,
+      "mean_episode_td_loss": 10.60184174442422,
+      "mean_return": 0.41822951086127197,
+      "seed": 23,
+      "training_deliveries": 58,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_three_hop_dead_end",
+      "contact_delay_samples": null,
+      "gradient_steps": 439,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 8.657741528530641,
+      "mean_episode_td_loss": 9.518910373558803,
+      "mean_return": 0.6692717215882136,
+      "seed": 37,
+      "training_deliveries": 61,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_three_hop_dead_end",
+      "contact_delay_samples": null,
+      "gradient_steps": 420,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 6.467767542526354,
+      "mean_episode_td_loss": 10.600976967298184,
+      "mean_return": 0.6876806592375653,
+      "seed": 53,
+      "training_deliveries": 61,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "static_three_hop_dead_end",
+      "contact_delay_samples": null,
+      "gradient_steps": 402,
+      "greedy_rollout": {
+        "actions": [
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "sat:relay-1",
+          "sat:relay-2",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 8.659744195708832,
+      "mean_episode_td_loss": 9.599840747472488,
+      "mean_return": 0.12556302360797003,
+      "seed": 71,
+      "training_deliveries": 55,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "disconnected",
+      "contact_delay_samples": null,
+      "gradient_steps": 175,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.010004335665952,
+      "mean_episode_td_loss": 15.326718080779653,
+      "mean_return": -5.074699039639108,
+      "seed": 11,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "disconnected",
+      "contact_delay_samples": null,
+      "gradient_steps": 181,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.010004335665952,
+      "mean_episode_td_loss": 15.191169384994891,
+      "mean_return": -5.08270250817187,
+      "seed": 23,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "disconnected",
+      "contact_delay_samples": null,
+      "gradient_steps": 205,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.020008671331904,
+      "mean_episode_td_loss": 12.804654156618552,
+      "mean_return": -5.116050293725043,
+      "seed": 37,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "disconnected",
+      "contact_delay_samples": null,
+      "gradient_steps": 179,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.010004335665952,
+      "mean_episode_td_loss": 14.63135872824275,
+      "mean_return": -5.0800346853276155,
+      "seed": 53,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "disconnected",
+      "contact_delay_samples": null,
+      "gradient_steps": 189,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.010004335665952,
+      "mean_episode_td_loss": 14.171710666368767,
+      "mean_return": -5.0933737995488855,
+      "seed": 71,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "time_varying_two_sample_wait",
+      "contact_delay_samples": 2,
+      "gradient_steps": 287,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 7.379998299574999,
+      "mean_episode_td_loss": 16.409255193887198,
+      "mean_return": 0.575999226473333,
+      "seed": 11,
+      "training_deliveries": 58,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "time_varying_two_sample_wait",
+      "contact_delay_samples": 2,
+      "gradient_steps": 324,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 5.1699985996499995,
+      "mean_episode_td_loss": 13.291267878728403,
+      "mean_return": 1.6266657464366663,
+      "seed": 23,
+      "training_deliveries": 69,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "time_varying_two_sample_wait",
+      "contact_delay_samples": 2,
+      "gradient_steps": 326,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 6.659998399599999,
+      "mean_episode_td_loss": 12.505128767179405,
+      "mean_return": 1.8239990530966663,
+      "seed": 37,
+      "training_deliveries": 71,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "time_varying_two_sample_wait",
+      "contact_delay_samples": 2,
+      "gradient_steps": 332,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 7.369998299574999,
+      "mean_episode_td_loss": 12.807916360450726,
+      "mean_return": 0.9159991731266663,
+      "seed": 53,
+      "training_deliveries": 62,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "time_varying_two_sample_wait",
+      "contact_delay_samples": 2,
+      "gradient_steps": 330,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 8.869998099524999,
+      "mean_episode_td_loss": 12.33396763193841,
+      "mean_return": 1.818665719763333,
+      "seed": 71,
+      "training_deliveries": 71,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    }
+  ],
+  "seeds": [
+    11,
+    23,
+    37,
+    53,
+    71
+  ],
+  "source_sha256": {
+    "experiments/controlled_dqn_phase4_2.py": "1a097c761b93b7b01682d1c1447a0dccb2d0e8c54743ca3cf12e08305efecbf2",
+    "src/fedroute/dqn.py": "4d3aba870fecbce688467f12033fd2d1561ac8a481b59fa7cbe126f60f16c365",
+    "src/fedroute/routing.py": "4b6fcaf1c3eb3830894f70fc00c4118b77cce88568c2f0351000e14d3c83256b"
+  },
+  "training_config": {
+    "batch_size": 32,
+    "episodes": 150,
+    "epsilon_end": 0.05,
+    "epsilon_start": 1.0,
+    "gamma": 0.99,
+    "hidden_dim": 32,
+    "learning_rate": 0.001,
+    "max_steps_per_episode": 16,
+    "replay_capacity": 10000,
+    "seed": 11,
+    "target_update_interval": 100,
+    "warmup_transitions": 16
+  },
+  "wait_reward_ablation_runs": [
+    {
+      "case": "wait_5_samples",
+      "contact_delay_samples": 5,
+      "gradient_steps": 175,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 15.32690614476616,
+      "mean_return": -5.074666666666666,
+      "seed": 11,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_5_samples",
+      "contact_delay_samples": 5,
+      "gradient_steps": 186,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.0,
+      "mean_episode_td_loss": 14.515070223096592,
+      "mean_return": -4.98933334667,
+      "seed": 23,
+      "training_deliveries": 1,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_5_samples",
+      "contact_delay_samples": 5,
+      "gradient_steps": 302,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -4.300000100025,
+      "mean_episode_td_loss": 10.663903556771784,
+      "mean_return": -3.6440002133866667,
+      "seed": 37,
+      "training_deliveries": 16,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_5_samples",
+      "contact_delay_samples": 5,
+      "gradient_steps": 179,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 14.631388126083868,
+      "mean_return": -5.08,
+      "seed": 53,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_5_samples",
+      "contact_delay_samples": 5,
+      "gradient_steps": 193,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 13.159703282143573,
+      "mean_return": -5.0986666666666665,
+      "seed": 71,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_5_samples",
+      "contact_delay_samples": 5,
+      "gradient_steps": 389,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 5.371665266316667,
+      "mean_episode_td_loss": 12.091223518953543,
+      "mean_return": -1.8600004267733332,
+      "seed": 11,
+      "training_deliveries": 32,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_5_samples",
+      "contact_delay_samples": 5,
+      "gradient_steps": 475,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 3.1183322330583336,
+      "mean_episode_td_loss": 9.41134467036824,
+      "mean_return": -1.6791115645577777,
+      "seed": 23,
+      "training_deliveries": 34,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_5_samples",
+      "contact_delay_samples": 5,
+      "gradient_steps": 516,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 8.339998199550001,
+      "mean_episode_td_loss": 9.029759522336278,
+      "mean_return": -0.6882228090355554,
+      "seed": 37,
+      "training_deliveries": 44,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_5_samples",
+      "contact_delay_samples": 5,
+      "gradient_steps": 388,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": 4.636665366341667,
+      "mean_episode_td_loss": 10.612002771503974,
+      "mean_return": -2.2597781512044444,
+      "seed": 53,
+      "training_deliveries": 28,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_5_samples",
+      "contact_delay_samples": 5,
+      "gradient_steps": 507,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 6.106665166291667,
+      "mean_episode_td_loss": 8.67430403578073,
+      "mean_return": -0.7862227956988888,
+      "seed": 71,
+      "training_deliveries": 43,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_10_samples",
+      "contact_delay_samples": 10,
+      "gradient_steps": 175,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 15.326896953935977,
+      "mean_return": -5.074666666666666,
+      "seed": 11,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_10_samples",
+      "contact_delay_samples": 10,
+      "gradient_steps": 185,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.0,
+      "mean_episode_td_loss": 14.292903990769268,
+      "mean_return": -5.088,
+      "seed": 23,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_10_samples",
+      "contact_delay_samples": 10,
+      "gradient_steps": 197,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.02,
+      "mean_episode_td_loss": 13.27069914643999,
+      "mean_return": -5.104,
+      "seed": 37,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_10_samples",
+      "contact_delay_samples": 10,
+      "gradient_steps": 179,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 14.631373473067782,
+      "mean_return": -5.08,
+      "seed": 53,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_10_samples",
+      "contact_delay_samples": 10,
+      "gradient_steps": 192,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 13.623671605432634,
+      "mean_return": -5.097333333333333,
+      "seed": 71,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_10_samples",
+      "contact_delay_samples": 10,
+      "gradient_steps": 457,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -2.7836366637113636,
+      "mean_episode_td_loss": 9.941564534697106,
+      "mean_return": -4.040969830336364,
+      "seed": 11,
+      "training_deliveries": 10,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_10_samples",
+      "contact_delay_samples": 10,
+      "gradient_steps": 628,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 4.611816881493182,
+      "mean_episode_td_loss": 8.62356524049038,
+      "mean_return": -2.761697276440303,
+      "seed": 23,
+      "training_deliveries": 23,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_10_samples",
+      "contact_delay_samples": 10,
+      "gradient_steps": 624,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 4.611816881493182,
+      "mean_episode_td_loss": 8.213727390972814,
+      "mean_return": -3.0612123879454547,
+      "seed": 37,
+      "training_deliveries": 20,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_10_samples",
+      "contact_delay_samples": 10,
+      "gradient_steps": 567,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 2.387271727022727,
+      "mean_episode_td_loss": 9.698351797470945,
+      "mean_return": -2.854303323709697,
+      "seed": 53,
+      "training_deliveries": 22,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_10_samples",
+      "contact_delay_samples": 10,
+      "gradient_steps": 614,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 0.8772719270727273,
+      "mean_episode_td_loss": 8.617208031360269,
+      "mean_return": -3.4600002133866665,
+      "seed": 71,
+      "training_deliveries": 16,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_20_samples",
+      "contact_delay_samples": 20,
+      "gradient_steps": 175,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 15.326877699957954,
+      "mean_return": -5.074666666666666,
+      "seed": 11,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_20_samples",
+      "contact_delay_samples": 20,
+      "gradient_steps": 185,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.0,
+      "mean_episode_td_loss": 14.292884648854459,
+      "mean_return": -5.088,
+      "seed": 23,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_20_samples",
+      "contact_delay_samples": 20,
+      "gradient_steps": 200,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.02,
+      "mean_episode_td_loss": 12.925167341799963,
+      "mean_return": -5.108,
+      "seed": 37,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_20_samples",
+      "contact_delay_samples": 20,
+      "gradient_steps": 179,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 14.631364771619959,
+      "mean_return": -5.08,
+      "seed": 53,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_20_samples",
+      "contact_delay_samples": 20,
+      "gradient_steps": 192,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 13.623667911945773,
+      "mean_return": -5.097333333333333,
+      "seed": 71,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_20_samples",
+      "contact_delay_samples": 20,
+      "gradient_steps": 721,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": -1.3495243096488094,
+      "mean_episode_td_loss": 8.712291824340912,
+      "mean_return": -4.438222302242222,
+      "seed": 11,
+      "training_deliveries": 6,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_20_samples",
+      "contact_delay_samples": 20,
+      "gradient_steps": 687,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": -0.5928577430071427,
+      "mean_episode_td_loss": 8.441328567200841,
+      "mean_return": -4.336063585420159,
+      "seed": 23,
+      "training_deliveries": 7,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_20_samples",
+      "contact_delay_samples": 20,
+      "gradient_steps": 841,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 1.610951480727381,
+      "mean_episode_td_loss": 7.568642357748314,
+      "mean_return": -4.045841403207937,
+      "seed": 37,
+      "training_deliveries": 10,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_20_samples",
+      "contact_delay_samples": 20,
+      "gradient_steps": 705,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": -0.6066672668166664,
+      "mean_episode_td_loss": 9.155238997418122,
+      "mean_return": -4.237206455899682,
+      "seed": 53,
+      "training_deliveries": 8,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_20_samples",
+      "contact_delay_samples": 20,
+      "gradient_steps": 744,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": 1.6299990997750002,
+      "mean_episode_td_loss": 8.279364698725885,
+      "mean_return": -4.039682673049207,
+      "seed": 71,
+      "training_deliveries": 10,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_30_samples",
+      "contact_delay_samples": 30,
+      "gradient_steps": 175,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 15.32688931359185,
+      "mean_return": -5.074666666666666,
+      "seed": 11,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_30_samples",
+      "contact_delay_samples": 30,
+      "gradient_steps": 185,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.0,
+      "mean_episode_td_loss": 14.29288412231711,
+      "mean_return": -5.088,
+      "seed": 23,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_30_samples",
+      "contact_delay_samples": 30,
+      "gradient_steps": 200,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.02,
+      "mean_episode_td_loss": 12.925162047545115,
+      "mean_return": -5.108,
+      "seed": 37,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_30_samples",
+      "contact_delay_samples": 30,
+      "gradient_steps": 179,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 14.631362731302556,
+      "mean_return": -5.08,
+      "seed": 53,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_30_samples",
+      "contact_delay_samples": 30,
+      "gradient_steps": 192,
+      "greedy_rollout": {
+        "actions": [
+          "DROP"
+        ],
+        "delivered": false,
+        "loss_cause": "voluntary_drop",
+        "route": [
+          "sat:source"
+        ]
+      },
+      "last_20_return": -5.01,
+      "mean_episode_td_loss": 13.623667033742086,
+      "mean_return": -5.097333333333333,
+      "seed": 71,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": false
+    },
+    {
+      "case": "wait_30_samples",
+      "contact_delay_samples": 30,
+      "gradient_steps": 906,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": -0.6261296324080645,
+      "mean_episode_td_loss": 8.598608841143049,
+      "mean_return": -4.433849542385591,
+      "seed": 11,
+      "training_deliveries": 6,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_30_samples",
+      "contact_delay_samples": 30,
+      "gradient_steps": 789,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": -2.0906455613903225,
+      "mean_episode_td_loss": 8.363532616484044,
+      "mean_return": -4.528817270984408,
+      "seed": 23,
+      "training_deliveries": 5,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_30_samples",
+      "contact_delay_samples": 30,
+      "gradient_steps": 798,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": -2.8280648162040323,
+      "mean_episode_td_loss": 7.5552623480949705,
+      "mean_return": -4.629204354421936,
+      "seed": 37,
+      "training_deliveries": 4,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_30_samples",
+      "contact_delay_samples": 30,
+      "gradient_steps": 787,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": -2.8374196549137096,
+      "mean_episode_td_loss": 8.943405092483095,
+      "mean_return": -4.728731222805699,
+      "seed": 53,
+      "training_deliveries": 3,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    },
+    {
+      "case": "wait_30_samples",
+      "contact_delay_samples": 30,
+      "gradient_steps": 700,
+      "greedy_rollout": {
+        "actions": [
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "WAIT",
+          "gs:destination"
+        ],
+        "delivered": true,
+        "loss_cause": null,
+        "route": [
+          "sat:source",
+          "gs:destination"
+        ]
+      },
+      "last_20_return": -5.062258064516129,
+      "mean_episode_td_loss": 8.314774737542272,
+      "mean_return": -5.024989247311828,
+      "seed": 71,
+      "training_deliveries": 0,
+      "training_episodes": 150,
+      "wait_normalized_by_trace_horizon": true
+    }
+  ]
+}

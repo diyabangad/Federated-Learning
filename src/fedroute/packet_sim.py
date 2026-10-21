@@ -59,6 +59,8 @@ class PacketSimulationConfig:
     max_hops: int = 32
     processing_delay_seconds: float = 0.0
     processing_energy_j_per_hop: float = 0.0
+    dqn_wait_action_enabled: bool = False
+    cycle_avoidance_penalty: float = 0.0
 
     def __post_init__(self) -> None:
         if not isfinite(self.horizon_seconds) or self.horizon_seconds <= 0.0:
@@ -69,6 +71,11 @@ class PacketSimulationConfig:
             raise ValueError("processing_delay_seconds must be finite and non-negative")
         if not isfinite(self.processing_energy_j_per_hop) or self.processing_energy_j_per_hop < 0.0:
             raise ValueError("processing_energy_j_per_hop must be finite and non-negative")
+        if (
+            not isfinite(self.cycle_avoidance_penalty)
+            or not 0.0 <= self.cycle_avoidance_penalty <= 2.0
+        ):
+            raise ValueError("cycle_avoidance_penalty must be finite and between 0 and 2")
 
 
 @dataclass
@@ -131,6 +138,7 @@ class PacketSimulator:
         config: PacketSimulationConfig,
         *,
         dqn_policy: DQNPolicy | None = None,
+        record_dqn_decisions: bool = False,
     ):
         if not trace.graphs or len(trace.graphs) != len(trace.times_utc):
             raise ValueError("Trace must contain one graph per sample time")
@@ -140,6 +148,7 @@ class PacketSimulator:
         self.energy_config = energy_config
         self.config = config
         self.dqn_policy = dqn_policy
+        self.record_dqn_decisions = record_dqn_decisions
         self.start_time = trace.times_utc[0]
         self.sample_offsets = tuple((time - self.start_time).total_seconds() for time in trace.times_utc)
         self.satellite_nodes = tuple(
@@ -210,8 +219,10 @@ class PacketSimulator:
         self.event_queue: list[tuple[float, int, str, str, object]] = []
         self.packets: dict[str, Packet] = {}
         self.event_log: list[dict] = []
+        self.dqn_decision_trace: list[dict] = []
         self.contact_plan_cache = {}
         self.contact_graph_cache = {}
+        self.dqn_future_route_cache = {}
 
     @staticmethod
     def _push(event_queue, event_time, order, event_type, packet_id, payload=None) -> None:
@@ -305,7 +316,7 @@ class PacketSimulator:
                 return None, None
             return next_node, None
         if policy == "dqn":
-            return self._select_dqn_next_hop(packet, graph), None
+            return self._select_dqn_next_hop(packet, graph, time_seconds)
         if policy == "hops":
             path = shortest_path_route(graph, current, packet.destination, metric="hops")
         elif policy == "delay":
@@ -337,22 +348,63 @@ class PacketSimulator:
             return None, None
         return path[1], None
 
-    def _select_dqn_next_hop(self, packet: Packet, graph: nx.Graph) -> str | None:
+    def _dqn_future_route(self, packet: Packet, next_index: int):
+        next_time = self.sample_offsets[next_index]
+        packet_age = next_time - (packet.generation_time - self.start_time).total_seconds()
+        if packet.deadline_seconds is not None and packet_age > packet.deadline_seconds:
+            return None
+        key = (packet.current_satellite, packet.destination, next_index, packet.packet_size_bits)
+        if key not in self.dqn_future_route_cache:
+            self.dqn_future_route_cache[key] = contact_graph_route(
+                self.trace,
+                packet.current_satellite,
+                packet.destination,
+                start_index=next_index,
+                transmission_rate_bps=self.energy_config.transmission_rate_bps,
+                packet_bits=packet.packet_size_bits,
+                _graph_cache=self.contact_graph_cache,
+                _route_cache=self.contact_plan_cache,
+            )
+        route = self.dqn_future_route_cache[key]
+        if (
+            route is not None
+            and packet.deadline_seconds is not None
+            and packet_age + route.elapsed_seconds > packet.deadline_seconds
+        ):
+            return None
+        return route
+
+    def _select_dqn_next_hop(
+        self,
+        packet: Packet,
+        graph: nx.Graph,
+        time_seconds: float,
+    ) -> tuple[str | None, float | None]:
         candidates = sorted(
             neighbor
             for neighbor in graph.neighbors(packet.current_satellite)
             if neighbor in graph
+        )[: self.energy_config.max_neighbors]
+        graph_index = self._sample_index(time_seconds)
+        next_index = graph_index + 1
+        next_sample_time = (
+            self.sample_offsets[next_index]
+            if next_index < len(self.sample_offsets)
+            else None
         )
-        if not candidates:
-            return None
+        future_route = (
+            self._dqn_future_route(packet, next_index)
+            if self.config.dqn_wait_action_enabled
+            and next_sample_time is not None
+            and next_sample_time <= self.config.horizon_seconds
+            else None
+        )
+        wait_enabled = future_route is not None
         max_range_km = max(
             (float(edge.get("range_km", 0.0)) for _, _, edge in graph.edges(data=True)),
             default=1.0,
         )
-        sample_index = self._sample_index(
-            (packet.generation_time - self.start_time).total_seconds()
-            + packet.accumulated_delay_seconds
-        )
+        sample_index = graph_index
         interval = (
             self.sample_offsets[sample_index + 1] - self.sample_offsets[sample_index]
             if sample_index + 1 < len(self.sample_offsets)
@@ -361,7 +413,7 @@ class PacketSimulator:
             else 1.0
         )
         local_energy = self.energies[packet.current_satellite] / self.energy_config.energy_capacity_j
-        candidate_features = []
+        candidate_features: list[list[float]] = []
         for neighbor in candidates:
             edge = graph[packet.current_satellite][neighbor]
             distance_km = float(edge.get("range_km", 0.0))
@@ -394,17 +446,138 @@ class PacketSimulator:
                     float(np.clip(hops_to_destination / self.config.max_hops, 0.0, 1.0)),
                     float(graph.nodes[neighbor].get("kind") == "ground_station"),
                     destination_reachable,
+                    *(
+                        [float(neighbor in packet.route)]
+                        if self.energy_config.include_path_history
+                        else []
+                    ),
                 ]
             )
+
+        if self.config.dqn_wait_action_enabled:
+            feature_count = 9 + int(self.energy_config.include_path_history)
+            padded_candidate_features = candidate_features + [
+                [0.0] * feature_count
+                for _ in range(self.energy_config.max_neighbors - len(candidates))
+            ]
+            wait_features = [0.0] * feature_count
+            if wait_enabled:
+                local_energy = self.energies[packet.current_satellite] / self.energy_config.energy_capacity_j
+                wait_features = [
+                    local_energy,
+                    0.0,
+                    local_energy,
+                    0.0,
+                    float(np.clip((next_sample_time - time_seconds) / max(interval, 1e-9), 0.0, 1.0)),
+                    float(
+                        np.clip(
+                            future_route.waiting_seconds
+                            / max(self.config.horizon_seconds, 1.0),
+                            0.0,
+                            1.0,
+                        )
+                    ),
+                    float(np.clip(future_route.hop_count / self.config.max_hops, 0.0, 1.0)),
+                    0.0,
+                    1.0,
+                ]
+                if self.energy_config.include_path_history:
+                    wait_features.append(0.0)
+            candidate_features = padded_candidate_features + [wait_features]
+        else:
+            feature_count = 9 + int(self.energy_config.include_path_history)
+            candidate_features += [
+                [0.0] * feature_count
+                for _ in range(self.energy_config.max_neighbors - len(candidates))
+            ]
+
+        action_mask = np.zeros(len(candidate_features) + 1, dtype=np.int8)
+        action_mask[: len(candidates)] = 1
+        wait_action_index = self.energy_config.max_neighbors if self.config.dqn_wait_action_enabled else None
+        if wait_enabled and wait_action_index is not None:
+            action_mask[wait_action_index] = 1
+        action_mask[-1] = 1
 
         policy = self.dqn_policy
         policy.eval()
         with torch.no_grad():
             action_values = policy(np.asarray(candidate_features, dtype=np.float32))
-        if action_values.shape != (len(candidates) + 1,):
-            raise ValueError("DQN output must contain one Q-value per candidate and one DROP value")
-        action = int(torch.argmax(action_values).item())
-        return "policy_drop" if action == len(candidates) else candidates[action]
+        if action_values.shape != (len(candidate_features) + 1,):
+            raise ValueError("DQN output must contain one Q-value per action row and one DROP value")
+        masked_action_values = action_values.clone()
+        masked_action_values[
+            torch.as_tensor(action_mask == 0, device=masked_action_values.device)
+        ] = -torch.inf
+        selection_action_values = action_values.clone()
+        if self.config.cycle_avoidance_penalty:
+            for action_index, neighbor in enumerate(candidates):
+                if neighbor in packet.route:
+                    selection_action_values[action_index] -= (
+                        self.config.cycle_avoidance_penalty
+                    )
+        selection_action_values[
+            torch.as_tensor(action_mask == 0, device=selection_action_values.device)
+        ] = -torch.inf
+        action = int(torch.argmax(selection_action_values).item())
+        if action == len(action_mask) - 1:
+            selected: str | None = "policy_drop"
+            action_name = "DROP"
+        elif wait_action_index is not None and action == wait_action_index:
+            selected = "wait"
+            action_name = "WAIT"
+        else:
+            selected = candidates[action]
+            action_name = selected
+
+        if self.record_dqn_decisions:
+            self.dqn_decision_trace.append(
+                {
+                    "packet_id": packet.packet_id,
+                    "decision_index": sum(
+                        decision["packet_id"] == packet.packet_id
+                        for decision in self.dqn_decision_trace
+                    ),
+                    "time_seconds": time_seconds,
+                    "time_utc": self._timestamp(time_seconds).isoformat(),
+                    "graph_index": graph_index,
+                    "current_satellite": packet.current_satellite,
+                    "destination": packet.destination,
+                    "packet_age_seconds": packet.accumulated_delay_seconds,
+                    "hop_count": packet.hop_count,
+                    "deadline_seconds": packet.deadline_seconds,
+                    "candidate_next_hops": candidates,
+                    "candidate_features": candidate_features,
+                    "action_mask": action_mask.tolist(),
+                    "q_values": action_values.detach().cpu().tolist(),
+                    "masked_q_values": [
+                        float(masked_action_values[index].item())
+                        if action_mask[index]
+                        else None
+                        for index in range(len(action_mask))
+                    ],
+                    "selection_q_values": [
+                        float(selection_action_values[index].item())
+                        if action_mask[index]
+                        else None
+                        for index in range(len(action_mask))
+                    ],
+                    "selected_action_index": action,
+                    "selected_action": action_name,
+                    "epsilon": None,
+                    "reward": None,
+                    "reward_components": None,
+                    "next_state": None,
+                    "future_route_available": wait_enabled,
+                    "future_route_states": (
+                        [list(state) for state in future_route.states]
+                        if future_route is not None
+                        else None
+                    ),
+                }
+            )
+        if selected == "wait":
+            return selected, next_sample_time
+        return selected, None
 
     def _route(self, packet_id, time_seconds, policy, sequence) -> None:
         packet = self.packets[packet_id]

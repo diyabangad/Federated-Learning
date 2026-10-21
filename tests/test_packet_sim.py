@@ -10,7 +10,7 @@ from fedroute.routing import RoutingEnvConfig
 from fedroute.topology import TopologyTrace
 
 
-def _energy_config(packet_bits=100, capacity_j=10.0):
+def _energy_config(packet_bits=100, capacity_j=10.0, include_path_history=False):
     return RoutingEnvConfig(
         energy_capacity_j=capacity_j,
         tx_electronics_j_per_bit=0.01,
@@ -19,6 +19,7 @@ def _energy_config(packet_bits=100, capacity_j=10.0):
         transmission_rate_bps=1000.0,
         packet_bits=packet_bits,
         max_neighbors=4,
+        include_path_history=include_path_history,
     )
 
 
@@ -110,6 +111,89 @@ def test_packet_waits_for_future_contact_before_transmitting():
     assert packet.accumulated_delay_seconds == pytest.approx(1.1)
     events = [event["event"] for event in result.event_log]
     assert events.index("packet_waiting") < events.index("transmission_started")
+
+
+def test_cycle_avoidance_penalty_does_not_hard_mask_necessary_revisit():
+    class FixedCandidatePolicy(torch.nn.Module):
+        def forward(self, candidates):
+            values = torch.ones(candidates.shape[0] + 1, dtype=torch.float32)
+            values[-1] = 0.0
+            return values
+
+    graphs = []
+    for index in range(5):
+        graph = nx.Graph()
+        graph.add_nodes_from(
+            (
+                ("sat:a", {"kind": "satellite"}),
+                ("sat:b", {"kind": "satellite"}),
+                ("gs:g", {"kind": "ground_station"}),
+            )
+        )
+        if index < 2:
+            graph.add_edge(
+                "sat:a",
+                "sat:b",
+                range_km=299_792.458,
+                remaining_contact_s=10.0,
+            )
+        if index == 2:
+            graph.add_edge(
+                "sat:a",
+                "gs:g",
+                range_km=299_792.458,
+                remaining_contact_s=10.0,
+            )
+        graphs.append(graph)
+    trace = _trace(graphs)
+    simulator = PacketSimulator(
+        trace,
+        _energy_config(packet_bits=100, capacity_j=100.0),
+        PacketSimulationConfig(
+            horizon_seconds=4.0,
+            max_hops=6,
+            cycle_avoidance_penalty=0.5,
+        ),
+        dqn_policy=FixedCandidatePolicy(),
+        record_dqn_decisions=True,
+    )
+
+    result = simulator.run(
+        (PacketFlow("sat:a", "gs:g", (0.0,), 100, deadline_seconds=10.0),),
+        "dqn",
+    )
+
+    packet = result.packets[0]
+    assert packet.status == "delivered"
+    assert packet.route == ["sat:a", "sat:b", "sat:a", "gs:g"]
+    revisit_decision = simulator.dqn_decision_trace[1]
+    assert revisit_decision["candidate_next_hops"] == ["sat:a"]
+    assert revisit_decision["action_mask"][0] == 1
+    assert revisit_decision["selection_q_values"][0] == pytest.approx(0.5)
+
+
+def test_dqn_packet_policy_handles_a_dead_end_with_padded_candidate_rows():
+    graphs = []
+    for _ in range(2):
+        graph = nx.Graph()
+        graph.add_node("sat:a", kind="satellite")
+        graph.add_node("gs:g", kind="ground_station")
+        graphs.append(graph)
+    simulator = PacketSimulator(
+        _trace(graphs),
+        _energy_config(include_path_history=True),
+        PacketSimulationConfig(horizon_seconds=1.0, max_hops=4),
+        dqn_policy=DQNPolicy(input_dim=10, hidden_dim=8),
+        record_dqn_decisions=True,
+    )
+
+    result = simulator.run((PacketFlow("sat:a", "gs:g", (0.0,), 100),), "dqn")
+
+    assert result.dropped_by_reason == (("policy_drop", 1),)
+    decision = simulator.dqn_decision_trace[0]
+    assert len(decision["candidate_features"]) == 4
+    assert decision["action_mask"] == [0, 0, 0, 0, 1]
+    assert decision["selected_action"] == "DROP"
 
 
 def test_packet_drops_when_contact_expires_before_transmission_completes():
@@ -296,3 +380,89 @@ def test_packet_simulator_requires_dqn_policy_and_uses_candidate_scores():
 
     assert result.delivered_packets == 1
     assert result.packets[0].route == ["sat:a", "gs:g"]
+
+
+def test_dqn_waits_for_known_future_contact_without_double_charging_energy():
+    graphs = []
+    graph0 = nx.Graph()
+    graph0.add_node("sat:a", kind="satellite")
+    graph0.add_node("sat:b", kind="satellite")
+    graph0.add_node("gs:g", kind="ground_station")
+    graph0.add_edge("sat:a", "sat:b", range_km=0.0, remaining_contact_s=1.0)
+    graphs.append(graph0)
+    graph1 = nx.Graph()
+    graph1.add_node("sat:a", kind="satellite")
+    graph1.add_node("sat:b", kind="satellite")
+    graph1.add_node("gs:g", kind="ground_station")
+    graph1.add_edge("sat:a", "gs:g", range_km=0.0, remaining_contact_s=1.0)
+    graphs.extend((graph1, graph1.copy()))
+    policy = DQNPolicy(input_dim=9, hidden_dim=4)
+    with torch.no_grad():
+        for parameter in policy.parameters():
+            parameter.zero_()
+        first, _, second, _, output = policy.candidate_scorer
+        first.weight[0, 8] = 1.0
+        second.weight[0, 0] = 1.0
+        output.weight[0, 0] = 1.0
+        policy.drop_action_value.fill_(-1.0)
+    simulator = PacketSimulator(
+        _trace(graphs),
+        _energy_config(),
+        PacketSimulationConfig(2.0, dqn_wait_action_enabled=True),
+        dqn_policy=policy,
+        record_dqn_decisions=True,
+    )
+
+    result = simulator.run(
+        (PacketFlow("sat:a", "gs:g", (0.0,), 100),),
+        "dqn",
+    )
+
+    packet = result.packets[0]
+    assert packet.status == "delivered"
+    assert packet.route == ["sat:a", "gs:g"]
+    assert packet.waiting_delay_seconds == pytest.approx(1.0)
+    assert packet.hop_count == 1
+    assert dict(result.communication_energy_by_satellite_j) == {
+        "sat:a": pytest.approx(1.0),
+        "sat:b": pytest.approx(0.0),
+    }
+    assert [decision["selected_action"] for decision in simulator.dqn_decision_trace] == [
+        "WAIT",
+        "gs:g",
+    ]
+    assert simulator.dqn_decision_trace[0]["action_mask"] == [1, 0, 0, 0, 1, 1]
+    assert simulator.dqn_decision_trace[0]["future_route_available"]
+
+
+def test_dqn_wait_is_masked_when_future_route_misses_packet_deadline():
+    graph0 = nx.Graph()
+    graph0.add_node("sat:a", kind="satellite")
+    graph0.add_node("gs:g", kind="ground_station")
+    graph1 = nx.Graph()
+    graph1.add_node("sat:a", kind="satellite")
+    graph1.add_node("gs:g", kind="ground_station")
+    graph1.add_edge("sat:a", "gs:g", range_km=0.0, remaining_contact_s=1.0)
+    trace = _trace([graph0, graph1, graph1.copy()])
+    policy = DQNPolicy(input_dim=9, hidden_dim=4)
+    with torch.no_grad():
+        for parameter in policy.parameters():
+            parameter.zero_()
+        policy.drop_action_value.fill_(1.0)
+    simulator = PacketSimulator(
+        trace,
+        _energy_config(),
+        PacketSimulationConfig(2.0, dqn_wait_action_enabled=True),
+        dqn_policy=policy,
+        record_dqn_decisions=True,
+    )
+
+    result = simulator.run(
+        (PacketFlow("sat:a", "gs:g", (0.0,), 100, deadline_seconds=0.5),),
+        "dqn",
+    )
+
+    assert result.dropped_packets == 1
+    assert result.packets[0].drop_reason == "policy_drop"
+    assert simulator.dqn_decision_trace[0]["action_mask"] == [0, 0, 0, 0, 0, 1]
+    assert not simulator.dqn_decision_trace[0]["future_route_available"]

@@ -1,0 +1,6 @@
+algorithm,training_seed,checkpoint,generated_packets,delivered_packets,dropped_packets,packet_delivery_ratio,average_end_to_end_delay_seconds,average_propagation_delay_seconds,average_transmission_delay_seconds,average_processing_delay_seconds,average_waiting_delay_seconds,average_hop_count,total_communication_energy_j,total_compute_energy_j,mean_training_return,last_20_episode_return,dropped_by_reason_json,evaluation_repeat_deterministic
+dqn,11,results/phase4-dqn/dqn_seed_11.pt,20,0,20,0.0,,,,,,,0.6789248498357771,0.0,-5.157372991892217,-4.341136419090761,"{""hop_limit"": 1, ""policy_drop"": 19}",True
+dqn,23,results/phase4-dqn/dqn_seed_23.pt,20,0,20,0.0,,,,,,,13.300885042200203,0.0,-4.652321502430739,-3.28613714176706,"{""hop_limit"": 16, ""policy_drop"": 4}",True
+dqn,37,results/phase4-dqn/dqn_seed_37.pt,20,0,20,0.0,,,,,,,0.0,0.0,-5.138382498735375,-5.077216503765401,"{""policy_drop"": 20}",True
+dqn,53,results/phase4-dqn/dqn_seed_53.pt,20,0,20,0.0,,,,,,,0.0,0.0,-5.125047042662671,-5.00741259872626,"{""policy_drop"": 20}",True
+dqn,71,results/phase4-dqn/dqn_seed_71.pt,20,0,20,0.0,,,,,,,0.0,0.0,-5.135029651671417,-5.031604828928052,"{""policy_drop"": 20}",True

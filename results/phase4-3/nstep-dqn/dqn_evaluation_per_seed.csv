@@ -1,0 +1,6 @@
+algorithm,training_seed,checkpoint,generated_packets,delivered_packets,dropped_packets,packet_delivery_ratio,average_end_to_end_delay_seconds,average_propagation_delay_seconds,average_transmission_delay_seconds,average_processing_delay_seconds,average_waiting_delay_seconds,average_hop_count,total_communication_energy_j,total_compute_energy_j,mean_training_return,last_20_episode_return,dropped_by_reason_json,evaluation_repeat_deterministic
+dqn,11,/workspaces/Federated-Learning/results/phase4-3/nstep-dqn/dqn_seed_11.pt,20,0,20,0.0,,,,,,,0.0,0.0,-5.108539882440736,-5.007810036359481,"{""policy_drop"": 20}",True
+dqn,23,/workspaces/Federated-Learning/results/phase4-3/nstep-dqn/dqn_seed_23.pt,20,0,20,0.0,,,,,,,0.0,0.0,-5.120677754741578,-5.0000333333333336,"{""policy_drop"": 20}",True
+dqn,37,/workspaces/Federated-Learning/results/phase4-3/nstep-dqn/dqn_seed_37.pt,20,0,20,0.0,,,,,,,0.0,0.0,-5.097697231524569,-5.007850696698178,"{""policy_drop"": 20}",True
+dqn,53,/workspaces/Federated-Learning/results/phase4-3/nstep-dqn/dqn_seed_53.pt,20,0,20,0.0,,,,,,,0.0,0.0,-5.083216679653996,-5.000016666666666,"{""policy_drop"": 20}",True
+dqn,71,/workspaces/Federated-Learning/results/phase4-3/nstep-dqn/dqn_seed_71.pt,20,0,20,0.0,,,,,,,0.0,0.0,-5.107481591366763,-5.006475044405752,"{""policy_drop"": 20}",True

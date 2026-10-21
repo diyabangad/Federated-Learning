@@ -1,0 +1,6 @@
+algorithm,training_seed,generated_packets,delivered_packets,dropped_packets,packet_delivery_ratio,average_end_to_end_delay_seconds,average_waiting_delay_seconds,average_hop_count,total_communication_energy_j,dropped_by_reason_json,evaluation_repeat_deterministic
+dqn_no_wait_ablation,11,20,0,20,0.0,,,,0.0,"{""policy_drop"": 20}",True
+dqn_no_wait_ablation,23,20,0,20,0.0,,,,0.0,"{""policy_drop"": 20}",True
+dqn_no_wait_ablation,37,20,0,20,0.0,,,,1.60535104289443,"{""hop_limit"": 3, ""policy_drop"": 17}",True
+dqn_no_wait_ablation,53,20,0,20,0.0,,,,0.0,"{""policy_drop"": 20}",True
+dqn_no_wait_ablation,71,20,0,20,0.0,,,,0.0,"{""policy_drop"": 20}",True

@@ -10,6 +10,7 @@ import networkx as nx
 import numpy as np
 from gymnasium import spaces
 
+from fedroute.baselines import contact_graph_route
 from fedroute.fuzzy import FuzzyClusterSelector, select_cluster_heads
 from fedroute.topology import TopologyTrace
 
@@ -28,6 +29,9 @@ class RoutingEnvConfig:
     drop_penalty: float = 5.0
     energy_penalty: float = 0.5
     delay_penalty: float = 0.2
+    wait_action_enabled: bool = False
+    normalize_wait_penalty_by_horizon: bool = False
+    include_path_history: bool = False
 
     def __post_init__(self) -> None:
         for value in (
@@ -69,6 +73,9 @@ class SatelliteRoutingEnv(gym.Env):
         super().__init__()
         self.trace = trace
         self.config = config
+        self._contact_graph_cache = {}
+        self._contact_route_cache = {}
+        self._future_route_cache: dict[tuple[str, str, int], bool] = {}
         self.cluster_aware = cluster_aware
         self.cluster_assignments = tuple(
             select_cluster_heads(graph, cluster_selector)
@@ -95,11 +102,13 @@ class SatelliteRoutingEnv(gym.Env):
         if not self.ground_station_nodes:
             raise ValueError("Routing environment requires at least one ground station node")
 
-        self.action_space = spaces.Discrete(config.max_neighbors + 1)
+        self.wait_action_index = config.max_neighbors if config.wait_action_enabled else None
+        self.drop_action_index = config.max_neighbors + int(config.wait_action_enabled)
+        self.action_space = spaces.Discrete(self.drop_action_index + 1)
         self.observation_space = spaces.Box(
             low=0.0,
             high=1.0,
-            shape=(config.max_neighbors, 9),
+            shape=(config.max_neighbors + int(config.wait_action_enabled), 9),
             dtype=np.float32,
         )
 
@@ -108,6 +117,7 @@ class SatelliteRoutingEnv(gym.Env):
         self.current_node = self.source_node
         self.current_graph_index = 0
         self.hop_count = 0
+        self._visited_nodes: set[str] = set()
         self.initial_energy_j = {
             node: config.energy_capacity_j for node in self.satellite_nodes
         }
@@ -134,6 +144,7 @@ class SatelliteRoutingEnv(gym.Env):
         self.destination_node = destination
         self.current_graph_index = graph_index
         self.hop_count = 0
+        self._visited_nodes = {source}
         self.communication_energy_j = {node: 0.0 for node in self.satellite_nodes}
         self.compute_energy_j = {node: 0.0 for node in self.satellite_nodes}
         obs = self._observation()
@@ -147,7 +158,7 @@ class SatelliteRoutingEnv(gym.Env):
         if self._action_mask[action] == 0:
             raise ValueError(f"Action {action} is not feasible in the current state")
 
-        if action == self.config.max_neighbors:
+        if action == self.drop_action_index:
             reward = -self.config.drop_penalty
             terminated = True
             truncated = False
@@ -156,8 +167,30 @@ class SatelliteRoutingEnv(gym.Env):
                 if np.any(self._action_mask[:-1])
                 else "no_feasible_next_hop"
             )
-            info = self._info(loss_cause=loss_cause)
+            info = self._info(
+                loss_cause=loss_cause,
+                reward_components={"drop": -self.config.drop_penalty},
+            )
             return self._empty_observation(), reward, terminated, truncated, info
+
+        if action == self.wait_action_index:
+            wait_seconds = self._time_step_seconds()
+            if self.config.normalize_wait_penalty_by_horizon:
+                trace_duration = (
+                    self.trace.times_utc[-1] - self.trace.times_utc[0]
+                ).total_seconds()
+                normalization_seconds = max(trace_duration, wait_seconds, 1.0)
+            else:
+                normalization_seconds = max(self._time_step_seconds(), 1.0)
+            reward = -self.config.delay_penalty * (
+                wait_seconds / normalization_seconds
+            )
+            self.current_graph_index += 1
+            observation = self._observation()
+            info = self._info(
+                reward_components={"wait_delay": reward},
+            )
+            return observation, reward, False, False, info
 
         next_node = self._candidate_nodes[action]
         graph = self.trace.graphs[self.current_graph_index]
@@ -172,7 +205,10 @@ class SatelliteRoutingEnv(gym.Env):
         if self.energies[self.current_node] < transmission_cost:
             terminated = True
             reward = -self.config.drop_penalty
-            info = self._info(loss_cause="energy_depletion")
+            info = self._info(
+                loss_cause="energy_depletion",
+                reward_components={"energy_depletion": -self.config.drop_penalty},
+            )
             return self._empty_observation(), reward, terminated, False, info
         if (
             next_node in self.satellite_nodes
@@ -180,7 +216,10 @@ class SatelliteRoutingEnv(gym.Env):
         ):
             terminated = True
             reward = -self.config.drop_penalty
-            info = self._info(loss_cause="receiver_energy_depletion")
+            info = self._info(
+                loss_cause="receiver_energy_depletion",
+                reward_components={"receiver_energy_depletion": -self.config.drop_penalty},
+            )
             return self._empty_observation(), reward, terminated, False, info
 
         self.communication_energy_j[self.current_node] += transmission_cost
@@ -190,27 +229,37 @@ class SatelliteRoutingEnv(gym.Env):
         self.hop_count += 1
         hop_delay = self._hop_delay(distance_km)
         link_quality = self._link_quality(edge)
-        reward = (
-            -self.config.energy_penalty * (transmission_cost / self.config.energy_capacity_j)
-            - self.config.delay_penalty * (hop_delay / max(self._time_step_seconds(), 1.0))
-            - self.config.delay_penalty * (1.0 - link_quality)
-        )
+        reward_components = {
+            "energy": -self.config.energy_penalty * (
+                transmission_cost / self.config.energy_capacity_j
+            ),
+            "delay": -self.config.delay_penalty * (
+                hop_delay / max(self._time_step_seconds(), 1.0)
+            ),
+            "link_quality": -self.config.delay_penalty * (1.0 - link_quality),
+        }
 
         if next_node == self.destination_node:
-            reward += self.config.delivery_reward
+            reward_components["delivery"] = self.config.delivery_reward
+            reward = sum(reward_components.values())
             terminated = True
             truncated = False
-            info = self._info(delivered=True)
+            info = self._info(delivered=True, reward_components=reward_components)
             return self._empty_observation(), reward, terminated, truncated, info
 
         self.current_node = next_node
+        self._visited_nodes.add(next_node)
         self.current_graph_index = min(self.current_graph_index + 1, len(self.trace.graphs) - 1)
-        terminated = False
-        truncated = self.hop_count >= self.config.max_hops
-        if truncated:
-            reward -= self.config.drop_penalty
+        terminated = self.hop_count >= self.config.max_hops
+        truncated = False
+        if terminated:
+            reward_components["hop_limit"] = -self.config.drop_penalty
+        reward = sum(reward_components.values())
         observation = self._observation()
-        info = self._info()
+        info = self._info(
+            loss_cause="hop_limit" if terminated else None,
+            reward_components=reward_components,
+        )
         return observation, reward, terminated, truncated, info
 
     def _observation(self):
@@ -226,7 +275,7 @@ class SatelliteRoutingEnv(gym.Env):
             candidates = candidates[: self.config.max_neighbors]
 
         self._candidate_nodes = [node for node, _ in candidates]
-        self._action_mask = np.zeros(self.config.max_neighbors + 1, dtype=np.int8)
+        self._action_mask = np.zeros(self.action_space.n, dtype=np.int8)
         observation = self._empty_observation()
         for index, (neighbor, edge) in enumerate(candidates):
             self._action_mask[index] = 1
@@ -262,15 +311,76 @@ class SatelliteRoutingEnv(gym.Env):
                     min(hop_count / self.config.max_hops, 1.0),
                     float(neighbor in self.ground_station_nodes),
                     float(destination_reachable),
+                    *(
+                        (float(neighbor in self._visited_nodes),)
+                        if self.config.include_path_history
+                        else ()
+                    ),
                 ],
                 dtype=np.float32,
             )
 
-        self._action_mask[-1] = 1
+        if self.wait_action_index is not None and self._has_future_route():
+            self._action_mask[self.wait_action_index] = 1
+            observation[self.wait_action_index] = self._wait_candidate_features()
+        self._action_mask[self.drop_action_index] = 1
         return observation
 
     def _empty_observation(self):
-        return np.zeros((self.config.max_neighbors, 9), dtype=np.float32)
+        rows = self.config.max_neighbors + int(self.config.wait_action_enabled)
+        feature_count = 9 + int(self.config.include_path_history)
+        return np.zeros((rows, feature_count), dtype=np.float32)
+
+    def _has_future_route(self) -> bool:
+        next_index = self.current_graph_index + 1
+        if next_index >= len(self.trace.graphs):
+            return False
+        key = (self.current_node, self.destination_node, next_index)
+        if key not in self._future_route_cache:
+            self._future_route_cache[key] = contact_graph_route(
+                self.trace,
+                self.current_node,
+                self.destination_node,
+                start_index=next_index,
+                transmission_rate_bps=self.config.transmission_rate_bps,
+                packet_bits=self.config.packet_bits,
+                _graph_cache=self._contact_graph_cache,
+                _route_cache=self._contact_route_cache,
+            ) is not None
+        return self._future_route_cache[key]
+
+    def _wait_candidate_features(self) -> np.ndarray:
+        local_energy = self.energies[self.current_node] / self.config.energy_capacity_j
+        route = contact_graph_route(
+            self.trace,
+            self.current_node,
+            self.destination_node,
+            start_index=self.current_graph_index + 1,
+            transmission_rate_bps=self.config.transmission_rate_bps,
+            packet_bits=self.config.packet_bits,
+            _graph_cache=self._contact_graph_cache,
+            _route_cache=self._contact_route_cache,
+        )
+        future_hops = route.hop_count if route is not None else self.config.max_hops
+        future_wait_seconds = route.waiting_seconds if route is not None else 0.0
+        trace_horizon = max(
+            (self.trace.times_utc[-1] - self.trace.times_utc[0]).total_seconds(),
+            self._time_step_seconds(),
+        )
+        features = [
+                local_energy,
+                0.0,
+                local_energy,
+                0.0,
+                min(1.0, self._time_step_seconds() / max(self._time_step_seconds(), 1.0)),
+                min(future_wait_seconds / trace_horizon, 1.0),
+                min(future_hops / self.config.max_hops, 1.0),
+                0.0,
+                1.0,
+            ]
+        if self.config.include_path_history:
+            features.append(0.0)
+        return np.asarray(features, dtype=np.float32)
 
     @property
     def energies(self) -> dict[str, float]:
@@ -316,7 +426,7 @@ class SatelliteRoutingEnv(gym.Env):
             return 1.0
         return (self.trace.times_utc[1] - self.trace.times_utc[0]).total_seconds()
 
-    def _info(self, *, delivered=False, loss_cause=None):
+    def _info(self, *, delivered=False, loss_cause=None, reward_components=None):
         return {
             "current_node": self.current_node,
             "destination": self.destination_node,
@@ -325,6 +435,10 @@ class SatelliteRoutingEnv(gym.Env):
             "delivered": delivered,
             "loss_cause": loss_cause,
             "action_mask": self._action_mask.copy(),
+            "candidate_nodes": tuple(self._candidate_nodes),
+            "wait_action_index": self.wait_action_index,
+            "drop_action_index": self.drop_action_index,
+            "reward_components": dict(reward_components or {}),
             "initial_energy_j": dict(self.initial_energy_j),
             "communication_energy_j": dict(self.communication_energy_j),
             "compute_energy_j": dict(self.compute_energy_j),
