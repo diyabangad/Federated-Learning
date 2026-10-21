@@ -9,8 +9,11 @@ description = "Energy-aware federated routing research for dynamic LEO satellite
 requires-python = ">=3.11"
 dependencies = [
     "networkx>=3.2",
+    "numpy>=1.26",
     "skyfield>=1.49",
     "sgp4>=2.23",
+    "scikit-fuzzy>=0.4.2",
+    "torch>=2.2",
 ]
 
 [project.optional-dependencies]

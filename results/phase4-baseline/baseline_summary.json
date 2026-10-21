@@ -1,0 +1,173 @@
+{
+  "config_file": "experiments/baseline_config.toml",
+  "config_sha256": "b52ee9b789e247c615bf81fc83805368a954871841bf16323a47719e38a9f86c",
+  "experiment_name": "phase4-fixed-routing-baseline",
+  "flow_definitions": [
+    {
+      "deadline_seconds": 600.0,
+      "destination": "gs:gateway",
+      "generation_times_seconds": [
+        0.0,
+        300.0,
+        600.0,
+        900.0,
+        1200.0,
+        1500.0,
+        1800.0,
+        2100.0,
+        2400.0,
+        2700.0,
+        3000.0,
+        3300.0,
+        3600.0,
+        3900.0,
+        4200.0,
+        4500.0,
+        4800.0,
+        5100.0,
+        5400.0,
+        5700.0
+      ],
+      "packet_size_bits": 4096,
+      "source_satellite": "sat:1"
+    }
+  ],
+  "git_revision": "2479fc42dab09b1ad262384a9149038022529699",
+  "limitations": [
+    "All physical and energy parameters are provisional, not calibrated.",
+    "Traffic is deterministic periodic traffic with one configured flow.",
+    "Satellite communication and compute energy are reported; FL costs are separate.",
+    "Packet simulation uses one half-duplex radio per endpoint and no finite queues or channel loss."
+  ],
+  "package_versions": {
+    "networkx": "3.7",
+    "numpy": "2.5.4",
+    "sgp4": "2.27",
+    "skyfield": "1.55",
+    "torch": "2.14.1+cpu"
+  },
+  "packet_schedule": {
+    "first_generation_seconds": 0.0,
+    "generation_interval_seconds": 300.0
+  },
+  "packet_simulation_config": {
+    "horizon_seconds": 6000,
+    "max_hops": 16,
+    "processing_delay_seconds": 0.0,
+    "processing_energy_j_per_hop": 0.0
+  },
+  "parameter_notes": "Frozen deterministic baseline scenario for policy comparisons; all numerical radio, traffic, and energy values remain provisional and are not hardware-calibrated.",
+  "parameter_status": "provisional",
+  "policy_repeats_deterministic": {
+    "contact": true,
+    "delay": true,
+    "energy": true,
+    "hops": true
+  },
+  "python_version": "3.14.2",
+  "results": [
+    {
+      "algorithm": "hops",
+      "average_end_to_end_delay_seconds": 0.04415142987272702,
+      "average_hop_count": 3.0,
+      "average_processing_delay_seconds": 0.0,
+      "average_propagation_delay_seconds": 0.031863429873802245,
+      "average_transmission_delay_seconds": 0.012288,
+      "average_waiting_delay_seconds": 0.0,
+      "delivered_packets": 1,
+      "dropped_by_reason_json": "{\"no_feasible_route\": 19}",
+      "dropped_packets": 19,
+      "generated_packets": 20,
+      "packet_delivery_ratio": 0.05,
+      "runtime_seconds": 0.005637575999571709,
+      "seed": 123,
+      "total_communication_energy_j": 0.15314700352403426,
+      "total_compute_energy_j": 0.0
+    },
+    {
+      "algorithm": "delay",
+      "average_end_to_end_delay_seconds": 0.04415142987272702,
+      "average_hop_count": 3.0,
+      "average_processing_delay_seconds": 0.0,
+      "average_propagation_delay_seconds": 0.031863429873802245,
+      "average_transmission_delay_seconds": 0.012288,
+      "average_waiting_delay_seconds": 0.0,
+      "delivered_packets": 1,
+      "dropped_by_reason_json": "{\"no_feasible_route\": 19}",
+      "dropped_packets": 19,
+      "generated_packets": 20,
+      "packet_delivery_ratio": 0.05,
+      "runtime_seconds": 0.0028821659998357063,
+      "seed": 123,
+      "total_communication_energy_j": 0.15314700352403426,
+      "total_compute_energy_j": 0.0
+    },
+    {
+      "algorithm": "energy",
+      "average_end_to_end_delay_seconds": 0.04415142987272702,
+      "average_hop_count": 3.0,
+      "average_processing_delay_seconds": 0.0,
+      "average_propagation_delay_seconds": 0.031863429873802245,
+      "average_transmission_delay_seconds": 0.012288,
+      "average_waiting_delay_seconds": 0.0,
+      "delivered_packets": 1,
+      "dropped_by_reason_json": "{\"no_feasible_route\": 19}",
+      "dropped_packets": 19,
+      "generated_packets": 20,
+      "packet_delivery_ratio": 0.05,
+      "runtime_seconds": 0.01247251399945526,
+      "seed": 123,
+      "total_communication_energy_j": 0.15314700352403426,
+      "total_compute_energy_j": 0.0
+    },
+    {
+      "algorithm": "contact",
+      "average_end_to_end_delay_seconds": 176.69969855836584,
+      "average_hop_count": 4.0,
+      "average_processing_delay_seconds": 0.0,
+      "average_propagation_delay_seconds": 0.05009564733654288,
+      "average_transmission_delay_seconds": 0.016384,
+      "average_waiting_delay_seconds": 176.63321891103078,
+      "delivered_packets": 6,
+      "dropped_by_reason_json": "{\"deadline_expired\": 14}",
+      "dropped_packets": 14,
+      "generated_packets": 20,
+      "packet_delivery_ratio": 0.3,
+      "runtime_seconds": 6.110246784999617,
+      "seed": 123,
+      "total_communication_energy_j": 7.241122072268777,
+      "total_compute_energy_j": 0.0
+    }
+  ],
+  "results_csv": "results/phase4-baseline/baseline_runs.csv",
+  "results_csv_sha256": "bb7abc8c38f480eccf7fb44d1c92303daf394c286acec86bd3d13d763d9069a1",
+  "routing_energy_config": {
+    "amplifier_j_per_bit_km2": 1e-12,
+    "delay_penalty": 0.2,
+    "delivery_reward": 10.0,
+    "drop_penalty": 5.0,
+    "energy_capacity_j": 100.0,
+    "energy_penalty": 0.5,
+    "max_hops": 16,
+    "max_neighbors": 8,
+    "packet_bits": 4096,
+    "rx_electronics_j_per_bit": 1e-09,
+    "transmission_rate_bps": 1000000.0,
+    "tx_electronics_j_per_bit": 1e-09
+  },
+  "run_seed": 123,
+  "source_file_sha256": {
+    "experiments/baseline_config.toml": "b52ee9b789e247c615bf81fc83805368a954871841bf16323a47719e38a9f86c",
+    "experiments/run_baselines.py": "afc5bd4f4481b5bfae2d877036ff6a94c5985892420522771fdf6547706543e5",
+    "pyproject.toml": "09048740197b387d2977aab7c413ca212f739a47b149a261459947e6ffc757a7",
+    "src/fedroute/baselines.py": "078a2b2af99258f0012aeee51d2c1977a78bca138fc568e31af8d7567600e2e4",
+    "src/fedroute/config.py": "924471adb011e4b73f77f1adbb2dcdde38b51ebe39c080f27557b5e57c430a66",
+    "src/fedroute/packet_sim.py": "7ad477f8dbb85b9562d6929b726cda8c20f4af26844f25da048b7fe330b1626f",
+    "src/fedroute/routing.py": "b44c03ad8ec8cc0c899c3efc38b7b35ec42e60a5e7682796f4fec9581978000a",
+    "src/fedroute/topology.py": "4ac5a49271534aeecd390b743199126e8263606c50f879ba580fe4c7cc1a09ed"
+  },
+  "topology_build_runtime_seconds": 5.368306615999245,
+  "topology_trace_file": "results/phase4-baseline/baseline_topology.json",
+  "topology_trace_sha256": "f6dfe16a04ccf32ae983531d74f09ced5ea39688963898192401e3fe6e7f987d",
+  "working_tree_dirty": true
+}

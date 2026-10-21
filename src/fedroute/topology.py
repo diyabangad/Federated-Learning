@@ -20,6 +20,10 @@ class ContactWindow:
     node_b: str
     start_utc: datetime
     end_utc: datetime
+    start_censored: bool
+    end_censored: bool
+    start_uncertainty_seconds: float | None
+    end_uncertainty_seconds: float | None
 
     @property
     def duration_seconds(self) -> float:
@@ -54,7 +58,7 @@ def is_line_of_sight(
 def _contact_windows(
     times_utc: tuple[datetime, ...],
     graphs: tuple[nx.Graph, ...],
-    time_step_seconds: int,
+    time_step_seconds: float,
 ) -> tuple[ContactWindow, ...]:
     active_edges = [
         {frozenset(edge) for edge in graph.edges}
@@ -78,6 +82,16 @@ def _contact_windows(
                         start_utc=times_utc[start_index],
                         end_utc=times_utc[index - 1]
                         + timedelta(seconds=time_step_seconds),
+                        start_censored=start_index == 0,
+                        end_censored=index == len(active_edges),
+                        start_uncertainty_seconds=(
+                            None if start_index == 0 else float(time_step_seconds)
+                        ),
+                        end_uncertainty_seconds=(
+                            None
+                            if index == len(active_edges)
+                            else float(time_step_seconds)
+                        ),
                     )
                 )
                 start_index = None

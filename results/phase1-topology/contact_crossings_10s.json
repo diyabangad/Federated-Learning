@@ -1,0 +1,4128 @@
+{
+  "bisection_tolerance_seconds": 0.01,
+  "boundaries": [
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:11"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:00:02.241211+00:00",
+      "sampled_minus_reference_seconds": 7.758789,
+      "sampled_time_utc": "2026-10-16T00:00:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:14"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:12:08.618164+00:00",
+      "sampled_minus_reference_seconds": 1.381836,
+      "sampled_time_utc": "2026-10-16T00:12:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:15"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:00:12.670898+00:00",
+      "sampled_minus_reference_seconds": 7.329102,
+      "sampled_time_utc": "2026-10-16T00:00:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:13"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:12:48.452148+00:00",
+      "sampled_minus_reference_seconds": 1.547852,
+      "sampled_time_utc": "2026-10-16T00:12:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:07:37.934570+00:00",
+      "sampled_minus_reference_seconds": 2.06543,
+      "sampled_time_utc": "2026-10-16T00:07:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:04:11.665039+00:00",
+      "sampled_minus_reference_seconds": 8.334961,
+      "sampled_time_utc": "2026-10-16T00:04:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:17:03.745117+00:00",
+      "sampled_minus_reference_seconds": 6.254883,
+      "sampled_time_utc": "2026-10-16T00:17:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:15"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:13:04.750977+00:00",
+      "sampled_minus_reference_seconds": 5.249023,
+      "sampled_time_utc": "2026-10-16T00:13:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:19"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:07:43.305664+00:00",
+      "sampled_minus_reference_seconds": 6.694336,
+      "sampled_time_utc": "2026-10-16T00:07:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:00:11.645508+00:00",
+      "sampled_minus_reference_seconds": 8.354492,
+      "sampled_time_utc": "2026-10-16T00:00:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:11:36.928711+00:00",
+      "sampled_minus_reference_seconds": 3.071289,
+      "sampled_time_utc": "2026-10-16T00:11:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:08:49.467773+00:00",
+      "sampled_minus_reference_seconds": 0.532227,
+      "sampled_time_utc": "2026-10-16T00:08:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:03:38.950195+00:00",
+      "sampled_minus_reference_seconds": 1.049805,
+      "sampled_time_utc": "2026-10-16T00:03:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:11:42.299804+00:00",
+      "sampled_minus_reference_seconds": 7.700196,
+      "sampled_time_utc": "2026-10-16T00:11:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:19"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:09:05.756836+00:00",
+      "sampled_minus_reference_seconds": 4.243164,
+      "sampled_time_utc": "2026-10-16T00:09:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:03:44.311523+00:00",
+      "sampled_minus_reference_seconds": 5.688477,
+      "sampled_time_utc": "2026-10-16T00:03:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:12:09.643554+00:00",
+      "sampled_minus_reference_seconds": 0.356446,
+      "sampled_time_utc": "2026-10-16T00:12:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:18",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:04:50.473633+00:00",
+      "sampled_minus_reference_seconds": 9.526367,
+      "sampled_time_utc": "2026-10-16T00:05:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:18",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:08:09.633789+00:00",
+      "sampled_minus_reference_seconds": 0.366211,
+      "sampled_time_utc": "2026-10-16T00:08:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:2",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:00:51.479492+00:00",
+      "sampled_minus_reference_seconds": 8.520508,
+      "sampled_time_utc": "2026-10-16T00:01:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:2",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:20:46.440429+00:00",
+      "sampled_minus_reference_seconds": 3.559571,
+      "sampled_time_utc": "2026-10-16T00:20:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:05:06.772461+00:00",
+      "sampled_minus_reference_seconds": 3.227539,
+      "sampled_time_utc": "2026-10-16T00:05:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:08:00.219727+00:00",
+      "sampled_minus_reference_seconds": 9.780273,
+      "sampled_time_utc": "2026-10-16T00:08:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:08:10.659179+00:00",
+      "sampled_minus_reference_seconds": 9.340821,
+      "sampled_time_utc": "2026-10-16T00:08:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:22",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:03:52.768554+00:00",
+      "sampled_minus_reference_seconds": 7.231446,
+      "sampled_time_utc": "2026-10-16T00:04:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:22",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:04:10.639648+00:00",
+      "sampled_minus_reference_seconds": 9.360352,
+      "sampled_time_utc": "2026-10-16T00:04:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:24",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:01:07.778320+00:00",
+      "sampled_minus_reference_seconds": 2.22168,
+      "sampled_time_utc": "2026-10-16T00:01:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:24",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:04:01.235352+00:00",
+      "sampled_minus_reference_seconds": 8.764648,
+      "sampled_time_utc": "2026-10-16T00:04:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:4",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:21:02.739258+00:00",
+      "sampled_minus_reference_seconds": 7.260742,
+      "sampled_time_utc": "2026-10-16T00:21:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:6",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:16:47.446289+00:00",
+      "sampled_minus_reference_seconds": 2.553711,
+      "sampled_time_utc": "2026-10-16T00:16:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:00:06.225586+00:00",
+      "sampled_minus_reference_seconds": 3.774414,
+      "sampled_time_utc": "2026-10-16T00:00:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:07:51.762695+00:00",
+      "sampled_minus_reference_seconds": 8.237305,
+      "sampled_time_utc": "2026-10-16T00:08:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:00:14.672852+00:00",
+      "sampled_minus_reference_seconds": 5.327148,
+      "sampled_time_utc": "2026-10-16T00:00:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:15:41.284179+00:00",
+      "sampled_minus_reference_seconds": 8.715821,
+      "sampled_time_utc": "2026-10-16T00:15:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:2",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:00:20.043945+00:00",
+      "sampled_minus_reference_seconds": 9.956055,
+      "sampled_time_utc": "2026-10-16T00:00:30+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:2",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:15:35.922852+00:00",
+      "sampled_minus_reference_seconds": 4.077148,
+      "sampled_time_utc": "2026-10-16T00:15:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:23",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:02:51.196289+00:00",
+      "sampled_minus_reference_seconds": 8.803711,
+      "sampled_time_utc": "2026-10-16T00:03:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:23",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:25:01.723633+00:00",
+      "sampled_minus_reference_seconds": 8.276367,
+      "sampled_time_utc": "2026-10-16T00:25:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:03:07.524414+00:00",
+      "sampled_minus_reference_seconds": 2.475586,
+      "sampled_time_utc": "2026-10-16T00:03:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:24:45.434570+00:00",
+      "sampled_minus_reference_seconds": 4.56543,
+      "sampled_time_utc": "2026-10-16T00:24:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:03:47.338867+00:00",
+      "sampled_minus_reference_seconds": 2.661133,
+      "sampled_time_utc": "2026-10-16T00:03:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:16:07.612304+00:00",
+      "sampled_minus_reference_seconds": 2.387696,
+      "sampled_time_utc": "2026-10-16T00:16:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:03:46.323242+00:00",
+      "sampled_minus_reference_seconds": 3.676758,
+      "sampled_time_utc": "2026-10-16T00:03:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:16:08.637695+00:00",
+      "sampled_minus_reference_seconds": 1.362305,
+      "sampled_time_utc": "2026-10-16T00:16:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:03:56.752929+00:00",
+      "sampled_minus_reference_seconds": 3.247071,
+      "sampled_time_utc": "2026-10-16T00:04:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:11:59.213867+00:00",
+      "sampled_minus_reference_seconds": 0.786133,
+      "sampled_time_utc": "2026-10-16T00:12:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:04:05.219727+00:00",
+      "sampled_minus_reference_seconds": 4.780273,
+      "sampled_time_utc": "2026-10-16T00:04:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:11:50.747070+00:00",
+      "sampled_minus_reference_seconds": 9.25293,
+      "sampled_time_utc": "2026-10-16T00:12:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:21",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:04:19.038086+00:00",
+      "sampled_minus_reference_seconds": 0.961914,
+      "sampled_time_utc": "2026-10-16T00:04:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:21",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:19:34.907227+00:00",
+      "sampled_minus_reference_seconds": 5.092773,
+      "sampled_time_utc": "2026-10-16T00:19:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:23",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:04:13.666992+00:00",
+      "sampled_minus_reference_seconds": 6.333008,
+      "sampled_time_utc": "2026-10-16T00:04:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:23",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:19:40.278320+00:00",
+      "sampled_minus_reference_seconds": 9.72168,
+      "sampled_time_utc": "2026-10-16T00:19:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:06:50.190429+00:00",
+      "sampled_minus_reference_seconds": 9.809571,
+      "sampled_time_utc": "2026-10-16T00:07:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:29:00.717773+00:00",
+      "sampled_minus_reference_seconds": 9.282227,
+      "sampled_time_utc": "2026-10-16T00:29:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:17",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:07:06.508789+00:00",
+      "sampled_minus_reference_seconds": 3.491211,
+      "sampled_time_utc": "2026-10-16T00:07:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:17",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:28:44.418945+00:00",
+      "sampled_minus_reference_seconds": 5.581055,
+      "sampled_time_utc": "2026-10-16T00:28:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:18",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:07:45.307617+00:00",
+      "sampled_minus_reference_seconds": 4.692383,
+      "sampled_time_utc": "2026-10-16T00:07:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:18",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:20:07.631836+00:00",
+      "sampled_minus_reference_seconds": 2.368164,
+      "sampled_time_utc": "2026-10-16T00:20:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:07:46.333008+00:00",
+      "sampled_minus_reference_seconds": 3.666992,
+      "sampled_time_utc": "2026-10-16T00:07:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:20:06.606445+00:00",
+      "sampled_minus_reference_seconds": 3.393555,
+      "sampled_time_utc": "2026-10-16T00:20:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:07:55.737304+00:00",
+      "sampled_minus_reference_seconds": 4.262696,
+      "sampled_time_utc": "2026-10-16T00:08:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:15:58.208008+00:00",
+      "sampled_minus_reference_seconds": 1.791992,
+      "sampled_time_utc": "2026-10-16T00:16:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:20"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:08:04.213867+00:00",
+      "sampled_minus_reference_seconds": 5.786133,
+      "sampled_time_utc": "2026-10-16T00:08:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:20"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:15:49.741211+00:00",
+      "sampled_minus_reference_seconds": 0.258789,
+      "sampled_time_utc": "2026-10-16T00:15:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:08:18.032227+00:00",
+      "sampled_minus_reference_seconds": 1.967773,
+      "sampled_time_utc": "2026-10-16T00:08:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:23:33.901367+00:00",
+      "sampled_minus_reference_seconds": 6.098633,
+      "sampled_time_utc": "2026-10-16T00:23:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:08:12.661133+00:00",
+      "sampled_minus_reference_seconds": 7.338867,
+      "sampled_time_utc": "2026-10-16T00:08:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:23:39.272461+00:00",
+      "sampled_minus_reference_seconds": 0.727539,
+      "sampled_time_utc": "2026-10-16T00:23:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:10:49.184570+00:00",
+      "sampled_minus_reference_seconds": 0.81543,
+      "sampled_time_utc": "2026-10-16T00:10:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:32:59.711914+00:00",
+      "sampled_minus_reference_seconds": 0.288086,
+      "sampled_time_utc": "2026-10-16T00:33:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:20"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:11:05.502929+00:00",
+      "sampled_minus_reference_seconds": 4.497071,
+      "sampled_time_utc": "2026-10-16T00:11:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:20"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:32:43.413086+00:00",
+      "sampled_minus_reference_seconds": 6.586914,
+      "sampled_time_utc": "2026-10-16T00:32:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:11:44.301758+00:00",
+      "sampled_minus_reference_seconds": 5.698242,
+      "sampled_time_utc": "2026-10-16T00:11:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:24:06.616211+00:00",
+      "sampled_minus_reference_seconds": 3.383789,
+      "sampled_time_utc": "2026-10-16T00:24:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:11:45.327148+00:00",
+      "sampled_minus_reference_seconds": 4.672852,
+      "sampled_time_utc": "2026-10-16T00:11:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:24:05.600586+00:00",
+      "sampled_minus_reference_seconds": 4.399414,
+      "sampled_time_utc": "2026-10-16T00:24:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:11:54.731445+00:00",
+      "sampled_minus_reference_seconds": 5.268555,
+      "sampled_time_utc": "2026-10-16T00:12:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:19:57.202148+00:00",
+      "sampled_minus_reference_seconds": 2.797852,
+      "sampled_time_utc": "2026-10-16T00:20:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:12:03.198242+00:00",
+      "sampled_minus_reference_seconds": 6.801758,
+      "sampled_time_utc": "2026-10-16T00:12:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:19:48.735352+00:00",
+      "sampled_minus_reference_seconds": 1.264648,
+      "sampled_time_utc": "2026-10-16T00:19:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:12:17.016602+00:00",
+      "sampled_minus_reference_seconds": 2.983398,
+      "sampled_time_utc": "2026-10-16T00:12:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:27:32.895508+00:00",
+      "sampled_minus_reference_seconds": 7.104492,
+      "sampled_time_utc": "2026-10-16T00:27:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:12:11.655273+00:00",
+      "sampled_minus_reference_seconds": 8.344727,
+      "sampled_time_utc": "2026-10-16T00:12:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:27:38.266602+00:00",
+      "sampled_minus_reference_seconds": 1.733398,
+      "sampled_time_utc": "2026-10-16T00:27:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:14"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:14:48.178711+00:00",
+      "sampled_minus_reference_seconds": 1.821289,
+      "sampled_time_utc": "2026-10-16T00:14:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:14"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:36:58.706054+00:00",
+      "sampled_minus_reference_seconds": 1.293946,
+      "sampled_time_utc": "2026-10-16T00:37:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:15:04.497070+00:00",
+      "sampled_minus_reference_seconds": 5.50293,
+      "sampled_time_utc": "2026-10-16T00:15:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:36:42.407227+00:00",
+      "sampled_minus_reference_seconds": 7.592773,
+      "sampled_time_utc": "2026-10-16T00:36:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:15:43.295898+00:00",
+      "sampled_minus_reference_seconds": 6.704102,
+      "sampled_time_utc": "2026-10-16T00:15:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:28:05.610352+00:00",
+      "sampled_minus_reference_seconds": 4.389648,
+      "sampled_time_utc": "2026-10-16T00:28:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:15:44.311523+00:00",
+      "sampled_minus_reference_seconds": 5.688477,
+      "sampled_time_utc": "2026-10-16T00:15:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:28:04.584961+00:00",
+      "sampled_minus_reference_seconds": 5.415039,
+      "sampled_time_utc": "2026-10-16T00:28:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:15:53.725586+00:00",
+      "sampled_minus_reference_seconds": 6.274414,
+      "sampled_time_utc": "2026-10-16T00:16:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:23:56.186523+00:00",
+      "sampled_minus_reference_seconds": 3.813477,
+      "sampled_time_utc": "2026-10-16T00:24:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:16:02.192383+00:00",
+      "sampled_minus_reference_seconds": 7.807617,
+      "sampled_time_utc": "2026-10-16T00:16:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:23:47.719727+00:00",
+      "sampled_minus_reference_seconds": 2.280273,
+      "sampled_time_utc": "2026-10-16T00:23:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:16:10.639648+00:00",
+      "sampled_minus_reference_seconds": 9.360352,
+      "sampled_time_utc": "2026-10-16T00:16:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:31:37.250977+00:00",
+      "sampled_minus_reference_seconds": 2.749023,
+      "sampled_time_utc": "2026-10-16T00:31:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:16:16.010742+00:00",
+      "sampled_minus_reference_seconds": 3.989258,
+      "sampled_time_utc": "2026-10-16T00:16:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:31:31.889648+00:00",
+      "sampled_minus_reference_seconds": 8.110352,
+      "sampled_time_utc": "2026-10-16T00:31:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:18:47.163086+00:00",
+      "sampled_minus_reference_seconds": 2.836914,
+      "sampled_time_utc": "2026-10-16T00:18:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:40:57.690429+00:00",
+      "sampled_minus_reference_seconds": 2.309571,
+      "sampled_time_utc": "2026-10-16T00:41:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:19:03.491211+00:00",
+      "sampled_minus_reference_seconds": 6.508789,
+      "sampled_time_utc": "2026-10-16T00:19:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:40:41.401367+00:00",
+      "sampled_minus_reference_seconds": 8.598633,
+      "sampled_time_utc": "2026-10-16T00:40:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:17",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:19:43.305664+00:00",
+      "sampled_minus_reference_seconds": 6.694336,
+      "sampled_time_utc": "2026-10-16T00:19:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:17",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:32:03.579102+00:00",
+      "sampled_minus_reference_seconds": 6.420898,
+      "sampled_time_utc": "2026-10-16T00:32:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:19:42.290039+00:00",
+      "sampled_minus_reference_seconds": 7.709961,
+      "sampled_time_utc": "2026-10-16T00:19:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:32:04.604492+00:00",
+      "sampled_minus_reference_seconds": 5.395508,
+      "sampled_time_utc": "2026-10-16T00:32:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:23",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:19:52.709961+00:00",
+      "sampled_minus_reference_seconds": 7.290039,
+      "sampled_time_utc": "2026-10-16T00:20:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:23",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:27:55.180664+00:00",
+      "sampled_minus_reference_seconds": 4.819336,
+      "sampled_time_utc": "2026-10-16T00:28:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:20:09.633789+00:00",
+      "sampled_minus_reference_seconds": 0.366211,
+      "sampled_time_utc": "2026-10-16T00:20:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:35:36.245117+00:00",
+      "sampled_minus_reference_seconds": 3.754883,
+      "sampled_time_utc": "2026-10-16T00:35:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:21",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:20:01.186523+00:00",
+      "sampled_minus_reference_seconds": 8.813477,
+      "sampled_time_utc": "2026-10-16T00:20:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:21",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:27:46.713867+00:00",
+      "sampled_minus_reference_seconds": 3.286133,
+      "sampled_time_utc": "2026-10-16T00:27:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:20:15.004883+00:00",
+      "sampled_minus_reference_seconds": 4.995117,
+      "sampled_time_utc": "2026-10-16T00:20:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:35:30.874023+00:00",
+      "sampled_minus_reference_seconds": 9.125977,
+      "sampled_time_utc": "2026-10-16T00:35:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:3",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:22:46.157227+00:00",
+      "sampled_minus_reference_seconds": 3.842773,
+      "sampled_time_utc": "2026-10-16T00:22:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:3",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:44:56.684570+00:00",
+      "sampled_minus_reference_seconds": 3.31543,
+      "sampled_time_utc": "2026-10-16T00:45:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:23:02.475586+00:00",
+      "sampled_minus_reference_seconds": 7.524414,
+      "sampled_time_utc": "2026-10-16T00:23:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:44:40.385742+00:00",
+      "sampled_minus_reference_seconds": 9.614258,
+      "sampled_time_utc": "2026-10-16T00:44:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:23:42.299804+00:00",
+      "sampled_minus_reference_seconds": 7.700196,
+      "sampled_time_utc": "2026-10-16T00:23:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:36:02.573242+00:00",
+      "sampled_minus_reference_seconds": 7.426758,
+      "sampled_time_utc": "2026-10-16T00:36:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:23:41.274414+00:00",
+      "sampled_minus_reference_seconds": 8.725586,
+      "sampled_time_utc": "2026-10-16T00:23:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:36:03.598633+00:00",
+      "sampled_minus_reference_seconds": 6.401367,
+      "sampled_time_utc": "2026-10-16T00:36:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:23:51.704102+00:00",
+      "sampled_minus_reference_seconds": 8.295898,
+      "sampled_time_utc": "2026-10-16T00:24:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:31:54.174804+00:00",
+      "sampled_minus_reference_seconds": 5.825196,
+      "sampled_time_utc": "2026-10-16T00:32:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:24:08.627929+00:00",
+      "sampled_minus_reference_seconds": 1.372071,
+      "sampled_time_utc": "2026-10-16T00:24:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:39:35.239258+00:00",
+      "sampled_minus_reference_seconds": 4.760742,
+      "sampled_time_utc": "2026-10-16T00:39:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:17",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:24:00.170898+00:00",
+      "sampled_minus_reference_seconds": 9.829102,
+      "sampled_time_utc": "2026-10-16T00:24:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:17",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:31:45.708008+00:00",
+      "sampled_minus_reference_seconds": 4.291992,
+      "sampled_time_utc": "2026-10-16T00:31:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:12"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:24:13.989258+00:00",
+      "sampled_minus_reference_seconds": 6.010742,
+      "sampled_time_utc": "2026-10-16T00:24:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:12"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:39:29.868164+00:00",
+      "sampled_minus_reference_seconds": 0.131836,
+      "sampled_time_utc": "2026-10-16T00:39:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:2",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:26:45.151367+00:00",
+      "sampled_minus_reference_seconds": 4.848633,
+      "sampled_time_utc": "2026-10-16T00:26:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:2",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:48:55.678711+00:00",
+      "sampled_minus_reference_seconds": 4.321289,
+      "sampled_time_utc": "2026-10-16T00:49:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:24",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:27:01.469727+00:00",
+      "sampled_minus_reference_seconds": 8.530273,
+      "sampled_time_utc": "2026-10-16T00:27:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:24",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:48:39.379883+00:00",
+      "sampled_minus_reference_seconds": 0.620117,
+      "sampled_time_utc": "2026-10-16T00:48:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:27:40.268554+00:00",
+      "sampled_minus_reference_seconds": 9.731446,
+      "sampled_time_utc": "2026-10-16T00:27:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:40:02.583008+00:00",
+      "sampled_minus_reference_seconds": 7.416992,
+      "sampled_time_utc": "2026-10-16T00:40:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:23",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:27:41.293945+00:00",
+      "sampled_minus_reference_seconds": 8.706055,
+      "sampled_time_utc": "2026-10-16T00:27:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:23",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:40:01.567383+00:00",
+      "sampled_minus_reference_seconds": 8.432617,
+      "sampled_time_utc": "2026-10-16T00:40:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:27:59.165039+00:00",
+      "sampled_minus_reference_seconds": 0.834961,
+      "sampled_time_utc": "2026-10-16T00:28:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:35:44.702148+00:00",
+      "sampled_minus_reference_seconds": 5.297852,
+      "sampled_time_utc": "2026-10-16T00:35:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:27:50.698242+00:00",
+      "sampled_minus_reference_seconds": 9.301758,
+      "sampled_time_utc": "2026-10-16T00:28:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:35:53.159179+00:00",
+      "sampled_minus_reference_seconds": 6.840821,
+      "sampled_time_utc": "2026-10-16T00:36:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:22",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:28:07.622070+00:00",
+      "sampled_minus_reference_seconds": 2.37793,
+      "sampled_time_utc": "2026-10-16T00:28:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:22",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:43:34.233398+00:00",
+      "sampled_minus_reference_seconds": 5.766602,
+      "sampled_time_utc": "2026-10-16T00:43:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:24",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:28:12.983398+00:00",
+      "sampled_minus_reference_seconds": 7.016602,
+      "sampled_time_utc": "2026-10-16T00:28:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:24",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:43:28.862304+00:00",
+      "sampled_minus_reference_seconds": 1.137696,
+      "sampled_time_utc": "2026-10-16T00:43:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:18",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:30:44.135742+00:00",
+      "sampled_minus_reference_seconds": 5.864258,
+      "sampled_time_utc": "2026-10-16T00:30:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:18",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:52:54.663086+00:00",
+      "sampled_minus_reference_seconds": 5.336914,
+      "sampled_time_utc": "2026-10-16T00:53:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:31:00.463867+00:00",
+      "sampled_minus_reference_seconds": 9.536133,
+      "sampled_time_utc": "2026-10-16T00:31:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:52:38.374023+00:00",
+      "sampled_minus_reference_seconds": 1.625977,
+      "sampled_time_utc": "2026-10-16T00:52:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:17",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:31:39.262695+00:00",
+      "sampled_minus_reference_seconds": 0.737305,
+      "sampled_time_utc": "2026-10-16T00:31:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:17",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:44:01.577148+00:00",
+      "sampled_minus_reference_seconds": 8.422852,
+      "sampled_time_utc": "2026-10-16T00:44:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:31:49.692383+00:00",
+      "sampled_minus_reference_seconds": 0.307617,
+      "sampled_time_utc": "2026-10-16T00:31:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:39:52.153320+00:00",
+      "sampled_minus_reference_seconds": 7.84668,
+      "sampled_time_utc": "2026-10-16T00:40:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:31:40.278320+00:00",
+      "sampled_minus_reference_seconds": 9.72168,
+      "sampled_time_utc": "2026-10-16T00:31:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:44:00.551758+00:00",
+      "sampled_minus_reference_seconds": 9.448242,
+      "sampled_time_utc": "2026-10-16T00:44:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:31:58.159179+00:00",
+      "sampled_minus_reference_seconds": 1.840821,
+      "sampled_time_utc": "2026-10-16T00:32:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:39:43.686523+00:00",
+      "sampled_minus_reference_seconds": 6.313477,
+      "sampled_time_utc": "2026-10-16T00:39:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:18",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:32:06.606445+00:00",
+      "sampled_minus_reference_seconds": 3.393555,
+      "sampled_time_utc": "2026-10-16T00:32:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:18",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:47:33.217773+00:00",
+      "sampled_minus_reference_seconds": 6.782227,
+      "sampled_time_utc": "2026-10-16T00:47:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:32:11.977539+00:00",
+      "sampled_minus_reference_seconds": 8.022461,
+      "sampled_time_utc": "2026-10-16T00:32:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:47:27.856445+00:00",
+      "sampled_minus_reference_seconds": 2.143555,
+      "sampled_time_utc": "2026-10-16T00:47:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:34:43.129883+00:00",
+      "sampled_minus_reference_seconds": 6.870117,
+      "sampled_time_utc": "2026-10-16T00:34:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:56:53.657227+00:00",
+      "sampled_minus_reference_seconds": 6.342773,
+      "sampled_time_utc": "2026-10-16T00:57:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:19"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:34:59.458008+00:00",
+      "sampled_minus_reference_seconds": 0.541992,
+      "sampled_time_utc": "2026-10-16T00:35:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:19"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:56:37.358398+00:00",
+      "sampled_minus_reference_seconds": 2.641602,
+      "sampled_time_utc": "2026-10-16T00:56:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:15"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:35:39.272461+00:00",
+      "sampled_minus_reference_seconds": 0.727539,
+      "sampled_time_utc": "2026-10-16T00:35:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:15"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:47:59.545898+00:00",
+      "sampled_minus_reference_seconds": 0.454102,
+      "sampled_time_utc": "2026-10-16T00:48:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:35:38.256836+00:00",
+      "sampled_minus_reference_seconds": 1.743164,
+      "sampled_time_utc": "2026-10-16T00:35:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:48:00.571289+00:00",
+      "sampled_minus_reference_seconds": 9.428711,
+      "sampled_time_utc": "2026-10-16T00:48:10+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:35:48.676758+00:00",
+      "sampled_minus_reference_seconds": 1.323242,
+      "sampled_time_utc": "2026-10-16T00:35:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:43:51.147461+00:00",
+      "sampled_minus_reference_seconds": 8.852539,
+      "sampled_time_utc": "2026-10-16T00:44:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:35:57.153320+00:00",
+      "sampled_minus_reference_seconds": 2.84668,
+      "sampled_time_utc": "2026-10-16T00:36:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:43:42.680664+00:00",
+      "sampled_minus_reference_seconds": 7.319336,
+      "sampled_time_utc": "2026-10-16T00:43:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:36:05.600586+00:00",
+      "sampled_minus_reference_seconds": 4.399414,
+      "sampled_time_utc": "2026-10-16T00:36:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:51:32.211914+00:00",
+      "sampled_minus_reference_seconds": 7.788086,
+      "sampled_time_utc": "2026-10-16T00:51:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:36:10.971679+00:00",
+      "sampled_minus_reference_seconds": 9.028321,
+      "sampled_time_utc": "2026-10-16T00:36:20+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:51:26.840820+00:00",
+      "sampled_minus_reference_seconds": 3.15918,
+      "sampled_time_utc": "2026-10-16T00:51:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:13"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:38:42.124023+00:00",
+      "sampled_minus_reference_seconds": 7.875977,
+      "sampled_time_utc": "2026-10-16T00:38:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:13"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:00:52.651367+00:00",
+      "sampled_minus_reference_seconds": 7.348633,
+      "sampled_time_utc": "2026-10-16T01:01:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:15"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:38:58.442383+00:00",
+      "sampled_minus_reference_seconds": 1.557617,
+      "sampled_time_utc": "2026-10-16T00:39:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:15"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:00:36.352539+00:00",
+      "sampled_minus_reference_seconds": 3.647461,
+      "sampled_time_utc": "2026-10-16T01:00:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:39:38.266602+00:00",
+      "sampled_minus_reference_seconds": 1.733398,
+      "sampled_time_utc": "2026-10-16T00:39:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:51:58.540039+00:00",
+      "sampled_minus_reference_seconds": 1.459961,
+      "sampled_time_utc": "2026-10-16T00:52:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:22",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:39:37.241211+00:00",
+      "sampled_minus_reference_seconds": 2.758789,
+      "sampled_time_utc": "2026-10-16T00:39:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:22",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:51:59.555664+00:00",
+      "sampled_minus_reference_seconds": 0.444336,
+      "sampled_time_utc": "2026-10-16T00:52:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:3",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:39:47.670898+00:00",
+      "sampled_minus_reference_seconds": 2.329102,
+      "sampled_time_utc": "2026-10-16T00:39:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:3",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:47:50.141602+00:00",
+      "sampled_minus_reference_seconds": 9.858398,
+      "sampled_time_utc": "2026-10-16T00:48:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:11"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:39:56.137695+00:00",
+      "sampled_minus_reference_seconds": 3.862305,
+      "sampled_time_utc": "2026-10-16T00:40:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:11"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:47:41.674804+00:00",
+      "sampled_minus_reference_seconds": 8.325196,
+      "sampled_time_utc": "2026-10-16T00:47:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:40:04.594727+00:00",
+      "sampled_minus_reference_seconds": 5.405273,
+      "sampled_time_utc": "2026-10-16T00:40:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:55:31.206054+00:00",
+      "sampled_minus_reference_seconds": 8.793946,
+      "sampled_time_utc": "2026-10-16T00:55:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:19"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:40:09.956054+00:00",
+      "sampled_minus_reference_seconds": 0.043946,
+      "sampled_time_utc": "2026-10-16T00:40:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:19"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:55:25.834961+00:00",
+      "sampled_minus_reference_seconds": 4.165039,
+      "sampled_time_utc": "2026-10-16T00:55:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:6",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:42:41.118164+00:00",
+      "sampled_minus_reference_seconds": 8.881836,
+      "sampled_time_utc": "2026-10-16T00:42:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:6",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:04:51.645508+00:00",
+      "sampled_minus_reference_seconds": 8.354492,
+      "sampled_time_utc": "2026-10-16T01:05:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:42:57.436523+00:00",
+      "sampled_minus_reference_seconds": 2.563477,
+      "sampled_time_utc": "2026-10-16T00:43:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:04:35.346679+00:00",
+      "sampled_minus_reference_seconds": 4.653321,
+      "sampled_time_utc": "2026-10-16T01:04:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:18",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:43:36.235352+00:00",
+      "sampled_minus_reference_seconds": 3.764648,
+      "sampled_time_utc": "2026-10-16T00:43:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:18",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:55:58.549804+00:00",
+      "sampled_minus_reference_seconds": 1.450196,
+      "sampled_time_utc": "2026-10-16T00:56:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:43:37.260742+00:00",
+      "sampled_minus_reference_seconds": 2.739258,
+      "sampled_time_utc": "2026-10-16T00:43:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:55:57.524414+00:00",
+      "sampled_minus_reference_seconds": 2.475586,
+      "sampled_time_utc": "2026-10-16T00:56:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:22",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:43:46.665039+00:00",
+      "sampled_minus_reference_seconds": 3.334961,
+      "sampled_time_utc": "2026-10-16T00:43:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:22",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:51:49.125977+00:00",
+      "sampled_minus_reference_seconds": 0.874023,
+      "sampled_time_utc": "2026-10-16T00:51:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:24",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:43:55.131836+00:00",
+      "sampled_minus_reference_seconds": 4.868164,
+      "sampled_time_utc": "2026-10-16T00:44:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:24",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:51:40.659179+00:00",
+      "sampled_minus_reference_seconds": 9.340821,
+      "sampled_time_utc": "2026-10-16T00:51:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:44:03.579102+00:00",
+      "sampled_minus_reference_seconds": 6.420898,
+      "sampled_time_utc": "2026-10-16T00:44:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:30.190429+00:00",
+      "sampled_minus_reference_seconds": 9.809571,
+      "sampled_time_utc": "2026-10-16T00:59:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:44:08.950195+00:00",
+      "sampled_minus_reference_seconds": 1.049805,
+      "sampled_time_utc": "2026-10-16T00:44:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:24.829102+00:00",
+      "sampled_minus_reference_seconds": 5.170898,
+      "sampled_time_utc": "2026-10-16T00:59:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:2",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:46:40.102539+00:00",
+      "sampled_minus_reference_seconds": 9.897461,
+      "sampled_time_utc": "2026-10-16T00:46:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:2",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:08:50.629883+00:00",
+      "sampled_minus_reference_seconds": 9.370117,
+      "sampled_time_utc": "2026-10-16T01:09:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:4",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:46:56.430664+00:00",
+      "sampled_minus_reference_seconds": 3.569336,
+      "sampled_time_utc": "2026-10-16T00:47:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:4",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:08:34.340820+00:00",
+      "sampled_minus_reference_seconds": 5.65918,
+      "sampled_time_utc": "2026-10-16T01:08:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:14"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:47:35.229492+00:00",
+      "sampled_minus_reference_seconds": 4.770508,
+      "sampled_time_utc": "2026-10-16T00:47:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:14"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:57.543945+00:00",
+      "sampled_minus_reference_seconds": 2.456055,
+      "sampled_time_utc": "2026-10-16T01:00:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:47:36.245117+00:00",
+      "sampled_minus_reference_seconds": 3.754883,
+      "sampled_time_utc": "2026-10-16T00:47:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:56.518554+00:00",
+      "sampled_minus_reference_seconds": 3.481446,
+      "sampled_time_utc": "2026-10-16T01:00:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:47:45.659179+00:00",
+      "sampled_minus_reference_seconds": 4.340821,
+      "sampled_time_utc": "2026-10-16T00:47:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:55:48.120117+00:00",
+      "sampled_minus_reference_seconds": 1.879883,
+      "sampled_time_utc": "2026-10-16T00:55:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:47:54.125977+00:00",
+      "sampled_minus_reference_seconds": 5.874023,
+      "sampled_time_utc": "2026-10-16T00:48:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:55:39.653320+00:00",
+      "sampled_minus_reference_seconds": 0.34668,
+      "sampled_time_utc": "2026-10-16T00:55:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:48:07.944336+00:00",
+      "sampled_minus_reference_seconds": 2.055664,
+      "sampled_time_utc": "2026-10-16T00:48:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:23.813477+00:00",
+      "sampled_minus_reference_seconds": 6.186523,
+      "sampled_time_utc": "2026-10-16T01:03:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:2",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:48:02.573242+00:00",
+      "sampled_minus_reference_seconds": 7.426758,
+      "sampled_time_utc": "2026-10-16T00:48:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:2",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:29.184570+00:00",
+      "sampled_minus_reference_seconds": 0.81543,
+      "sampled_time_utc": "2026-10-16T01:03:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:50:39.096679+00:00",
+      "sampled_minus_reference_seconds": 0.903321,
+      "sampled_time_utc": "2026-10-16T00:50:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:12:49.624023+00:00",
+      "sampled_minus_reference_seconds": 0.375977,
+      "sampled_time_utc": "2026-10-16T01:12:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:23",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:50:55.415039+00:00",
+      "sampled_minus_reference_seconds": 4.584961,
+      "sampled_time_utc": "2026-10-16T00:51:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:23",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:12:33.325195+00:00",
+      "sampled_minus_reference_seconds": 6.674805,
+      "sampled_time_utc": "2026-10-16T01:12:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:51:34.213867+00:00",
+      "sampled_minus_reference_seconds": 5.786133,
+      "sampled_time_utc": "2026-10-16T00:51:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:56.538086+00:00",
+      "sampled_minus_reference_seconds": 3.461914,
+      "sampled_time_utc": "2026-10-16T01:04:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:51:35.239258+00:00",
+      "sampled_minus_reference_seconds": 4.760742,
+      "sampled_time_utc": "2026-10-16T00:51:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:55.512695+00:00",
+      "sampled_minus_reference_seconds": 4.487305,
+      "sampled_time_utc": "2026-10-16T01:04:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:51:44.643554+00:00",
+      "sampled_minus_reference_seconds": 5.356446,
+      "sampled_time_utc": "2026-10-16T00:51:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:47.114258+00:00",
+      "sampled_minus_reference_seconds": 2.885742,
+      "sampled_time_utc": "2026-10-16T00:59:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:51:53.120117+00:00",
+      "sampled_minus_reference_seconds": 6.879883,
+      "sampled_time_utc": "2026-10-16T00:52:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:38.647461+00:00",
+      "sampled_minus_reference_seconds": 1.352539,
+      "sampled_time_utc": "2026-10-16T00:59:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:21",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:52:01.567383+00:00",
+      "sampled_minus_reference_seconds": 8.432617,
+      "sampled_time_utc": "2026-10-16T00:52:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:21",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:28.178711+00:00",
+      "sampled_minus_reference_seconds": 1.821289,
+      "sampled_time_utc": "2026-10-16T01:07:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:23",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:52:06.938477+00:00",
+      "sampled_minus_reference_seconds": 3.061523,
+      "sampled_time_utc": "2026-10-16T00:52:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:23",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:22.807617+00:00",
+      "sampled_minus_reference_seconds": 7.192383,
+      "sampled_time_utc": "2026-10-16T01:07:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:17",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:54:38.090820+00:00",
+      "sampled_minus_reference_seconds": 1.90918,
+      "sampled_time_utc": "2026-10-16T00:54:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:17",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:16:48.618164+00:00",
+      "sampled_minus_reference_seconds": 1.381836,
+      "sampled_time_utc": "2026-10-16T01:16:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:54:54.409179+00:00",
+      "sampled_minus_reference_seconds": 5.590821,
+      "sampled_time_utc": "2026-10-16T00:55:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:16:32.319336+00:00",
+      "sampled_minus_reference_seconds": 7.680664,
+      "sampled_time_utc": "2026-10-16T01:16:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:18",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:55:34.233398+00:00",
+      "sampled_minus_reference_seconds": 5.766602,
+      "sampled_time_utc": "2026-10-16T00:55:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:18",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:54.506836+00:00",
+      "sampled_minus_reference_seconds": 5.493164,
+      "sampled_time_utc": "2026-10-16T01:08:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:55:33.208008+00:00",
+      "sampled_minus_reference_seconds": 6.791992,
+      "sampled_time_utc": "2026-10-16T00:55:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:55.522461+00:00",
+      "sampled_minus_reference_seconds": 4.477539,
+      "sampled_time_utc": "2026-10-16T01:08:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:20"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:55:43.637695+00:00",
+      "sampled_minus_reference_seconds": 6.362305,
+      "sampled_time_utc": "2026-10-16T00:55:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:20"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:46.108398+00:00",
+      "sampled_minus_reference_seconds": 3.891602,
+      "sampled_time_utc": "2026-10-16T01:03:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:55:52.104492+00:00",
+      "sampled_minus_reference_seconds": 7.895508,
+      "sampled_time_utc": "2026-10-16T00:56:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:37.641602+00:00",
+      "sampled_minus_reference_seconds": 2.358398,
+      "sampled_time_utc": "2026-10-16T01:03:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:56:00.561523+00:00",
+      "sampled_minus_reference_seconds": 9.438477,
+      "sampled_time_utc": "2026-10-16T00:56:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:27.172852+00:00",
+      "sampled_minus_reference_seconds": 2.827148,
+      "sampled_time_utc": "2026-10-16T01:11:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:56:05.922852+00:00",
+      "sampled_minus_reference_seconds": 4.077148,
+      "sampled_time_utc": "2026-10-16T00:56:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:21.801758+00:00",
+      "sampled_minus_reference_seconds": 8.198242,
+      "sampled_time_utc": "2026-10-16T01:11:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:20"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:58:37.084961+00:00",
+      "sampled_minus_reference_seconds": 2.915039,
+      "sampled_time_utc": "2026-10-16T00:58:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:20"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:20:47.602539+00:00",
+      "sampled_minus_reference_seconds": 2.397461,
+      "sampled_time_utc": "2026-10-16T01:20:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:58:53.403320+00:00",
+      "sampled_minus_reference_seconds": 6.59668,
+      "sampled_time_utc": "2026-10-16T00:59:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:20:31.313477+00:00",
+      "sampled_minus_reference_seconds": 8.686523,
+      "sampled_time_utc": "2026-10-16T01:20:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:33.217773+00:00",
+      "sampled_minus_reference_seconds": 6.782227,
+      "sampled_time_utc": "2026-10-16T00:59:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:53.491211+00:00",
+      "sampled_minus_reference_seconds": 6.508789,
+      "sampled_time_utc": "2026-10-16T01:12:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:32.202148+00:00",
+      "sampled_minus_reference_seconds": 7.797852,
+      "sampled_time_utc": "2026-10-16T00:59:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:54.516602+00:00",
+      "sampled_minus_reference_seconds": 5.483398,
+      "sampled_time_utc": "2026-10-16T01:12:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:42.631836+00:00",
+      "sampled_minus_reference_seconds": 7.368164,
+      "sampled_time_utc": "2026-10-16T00:59:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:45.092773+00:00",
+      "sampled_minus_reference_seconds": 4.907227,
+      "sampled_time_utc": "2026-10-16T01:07:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:59.545898+00:00",
+      "sampled_minus_reference_seconds": 0.454102,
+      "sampled_time_utc": "2026-10-16T01:00:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:26.157227+00:00",
+      "sampled_minus_reference_seconds": 3.842773,
+      "sampled_time_utc": "2026-10-16T01:15:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T00:59:51.098633+00:00",
+      "sampled_minus_reference_seconds": 8.901367,
+      "sampled_time_utc": "2026-10-16T01:00:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:36.625977+00:00",
+      "sampled_minus_reference_seconds": 3.374023,
+      "sampled_time_utc": "2026-10-16T01:07:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:00:04.916992+00:00",
+      "sampled_minus_reference_seconds": 5.083008,
+      "sampled_time_utc": "2026-10-16T01:00:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:20.795898+00:00",
+      "sampled_minus_reference_seconds": 9.204102,
+      "sampled_time_utc": "2026-10-16T01:15:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:02:36.069336+00:00",
+      "sampled_minus_reference_seconds": 3.930664,
+      "sampled_time_utc": "2026-10-16T01:02:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:24:46.596679+00:00",
+      "sampled_minus_reference_seconds": 3.403321,
+      "sampled_time_utc": "2026-10-16T01:24:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:14"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:02:52.397461+00:00",
+      "sampled_minus_reference_seconds": 7.602539,
+      "sampled_time_utc": "2026-10-16T01:03:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:14"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:24:30.297852+00:00",
+      "sampled_minus_reference_seconds": 9.702148,
+      "sampled_time_utc": "2026-10-16T01:24:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:32.211914+00:00",
+      "sampled_minus_reference_seconds": 7.788086,
+      "sampled_time_utc": "2026-10-16T01:03:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:52.485352+00:00",
+      "sampled_minus_reference_seconds": 7.514648,
+      "sampled_time_utc": "2026-10-16T01:16:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:31.196289+00:00",
+      "sampled_minus_reference_seconds": 8.803711,
+      "sampled_time_utc": "2026-10-16T01:03:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:53.510742+00:00",
+      "sampled_minus_reference_seconds": 6.489258,
+      "sampled_time_utc": "2026-10-16T01:16:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:41.616211+00:00",
+      "sampled_minus_reference_seconds": 8.383789,
+      "sampled_time_utc": "2026-10-16T01:03:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:44.086914+00:00",
+      "sampled_minus_reference_seconds": 5.913086,
+      "sampled_time_utc": "2026-10-16T01:11:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:50.092773+00:00",
+      "sampled_minus_reference_seconds": 9.907227,
+      "sampled_time_utc": "2026-10-16T01:04:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:35.620117+00:00",
+      "sampled_minus_reference_seconds": 4.379883,
+      "sampled_time_utc": "2026-10-16T01:11:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:03:58.540039+00:00",
+      "sampled_minus_reference_seconds": 1.459961,
+      "sampled_time_utc": "2026-10-16T01:04:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:25.151367+00:00",
+      "sampled_minus_reference_seconds": 4.848633,
+      "sampled_time_utc": "2026-10-16T01:19:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:04:03.911133+00:00",
+      "sampled_minus_reference_seconds": 6.088867,
+      "sampled_time_utc": "2026-10-16T01:04:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:19.780273+00:00",
+      "sampled_minus_reference_seconds": 0.219727,
+      "sampled_time_utc": "2026-10-16T01:19:20+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:06:35.063477+00:00",
+      "sampled_minus_reference_seconds": 4.936523,
+      "sampled_time_utc": "2026-10-16T01:06:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:12",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:28:45.590820+00:00",
+      "sampled_minus_reference_seconds": 4.40918,
+      "sampled_time_utc": "2026-10-16T01:28:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:06:51.381836+00:00",
+      "sampled_minus_reference_seconds": 8.618164,
+      "sampled_time_utc": "2026-10-16T01:07:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:28:29.291992+00:00",
+      "sampled_minus_reference_seconds": 0.708008,
+      "sampled_time_utc": "2026-10-16T01:28:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:17",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:30.180664+00:00",
+      "sampled_minus_reference_seconds": 9.819336,
+      "sampled_time_utc": "2026-10-16T01:07:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:17",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:52.504883+00:00",
+      "sampled_minus_reference_seconds": 7.495117,
+      "sampled_time_utc": "2026-10-16T01:20:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:31.206054+00:00",
+      "sampled_minus_reference_seconds": 8.793946,
+      "sampled_time_utc": "2026-10-16T01:07:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:51.479492+00:00",
+      "sampled_minus_reference_seconds": 8.520508,
+      "sampled_time_utc": "2026-10-16T01:20:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:21",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:40.610352+00:00",
+      "sampled_minus_reference_seconds": 9.389648,
+      "sampled_time_utc": "2026-10-16T01:07:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:21",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:43.081054+00:00",
+      "sampled_minus_reference_seconds": 6.918946,
+      "sampled_time_utc": "2026-10-16T01:15:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:23",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:49.077148+00:00",
+      "sampled_minus_reference_seconds": 0.922852,
+      "sampled_time_utc": "2026-10-16T01:07:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:23",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:34.614258+00:00",
+      "sampled_minus_reference_seconds": 5.385742,
+      "sampled_time_utc": "2026-10-16T01:15:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:07:57.534179+00:00",
+      "sampled_minus_reference_seconds": 2.465821,
+      "sampled_time_utc": "2026-10-16T01:08:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:24.145508+00:00",
+      "sampled_minus_reference_seconds": 5.854492,
+      "sampled_time_utc": "2026-10-16T01:23:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:08:02.895508+00:00",
+      "sampled_minus_reference_seconds": 7.104492,
+      "sampled_time_utc": "2026-10-16T01:08:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:18.774414+00:00",
+      "sampled_minus_reference_seconds": 1.225586,
+      "sampled_time_utc": "2026-10-16T01:23:20+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:10:34.057617+00:00",
+      "sampled_minus_reference_seconds": 5.942383,
+      "sampled_time_utc": "2026-10-16T01:10:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:32:44.584961+00:00",
+      "sampled_minus_reference_seconds": 5.415039,
+      "sampled_time_utc": "2026-10-16T01:32:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:3",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:10:50.375977+00:00",
+      "sampled_minus_reference_seconds": 9.624023,
+      "sampled_time_utc": "2026-10-16T01:11:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:3",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:32:28.286133+00:00",
+      "sampled_minus_reference_seconds": 1.713867,
+      "sampled_time_utc": "2026-10-16T01:32:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:29.174804+00:00",
+      "sampled_minus_reference_seconds": 0.825196,
+      "sampled_time_utc": "2026-10-16T01:11:30+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:51.489258+00:00",
+      "sampled_minus_reference_seconds": 8.510742,
+      "sampled_time_utc": "2026-10-16T01:24:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:30.200195+00:00",
+      "sampled_minus_reference_seconds": 9.799805,
+      "sampled_time_utc": "2026-10-16T01:11:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:50.463867+00:00",
+      "sampled_minus_reference_seconds": 9.536133,
+      "sampled_time_utc": "2026-10-16T01:24:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:17",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:39.604492+00:00",
+      "sampled_minus_reference_seconds": 0.395508,
+      "sampled_time_utc": "2026-10-16T01:11:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:17",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:42.065429+00:00",
+      "sampled_minus_reference_seconds": 7.934571,
+      "sampled_time_utc": "2026-10-16T01:19:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:48.071289+00:00",
+      "sampled_minus_reference_seconds": 1.928711,
+      "sampled_time_utc": "2026-10-16T01:11:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:33.608398+00:00",
+      "sampled_minus_reference_seconds": 6.391602,
+      "sampled_time_utc": "2026-10-16T01:19:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:12"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:11:56.518554+00:00",
+      "sampled_minus_reference_seconds": 3.481446,
+      "sampled_time_utc": "2026-10-16T01:12:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:12"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:23.129883+00:00",
+      "sampled_minus_reference_seconds": 6.870117,
+      "sampled_time_utc": "2026-10-16T01:27:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:12:01.889648+00:00",
+      "sampled_minus_reference_seconds": 8.110352,
+      "sampled_time_utc": "2026-10-16T01:12:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:10",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:17.768554+00:00",
+      "sampled_minus_reference_seconds": 2.231446,
+      "sampled_time_utc": "2026-10-16T01:27:20+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:24",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:14:33.041992+00:00",
+      "sampled_minus_reference_seconds": 6.958008,
+      "sampled_time_utc": "2026-10-16T01:14:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:24",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:36:43.569336+00:00",
+      "sampled_minus_reference_seconds": 6.430664,
+      "sampled_time_utc": "2026-10-16T01:36:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:2",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:14:49.370117+00:00",
+      "sampled_minus_reference_seconds": 0.629883,
+      "sampled_time_utc": "2026-10-16T01:14:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:2",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:36:27.280273+00:00",
+      "sampled_minus_reference_seconds": 2.719727,
+      "sampled_time_utc": "2026-10-16T01:36:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "gs:gateway",
+        "sat:19"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:01.225586+00:00",
+      "sampled_minus_reference_seconds": 8.774414,
+      "sampled_time_utc": "2026-10-16T01:15:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "gs:gateway",
+        "sat:19"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:29.458008+00:00",
+      "sampled_minus_reference_seconds": 0.541992,
+      "sampled_time_utc": "2026-10-16T01:19:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:29.184570+00:00",
+      "sampled_minus_reference_seconds": 0.81543,
+      "sampled_time_utc": "2026-10-16T01:15:30+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:49.458008+00:00",
+      "sampled_minus_reference_seconds": 0.541992,
+      "sampled_time_utc": "2026-10-16T01:27:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:23",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:28.168945+00:00",
+      "sampled_minus_reference_seconds": 1.831055,
+      "sampled_time_utc": "2026-10-16T01:15:30+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:23",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:50.483398+00:00",
+      "sampled_minus_reference_seconds": 9.516602,
+      "sampled_time_utc": "2026-10-16T01:28:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:38.598633+00:00",
+      "sampled_minus_reference_seconds": 1.401367,
+      "sampled_time_utc": "2026-10-16T01:15:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:41.059570+00:00",
+      "sampled_minus_reference_seconds": 8.94043,
+      "sampled_time_utc": "2026-10-16T01:23:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:47.065429+00:00",
+      "sampled_minus_reference_seconds": 2.934571,
+      "sampled_time_utc": "2026-10-16T01:15:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:32.592773+00:00",
+      "sampled_minus_reference_seconds": 7.407227,
+      "sampled_time_utc": "2026-10-16T01:23:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:24",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:15:55.512695+00:00",
+      "sampled_minus_reference_seconds": 4.487305,
+      "sampled_time_utc": "2026-10-16T01:16:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:24",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:22.124023+00:00",
+      "sampled_minus_reference_seconds": 7.875977,
+      "sampled_time_utc": "2026-10-16T01:31:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:22",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:16:00.883789+00:00",
+      "sampled_minus_reference_seconds": 9.116211,
+      "sampled_time_utc": "2026-10-16T01:16:10+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:22",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:16.762695+00:00",
+      "sampled_minus_reference_seconds": 3.237305,
+      "sampled_time_utc": "2026-10-16T01:31:20+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:18:32.036133+00:00",
+      "sampled_minus_reference_seconds": 7.963867,
+      "sampled_time_utc": "2026-10-16T01:18:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:18",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:18:48.354492+00:00",
+      "sampled_minus_reference_seconds": 1.645508,
+      "sampled_time_utc": "2026-10-16T01:18:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:17",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:28.178711+00:00",
+      "sampled_minus_reference_seconds": 1.821289,
+      "sampled_time_utc": "2026-10-16T01:19:30+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:17",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:48.452148+00:00",
+      "sampled_minus_reference_seconds": 1.547852,
+      "sampled_time_utc": "2026-10-16T01:31:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:27.153320+00:00",
+      "sampled_minus_reference_seconds": 2.84668,
+      "sampled_time_utc": "2026-10-16T01:19:30+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:49.477539+00:00",
+      "sampled_minus_reference_seconds": 0.522461,
+      "sampled_time_utc": "2026-10-16T01:31:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:19",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:37.583008+00:00",
+      "sampled_minus_reference_seconds": 2.416992,
+      "sampled_time_utc": "2026-10-16T01:19:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:19",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:40.053711+00:00",
+      "sampled_minus_reference_seconds": 9.946289,
+      "sampled_time_utc": "2026-10-16T01:27:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:46.059570+00:00",
+      "sampled_minus_reference_seconds": 3.94043,
+      "sampled_time_utc": "2026-10-16T01:19:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:31.586914+00:00",
+      "sampled_minus_reference_seconds": 8.413086,
+      "sampled_time_utc": "2026-10-16T01:27:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:18",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:59.877929+00:00",
+      "sampled_minus_reference_seconds": 0.122071,
+      "sampled_time_utc": "2026-10-16T01:20:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:18",
+        "sat:2"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:15.747070+00:00",
+      "sampled_minus_reference_seconds": 4.25293,
+      "sampled_time_utc": "2026-10-16T01:35:20+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:19:54.506836+00:00",
+      "sampled_minus_reference_seconds": 5.493164,
+      "sampled_time_utc": "2026-10-16T01:20:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:20",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:21.118164+00:00",
+      "sampled_minus_reference_seconds": 8.881836,
+      "sampled_time_utc": "2026-10-16T01:35:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:19"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:22:31.030273+00:00",
+      "sampled_minus_reference_seconds": 8.969727,
+      "sampled_time_utc": "2026-10-16T01:22:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:22:47.348633+00:00",
+      "sampled_minus_reference_seconds": 2.651367,
+      "sampled_time_utc": "2026-10-16T01:22:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:15"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:26.147461+00:00",
+      "sampled_minus_reference_seconds": 3.852539,
+      "sampled_time_utc": "2026-10-16T01:23:30+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:15"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:48.461914+00:00",
+      "sampled_minus_reference_seconds": 1.538086,
+      "sampled_time_utc": "2026-10-16T01:35:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:27.172852+00:00",
+      "sampled_minus_reference_seconds": 2.827148,
+      "sampled_time_utc": "2026-10-16T01:23:30+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:47.446289+00:00",
+      "sampled_minus_reference_seconds": 2.553711,
+      "sampled_time_utc": "2026-10-16T01:35:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:36.577148+00:00",
+      "sampled_minus_reference_seconds": 3.422852,
+      "sampled_time_utc": "2026-10-16T01:23:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:15",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:39.047852+00:00",
+      "sampled_minus_reference_seconds": 0.952148,
+      "sampled_time_utc": "2026-10-16T01:31:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:45.043945+00:00",
+      "sampled_minus_reference_seconds": 4.956055,
+      "sampled_time_utc": "2026-10-16T01:23:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:13",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:30.581054+00:00",
+      "sampled_minus_reference_seconds": 9.418946,
+      "sampled_time_utc": "2026-10-16T01:31:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:58.862304+00:00",
+      "sampled_minus_reference_seconds": 1.137696,
+      "sampled_time_utc": "2026-10-16T01:24:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:14",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:14.741211+00:00",
+      "sampled_minus_reference_seconds": 5.258789,
+      "sampled_time_utc": "2026-10-16T01:39:20+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:23:53.500977+00:00",
+      "sampled_minus_reference_seconds": 6.499023,
+      "sampled_time_utc": "2026-10-16T01:24:00+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:16",
+        "sat:23"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:20.112304+00:00",
+      "sampled_minus_reference_seconds": 9.887696,
+      "sampled_time_utc": "2026-10-16T01:39:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "gs:gateway",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:26:39.379883+00:00",
+      "sampled_minus_reference_seconds": 0.620117,
+      "sampled_time_utc": "2026-10-16T01:26:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "gs:gateway",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:32:48.129883+00:00",
+      "sampled_minus_reference_seconds": 1.870117,
+      "sampled_time_utc": "2026-10-16T01:32:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:15"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:26:30.024414+00:00",
+      "sampled_minus_reference_seconds": 9.975586,
+      "sampled_time_utc": "2026-10-16T01:26:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:13"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:26:46.342773+00:00",
+      "sampled_minus_reference_seconds": 3.657227,
+      "sampled_time_utc": "2026-10-16T01:26:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:25.141602+00:00",
+      "sampled_minus_reference_seconds": 4.858398,
+      "sampled_time_utc": "2026-10-16T01:27:30+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:11",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:47.456054+00:00",
+      "sampled_minus_reference_seconds": 2.543946,
+      "sampled_time_utc": "2026-10-16T01:39:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:22",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:26.157227+00:00",
+      "sampled_minus_reference_seconds": 3.842773,
+      "sampled_time_utc": "2026-10-16T01:27:30+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:22",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:46.430664+00:00",
+      "sampled_minus_reference_seconds": 3.569336,
+      "sampled_time_utc": "2026-10-16T01:39:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:11"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:35.571289+00:00",
+      "sampled_minus_reference_seconds": 4.428711,
+      "sampled_time_utc": "2026-10-16T01:27:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:1",
+        "sat:11"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:38.032227+00:00",
+      "sampled_minus_reference_seconds": 1.967773,
+      "sampled_time_utc": "2026-10-16T01:35:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:3",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:44.038086+00:00",
+      "sampled_minus_reference_seconds": 5.961914,
+      "sampled_time_utc": "2026-10-16T01:27:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:3",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:29.565429+00:00",
+      "sampled_minus_reference_seconds": 0.434571,
+      "sampled_time_utc": "2026-10-16T01:35:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:17"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:57.856445+00:00",
+      "sampled_minus_reference_seconds": 2.143555,
+      "sampled_time_utc": "2026-10-16T01:28:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:19"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:27:52.485352+00:00",
+      "sampled_minus_reference_seconds": 7.514648,
+      "sampled_time_utc": "2026-10-16T01:28:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:30:29.008789+00:00",
+      "sampled_minus_reference_seconds": 0.991211,
+      "sampled_time_utc": "2026-10-16T01:30:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:6",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:30:45.336914+00:00",
+      "sampled_minus_reference_seconds": 4.663086,
+      "sampled_time_utc": "2026-10-16T01:30:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:18",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:25.151367+00:00",
+      "sampled_minus_reference_seconds": 4.848633,
+      "sampled_time_utc": "2026-10-16T01:31:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:24.135742+00:00",
+      "sampled_minus_reference_seconds": 5.864258,
+      "sampled_time_utc": "2026-10-16T01:31:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:24",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:34.555664+00:00",
+      "sampled_minus_reference_seconds": 5.444336,
+      "sampled_time_utc": "2026-10-16T01:31:40+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:24",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:37.026367+00:00",
+      "sampled_minus_reference_seconds": 2.973633,
+      "sampled_time_utc": "2026-10-16T01:39:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:22",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:43.032227+00:00",
+      "sampled_minus_reference_seconds": 6.967773,
+      "sampled_time_utc": "2026-10-16T01:31:50+00:00"
+    },
+    {
+      "boundary": "end",
+      "edge": [
+        "sat:22",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:28.559570+00:00",
+      "sampled_minus_reference_seconds": 1.44043,
+      "sampled_time_utc": "2026-10-16T01:39:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:13",
+        "sat:6"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:56.850586+00:00",
+      "sampled_minus_reference_seconds": 3.149414,
+      "sampled_time_utc": "2026-10-16T01:32:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:15",
+        "sat:8"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:31:51.479492+00:00",
+      "sampled_minus_reference_seconds": 8.520508,
+      "sampled_time_utc": "2026-10-16T01:32:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:4",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:34:28.002929+00:00",
+      "sampled_minus_reference_seconds": 1.997071,
+      "sampled_time_utc": "2026-10-16T01:34:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:2",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:34:44.321289+00:00",
+      "sampled_minus_reference_seconds": 5.678711,
+      "sampled_time_utc": "2026-10-16T01:34:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:14"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:24.145508+00:00",
+      "sampled_minus_reference_seconds": 5.854492,
+      "sampled_time_utc": "2026-10-16T01:35:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:23.120117+00:00",
+      "sampled_minus_reference_seconds": 6.879883,
+      "sampled_time_utc": "2026-10-16T01:35:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:20",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:33.549804+00:00",
+      "sampled_minus_reference_seconds": 6.450196,
+      "sampled_time_utc": "2026-10-16T01:35:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:42.016602+00:00",
+      "sampled_minus_reference_seconds": 7.983398,
+      "sampled_time_utc": "2026-10-16T01:35:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:11",
+        "sat:4"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:50.473633+00:00",
+      "sampled_minus_reference_seconds": 9.526367,
+      "sampled_time_utc": "2026-10-16T01:36:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:2",
+        "sat:9"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:35:55.834961+00:00",
+      "sampled_minus_reference_seconds": 4.165039,
+      "sampled_time_utc": "2026-10-16T01:36:00+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:23",
+        "sat:3"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:38:26.997070+00:00",
+      "sampled_minus_reference_seconds": 3.00293,
+      "sampled_time_utc": "2026-10-16T01:38:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "gs:gateway",
+        "sat:18"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:38:33.129883+00:00",
+      "sampled_minus_reference_seconds": 6.870117,
+      "sampled_time_utc": "2026-10-16T01:38:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:1",
+        "sat:21"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:38:43.315429+00:00",
+      "sampled_minus_reference_seconds": 6.684571,
+      "sampled_time_utc": "2026-10-16T01:38:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:10",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:23.139648+00:00",
+      "sampled_minus_reference_seconds": 6.860352,
+      "sampled_time_utc": "2026-10-16T01:39:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:12",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:22.114258+00:00",
+      "sampled_minus_reference_seconds": 7.885742,
+      "sampled_time_utc": "2026-10-16T01:39:30+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:16",
+        "sat:22"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:32.543945+00:00",
+      "sampled_minus_reference_seconds": 7.456055,
+      "sampled_time_utc": "2026-10-16T01:39:40+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:14",
+        "sat:24"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:41.010742+00:00",
+      "sampled_minus_reference_seconds": 8.989258,
+      "sampled_time_utc": "2026-10-16T01:39:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:23",
+        "sat:7"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:49.467773+00:00",
+      "sampled_minus_reference_seconds": 0.532227,
+      "sampled_time_utc": "2026-10-16T01:39:50+00:00"
+    },
+    {
+      "boundary": "start",
+      "edge": [
+        "sat:21",
+        "sat:5"
+      ],
+      "reference_crossing_utc": "2026-10-16T01:39:54.829102+00:00",
+      "sampled_minus_reference_seconds": 5.170898,
+      "sampled_time_utc": "2026-10-16T01:40:00+00:00"
+    }
+  ],
+  "config_sha256": "a21e7c47818d85a9bab9c67837b59b83ce590f02af67d412d893d3ee4418dc09",
+  "duration_seconds": 6000,
+  "experiment_name": "synthetic-validation-pilot",
+  "matched_boundary_count": 411,
+  "max_absolute_sampled_boundary_error_seconds": 9.975586,
+  "mean_absolute_sampled_boundary_error_seconds": 5.049386622871046,
+  "parameter_status": "provisional",
+  "reference_frame": "SGP4 TEME state vectors for ISLs; Skyfield ground-observer elevation derived from the same propagator for ground contacts",
+  "reference_method": "Bisection on direct SGP4 position-derived range/spherical LOS or Skyfield ground elevation, independently of sampled edge window grouping",
+  "sampling_bound_violations": 0,
+  "skipped_censored_boundary_count": 61,
+  "time_step_seconds": 10.0,
+  "validator_source_sha256": "5b17264b43f3366e772604bfb98eef9a5c7cab63be816a7b7883cf1f534fddd4"
+}

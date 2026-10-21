@@ -1,0 +1,49 @@
+{
+  "config_path": "configs/experiment.template.toml",
+  "config_sha256": "a21e7c47818d85a9bab9c67837b59b83ce590f02af67d412d893d3ee4418dc09",
+  "coordinate_frame": "SGP4 output TEME; reference uses the same epoch-aligned inertial axes, treating TEME as inertial over this interval",
+  "epoch_utc": "2026-10-16T00:00:00+00:00",
+  "experiment_name": "synthetic-validation-pilot",
+  "model_differences": [
+    "Reference assumes a perfect circular orbit and central two-body gravity.",
+    "SGP4 uses mean elements, e=0.000001, WGS72, and SGP4 periodic/secular corrections.",
+    "This is a model comparison, not a claim that either trajectory is ground truth."
+  ],
+  "orbit_altitude_km": 550.0,
+  "parameter_status": "provisional",
+  "position_error_summary": [
+    {
+      "max_position_error_km": 12.028565353018807,
+      "mean_position_error_km": 9.403643139785725,
+      "offset_seconds": 0,
+      "satellite_count": 24
+    },
+    {
+      "max_position_error_km": 12.633254590740446,
+      "mean_position_error_km": 9.613049943999142,
+      "offset_seconds": 600,
+      "satellite_count": 24
+    },
+    {
+      "max_position_error_km": 15.571518698755956,
+      "mean_position_error_km": 11.138758119059274,
+      "offset_seconds": 1800,
+      "satellite_count": 24
+    },
+    {
+      "max_position_error_km": 22.570466254351032,
+      "mean_position_error_km": 15.142436058430965,
+      "offset_seconds": 3600,
+      "satellite_count": 24
+    },
+    {
+      "max_position_error_km": 33.41926381724931,
+      "mean_position_error_km": 21.799742429228658,
+      "offset_seconds": 6000,
+      "satellite_count": 24
+    }
+  ],
+  "reference_propagator": "analytic circular two-body Kepler propagation using WGS72 mu and configured Walker elements",
+  "satellite_count": 24,
+  "sgp4_propagator": "SGP4 implementation from python-sgp4, WGS72 constants, initialized Walker mean elements"
+}

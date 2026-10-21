@@ -1,0 +1,58 @@
+[experiment]
+name = "synthetic-validation-pilot"
+parameter_status = "provisional"
+parameter_notes = "Synthetic smoke-test assumptions only; not calibrated or suitable for research claims. See README parameter table."
+run_seeds = [123]
+
+[simulation]
+start_utc = "2026-10-16T00:00:00Z"
+duration_seconds = 600
+time_step_seconds = 10
+
+[topology]
+max_isl_range_km = 10000.0
+earth_radius_km = 6378.137
+
+[topology.walker]
+total_satellites = 24
+planes = 6
+phase_factor = 1
+altitude_km = 550.0
+inclination_deg = 53.0
+epoch_utc = "2026-10-16T00:00:00Z"
+
+[[topology.ground_stations]]
+name = "gateway"
+latitude_deg = 0.0
+longitude_deg = 0.0
+minimum_elevation_deg = 10.0
+
+[traffic]
+arrival_process = "poisson"
+seed = 123
+
+[[traffic.flows]]
+source = "sat:1"
+destination = "gs:gateway"
+arrival_rate_packets_per_second = 0.1
+packet_bits = 4096
+deadline_seconds = 2.0
+
+[energy]
+satellite_capacity_j = 100.0
+tx_electronics_j_per_bit = 1e-9
+tx_amplifier_j_per_bit_km2 = 1e-12
+rx_electronics_j_per_bit = 1e-9
+fl_training_j_per_transition = 0.01
+fl_communication_j_per_byte = 1e-6
+
+[metrics]
+lifetime_failure_fractions = [0.01, 0.5, 0.9]
+connectivity_source = "sat:1"
+connectivity_destination = "gs:gateway"
+control_overhead_components = ["routing", "federated"]
+residual_energy_fairness = "jain_residual_energy"
+convergence_metric = "mean_episode_return"
+convergence_window_episodes = 10
+convergence_tolerance = 0.01
+convergence_stable_windows = 3

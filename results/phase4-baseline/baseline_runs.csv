@@ -1,0 +1,5 @@
+algorithm,seed,generated_packets,delivered_packets,dropped_packets,packet_delivery_ratio,average_end_to_end_delay_seconds,average_propagation_delay_seconds,average_transmission_delay_seconds,average_processing_delay_seconds,average_waiting_delay_seconds,average_hop_count,total_communication_energy_j,total_compute_energy_j,dropped_by_reason_json,runtime_seconds
+hops,123,20,1,19,0.05,0.04415142987272702,0.031863429873802245,0.012288,0.0,0.0,3.0,0.15314700352403426,0.0,"{""no_feasible_route"": 19}",0.005637575999571709
+delay,123,20,1,19,0.05,0.04415142987272702,0.031863429873802245,0.012288,0.0,0.0,3.0,0.15314700352403426,0.0,"{""no_feasible_route"": 19}",0.0028821659998357063
+energy,123,20,1,19,0.05,0.04415142987272702,0.031863429873802245,0.012288,0.0,0.0,3.0,0.15314700352403426,0.0,"{""no_feasible_route"": 19}",0.01247251399945526
+contact,123,20,6,14,0.3,176.69969855836584,0.05009564733654288,0.016384,0.0,176.63321891103078,4.0,7.241122072268777,0.0,"{""deadline_expired"": 14}",6.110246784999617
